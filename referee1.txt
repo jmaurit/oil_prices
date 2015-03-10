@@ -1,0 +1,129 @@
+referee1.txt
+
+From Editor:
+Dear Professor Mauritzen,
+Subject: Editor's decision from The Energy Journal
+Our File: 14-131
+Submission titled "The Effect of Oil Price on Field Production: Evidence from the Norwegian Continental Shelf."
+Thank you for your submission, “The effect of oil price on field production: Evidence from the Norwegian continental shelf.” I have received three reviews, which are attached for your perusal.
+Yours is an important topic, but despite the potential for an interesting contribution to be gleaned from your field specific data set, the referees are rather divided in their assessments. I will leave a close reading of the reports to you, but I feel the referees have provided many very useful comments that must be considered before we can proceed further.
+Referee 1 points to a number of limitations of the methodology. He points to features of your specification that may introduce needless bias. Among these are the impact of technical change in moving the benchmark production profile depending on start-up date, and the latent impact of price in determining declared “size” of a field. Referee 2 mentions the confounding impact of cost movements, which are strongly correlated with price movements in this industry. Referee 3 echoes the concern about adequate controls for the impact of cost variation on investment decisions.
+To me, this seems a very borderline call between rejection and revise & resubmit. I could be persuaded by Referee 1 that a successful revision would entail so much change as to constitute a new paper. And, whether such a major revision would succeed in satisfying the referees’ concerns is highly uncertain. Given the fundamental importance of the topic, however, and the fact that you are in the best position to evaluate your ability to address the issues raised (or defend against them), I would be willing to consider a revised version if you believe the chance of success in dealing with the referees’ concerns is worth the considerable effort that may be required. And, I must point out that one very important part of the revision would be to shorten the current draft considerably. Even without considering
+the appendix, it greatly exceeds our limits on length.
+I would appreciate your letting me know whether or not you wish to proceed. Thank you.
+Please include an Executive Summary in MS Word with your revision.
+Sincerely yours,
+Professor James Smith
+
+
+
+Referee1:
+
+Review of Energy Journal manuscript EJ 14-131: “The Effect of Oil Price on Field Production: Evidence from the Norwegian Continental Shelf”
+The paper estimates how production from and investment in existing offshore oil fields, i.e., fields that are already in production, respond to oil price changes. It finds that the response is small, and usually involves a lag of several years.
+
+Main comments
+The question addressed by the paper is an interesting one, and very nicely motivated in the paper’s introduction. I also believe the paper’s qualitative findings: everything I know about real-world oil operations is consistent with price not mattering much once a field has started producing. I have serious misgivings, however, about the paper’s methodology, and therefore about its quantitative findings.
+
+The maintained assumption underlying this methodology is that, conditional on the oil price and on field size, all fields follow a fixed, baseline production path. This path involves an initial “buildout” phase of given length, during which production grows to a peak of given size, followed by a “depletion” phase, also of given length, during which production tapers off. Given this assumption, any deviations from that baseline path are then interpreted as responses to current or lagged oil prices.
+
+I see several problems with this assumption. One is that it ignores significant technical changes in the oil industry (changes that the paper itself discusses). Given these changes, even if oil prices had been constant throughout, fields of a given size discovered in the 1970s would surely follow a different production path than fields of the same size discovered in, say, the 2000s. If so, then the paper’s regression analysis will spuriously attribute any deviations from the average production path for fields of that size—presumably involving relatively lower production at any given point in time for the 1970s fields—to differences in oil prices over the fields’ lifetimes.
+
+A second problem, which the paper acknowledges but then to my mind erroneously dismisses as unimportant, is that field size itself—whether measured by estimates of recoverable oil or by peak production—is affected by price. At high oil prices, more oil will be viewed as recoverable. Moroever (as the paper itself argues), more investments will be made in recovering that oil, which may well affect peak production. But that implies that a field of given “true” size, as measured for example by the physical oil in place, will at different oil prices be treated as being of a different size in the paper’s regression analysis. A different baseline production path will be assigned to it and therefore different effects of oil-price changes estimated for it.
+
+Relatedly, given that the paper allows for only linear price effects on log production, the correlation between price and size implies that any non-linear price effects will alter the estimated baseline production paths. This in turn will bias the estimates of the linear effects.
+
+A third problem is that the time at which production peaks, as measured from the start of pro- duction, is likely affected by price as well. If the oil price is high, then (again as the paper itself argues) buildout of a field is likely to be sped up, and vice versa. But that implies that a given number of years before the peak is reached, production will all else equal be lower for a field with rapid buildout induced by a high price than for a field with slower buildout induced by a low price. Since the paper’s regression analysis ignores this, it will estimate a baseline production path that averages across these two fields. As a result, it will all else equal find a spurious negative correlation between deviations of production from the estimated pre-peak baseline path and price. (More generally, estimates of that correlation will be biased downwards.)
+
+I suspect that this third problem may affect post-peak estimates as well, if slower buildout implies that parts of a field developed sooner may already be in the depletion phase by the time other parts reach their peak.
+
+A completely separate problem with the paper’s methodology involves the penalty for “wiggliness” in the spline estimation. Clearly, the choice of this penalty is hugely important: the more wiggly the spline estimate of the baseline production path is allowed to be, the fewer and smaller will be the deviations from that baseline, implying smaller estimated price effects. Yet apart from a cryptic reference in Appendix B to a robustness check setting an unexplained “γ parameter that controls smoothness” to 1.4 (as opposed to ?), the paper offers no discussion of how the penalty was chosen.
+Minor comments
+
+At various points, the paper’s exposition is frustratingly vague or cavalier.
+p7 In what sense does Figure 1 show that “Production tends to be uncorrelated across fields”? This is not at all obvious to me, except at the very end of the data series, when all fields shown are in decline.
+
+p7 In what sense do the coefficients on the price variables estimate “the average effect of price on production over the entire production profile,” rather than just the effect on contemporaneous production (or for n-th lags, production n years in the future)?
+p8 In what sense does Figure 2 show “the correlated production profiles of the fields” as opposed to just the pattern of field discoveries?
+
+p17 “the methodologies used to estimate the total recoverable resource of a field are constantly evolving and it is a fair assumption that any consistent bias of the estimates are observed in older fields and corrected for in estimates for newer fields. I can then assume that existing errors are random and will not significantly bias the estimates.” I have a hard time following what is being argued here.
+
+p19 “Yearly production is assumed to be proportional to the total size of the field.” But production is in log form, whereas size is not. In fact, I wonder how much of the bias found in the paper’s Monte Carlo analysis of what it calls the “linear model” may be due simply to the fact that size enters linearly in that model rather than in log form.
+
+p29 “A higher oil price means that added investments in production become attractive in order to either increase the total amount extracted from a field or to shift production forward.” Whether investment increases production or just shifts it forward in time seems very important to the general question that the paper addresses. Yet beyond this brief mention the issue is never explored.
+
+p29 “including several lags also allows for the possibility of adaptive expectations of future oil prices.” Whether effects of lagged prices reflect long times for investments to take effect or long times for price expectations to adjust again seems very important to the general question that the paper addresses. Yet again, beyond this brief mention the issue is never explored.
+p31 “The lines in the boxplot . . . are calculated using a bayesian-inspired simulation.” Meaning?
+
+p35 How is “investment” defined and measured?
+
+p35 “In addition I include a term for oil production in field i at time t.” Why? 2
+Much of Appendix A (confusingly referred to as appendix 1 and appendix 2 at different points in the paper) is useless to the reader, because other than brief captions, no explanations are given of the figures or of the final table.
+Lastly, the paper is frustratingly messy, with lots of typos—including ones that a simple spell check would have caught—and confusing references to the wrong lags when discussing results.
+3
+
+
+
+
+
+
+
+
+Referee 2 report EJ paper 14-131 titled: "The Effect of Oil Price on Field Production: Evidence from the Norwegian Continental Shelf".
+The author uses field-level data on Norwegian offshore oil production and a semi- parametric additive model to control for the production profile of fields to estimate the effect of oil prices on production. The author finds no significant evidence of a concurrent reaction of field production to oil prices, where concurrent is defined as the first three years. However, a slight effect can be detected with a lag of between 4 and 8 years, with a magnitude of approximately 2 to 4 per cent increase in yearly production for a 10 dollar per barrel increase in the real price of oil. This effect is somewhat greater and with less of a lag in large fields compared to small fields. Price appears to have the most significant effect during the planning stage - before production begins in a field. In the depletion phase of production, price is found to have little to no significant effect.
+I think the paper makes a contribution above all because it studies how prices affect production using data from 77 oilfields on the Norwegian continental shelf, differing between the effects in the planning, build-up and decline phase. Most studies look at how oil prices affect new field production as well as total production (at both the global and regional level). Studies that apply single field or well data often look at onshore activity. The topic is also important.
+Major comments:
+
+1) My greatest objection is that the paper lacks a discussion of why the author chooses to analyze a regression function as in e.g. Eq. (6) in the paper. The author has to revise this specification.
+A possible (extended) dynamic supply function could be of the following form (derived from profit maximization/cost minimization):
+
+(1) lnSt =C0 +αlnPt +βlnRt +γlnSt-1 +λlnCot +μlnCst +φDt+εt Here, I do not elaborate on the lag structure in Eq. (1).
+St = Supply in period t, C0 = intercept, P = oil price, R = reserves, St-1 = supply in period t-1, Co= oil investment/production costs, Cs = price of other inputs, e.g. steel, D = instrumental variables that is correlated with demand, ε = error term. The paper only includes production, reserves and lagged supply (i.e. the lag structure measured by time to peak, peak to end etc.) as right-hand variables.
+
+To include investment and/or production costs is crucial as an increase in (marginal) costs will lead to declined production for a given oil price. Yearly investment costs for each field can be found on the web site of Norwegian Petroleum Directorate (NPD). I am sure that the NPD also can find the corresponding annual field production costs. In the 1980-s total supply costs in Norway declined in line with the declining oil price, while production for most fields was on an increasing trend. In the 2000s the picture was “opposite”, increased costs in line with increased prices, while Norwegian production generally declined. Here I will add that I do not understand the sentence on p.31/32:”..a trend of increased total extraction estimates from the Norwegian continental shelf as a whole as well as from existing fields over the last 15 years of strongly rising oil prices”.
+
+To include the costs of other inputs can be important, e.g. steel prices (or rig rates). In the 2000s costs of raw materials and other inputs rocketed in line with increased investment/production costs.
+Failure to include the demand side might be misleading, as price is a function of both demand and supply. To avoid this problem with endogeneity, one can include instrumental variables that is correlated with demand. This could be some sort of GDP measures, coal prices, gas prices etc.
+Other major comments:
+
+2) The author leaves diagnostics and robustness checks in figures and tables in Appendix A. However, I would like a discussion in words in the text.
+
+3) The text is too lengthy, e.g. Fig. 3 and 4 in Section 3 are not needed, Further, above all the text in Section 5, 6 and 7 is too lengthy and repetitive.
+
+4) The author has to work with the language as many phrases are unfinished; a small example on p. 38: “...allowing for increased recovery percentage of the available reservoir”:
+Minor comments:
+
+1) Income tax now is 27 % (and not 28 % as is written on p. 15), while resource tax is 51 % (and not 50 % as is written on p. 15).
+
+
+Referee Report 3
+This paper studies the effect of oil price on off-shore field production using Norwegian Continental shelf field-level production data, accounting for the unique production profile of the off-shore fields. The author shows that for individual fields, regardless of the production starting date and the corresponding oil prices throughout the field production cycle, individual field production tends to experience at first a build-out phase and then a depletion phase. 
+
+When aggregated, off-shore fields have bell-shaped total production profile over time during the sample period. Based on such observation, the author argues that the production increase due to the technical feature of the off-shore fields could be mistaken as caused by the concurrent price change, if the production profile is not correctly accounted for. After controlling for the production profile using a semi-parametric model, the author finds that price has no concurrent effect on production, and only a slight lagged effect. In other words, the price elasticity of field supply is not significant.
+
+Interestingly, Rao (2010) also studies the price elasticity of supply at field- level using on-shore field production data, focusing on carefully choosing the effective price that the producers actually face. After accounting for effect of taxation on individual field, Rao (2010) concludes almost the opposite: the price elasticity of supply is higher than literature estimates, implying that the extraction is responsive to price changes, once proper price measure is adopted. On the other hand, the paper under review uses Brent oil price (real price at annual frequency) as the price measure for Norwegian production in the analysis.
+
+The different results indicate that at such micro level, the effect of price on production is sensitive to specific measures chosen for price and production. And if the difference in the results is mostly explained by the difference in cost of operating offshore and onshore, the micro-foundation findings in this paper would be less irrelevant for understanding the supply side of oil market on a larger scale, with offshore production contributing to about 33% of world production and deep-water to about 7%. As a result, contribution of this paper to the literature would be limited.
+
+The argument for adopting proper production measure is not entirely convincing. The paper refers to Mohn (2008)’s findings that off-shore producers concentrate investment in different production stages in response to different prices, and argues further that ”it may even be plausible that production in existing fields reacts negatively to increase in price”. However, investment concentrated in search of new fields doesn’t necessarily imply lower production in existing fields. Even though lower production in a specific field might coincide with higher prices, such negative correlation as a general observation for all fields over all time periods would be rare, especially if a larger area of fields is considered. 
+
+If the peak of production coinciding with periods of higher price is unique to Norwegian production, the application of the results would be limited.
+Nonetheless, the evidence here provides certain microfoundations for under- standing the offshore oil production. Pesaran (1990) estimates the production decision of “price-taking” oil suppliers using the United Kingdom Continental Shelf (UKCS) data, and finds highly implausible or insignificant estimates. Considering that UKCS fields might have similar physical features, maybe the results from the paper could help explain the bad fitting of the extraction equation in Pesaran (1990).
+
+On the other hand, since the paper studies the field-level production decision,it would make sense to include expected future spot price movements in the model. It would be interesting to see how including measures of expectation could affect the results.
+
+In terms of the model estimation, there’s little information about the sample period of data. The concern is whether the annual real price series contains enough variation to help identify the production due to price effect and that due to physical features, especially given the relatively short production life of the fields (inferred from Figure 1 and Figure 8 in the paper). If it happens that most of the Norwegian Continental shelf field production took place during 1990s to early 2000s, the annual real price has been relatively stable for most of this period. Either it wouldn’t be surprise that the price movements don’t have much effect on production, or the results would be only relevant to this period. Unfortunately the paper provides little discussion regarding the data and validating the results.
+
+Also, the investment data used for estimation the investment equation lacks sufficient explanation. If the investment is measured by the amount of money spent on investment, one could argue alternatively that the observed positive effect of price and lagged price on investment is possibly reflecting the higher cost of investment driven by higher oil price, rather than higher real investment activities caused by higher oil price. More discussion on the investment data would help interpret the results.
+
+In addition, it’s also confusing that all fields that began oil production “prior to 2008 are excluded” to study the post-peak phase (p38). If only oil production after 2008 is used and all these fields took five years to build-out, the selected production data would be from the pre-peak phase. This is not the post-peak phase that the analysis claims to focus on.
+
+At the end, the manuscript severely exceeds the length limit which is 25 -35 pages.
+
+References
+Mohn, Klaus (2008), “Efforts and efficiency in oil exploration: A vector error- correction approach.” The Energy Journal, 29, 53–78.
+Pesaran, M. Hashem (1990), “An econometric analysis of exploration and extraction of oil in the u.k. continental shelf.” The Economic Journal, 100, 367–390.
+Rao, Nirupama (2010), “Taxation and the extraction of exhaustible resources: Evidence from california oil production.” Working Paper.
+Offshore Outlook. http://www.infield.com/articles/offshore-outlook-2012.pdf
+
+

@@ -1,0 +1,15 @@
+initial_response_to_editor.txt
+
+Dear Prof. Smith, 
+
+Thank you for the thoughtful and thorough review of my paper, EJ 14-131, "The Effect of Oil Price on Field Production: Evidence from the Norwegian Continental Shelf."
+
+I have carefully read through the reports from the three referees as well as your own comments.  I recognize that the referees concerns are substantial.  At the same time, I believe I can adequately addresse most of their concerns through both a better and clearer explanation of the methodology, as well as with reformulations and extensions of the existing analysis.  In other words, I would like to attempt a revision and resubmission.
+
+As you and the referees note, I will need to substantially shorten the paper.  This will of course require trade-offs, especially when I also need to expand the analysis at certain parts.  What is the Energy Journal´s policy, if any, on online appendices?  In particular I plan on using Monte Carlo simulations to addresse some of the referees´ concerns.  The details of the simulations could then be placed in an online appendix, with the main results referred to in the main text.  
+
+Thank you for your time and consideration. 
+
+Best wishes
+
+Johannes Mauritzen

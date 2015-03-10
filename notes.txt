@@ -1,0 +1,70 @@
+notes.txt
+
+Notes from chapter on Generalized mixed models in R
+
+while Ruppert et al. (2003) includes a clear explanation of smoothers as mixed model components
+
+In many ways this problem comes about because our model is simply too flexible. Individual tree effects are allowed to take any value whatsoever, which amounts to saying that each individual tree is completely different to every other individual tree: e.g. having results for 6 trees will tell us nothing whatsoever about a 7th
+
+The key to a establishing whether CO2 has an effect is to recognize that the CO2 factor and tree factors are different in kind. The CO2 effects are fixed characteristics of the whole population of trees that we are trying to learn about. In contrast, the tree effect will vary randomly from tree to tree in the population.
+
+We are not pri- marily interested in the values of the tree effect for the particular trees used in the experiment: if we had used a different 6 trees these effects would have taken differ- ent values anyway. But we can not simply ignore the tree effect without inducing dependence between the response observations (area), and hence violating the in- dependence assumption of the linear model.
+
+Treating the individual trees, not as completely unique individuals, but as a random sample from the target population of trees, will allow us to estimate the CO2 effect, and to generalize beyond the six trees in the experiment.
+
+That is, the CO2 effect will be modelled as a fixed effect, but the tree effect will be modelled as a random effect. 
+
+The interesting questions here are: is there evidence for litter to litter variability in fat content (which would be consistent with genetic variation in this trait) and if so how large is this component, in relation to the piglet to piglet variability within a litter? Notice here that we are not interested in how piglet fat content varies from particular sow to particular sow in the experiment, but rather in the variability between sows in general. This suggests using a random effect for sow, in a model for such data.
+
+So far the analysis with the mixed model has been identical to what would have been done with a fixed effects model, but now consider estimating σb2. The ‘obvious’ method of just using the sample variance of the ˆbi’s, ‘estimated’ by least squares, is not to be recommended, as such estimators are biased. Instead we make use of the model that results from averaging at each level of the factor:
+
+and since we are not in the least interested in the particular values of the block effects, but view them as representing variability in environment with location, it makes sense to treat them as random effects.
+
+The treatments, on the other hand, would be modelled as fixed effects, since the values of the treatment effects are fixed properties of the crop population in general. 
+
+In a purely fixed effects context it only makes sense to test for main effects if the interaction terms are not significant, and can hence be treated as zero
+
+Generally, least squares methods are not useful for directly ‘estimating’ the values of random effects. This is, in part, because identifiability constraints are generally required in order to estimate effects, but imposing such constraints on random effects fundamentally modifies the model by changing the random effect distributions.
+
+and maximizing L w.r.t. β, θ and σ2 will provide βˆ, θˆ and σˆ2. Usually this max- imization can be simplified by profiling the likelihood. The idea is that since we already know, from section 1.8.4, exactly how to find the maximum likelihood esti- mates of β and σ2, for a given θ, these estimators can be plugged into the likelihood as implicit functions of θ, to yield the profile likelihood
+
+Why is profiling useful? Usually we must resort to iterative numerical methods to do the maximization with respect to θ, and while we could use the same iterative methods with all the parameters it would be very computationally slow to do so, relative to using the quick, one-step, methods available for obtaining βˆ and σˆ2, given any particular values for θ.
+
+Notice that these maximum likelihood estimates are similar to those obtained in section 6.1.3, but that the vari- ance component estimates are reduced, particularly that for σb. This is because max- imum likelihood estimates are not always unbiased, and those for variance compo- nents tend to be biased downwards. This issue will be revisited in the subsequent sections.
+
+Inference with linear mixed models:
+
+The reason that this conditional approach is usually preferable to an approach based on asymptotic likelihood theory, is that the approximations involved in conditioning on θˆ are usually better than those involved in using the large sample likelihood results at finite sample sizes. In fact, for balanced designs, where θˆ is independent of the other estimators, exact tests can be obtained by the conditional approach.
+
+conditioning on θˆ. Specifically, it is better to use a method for approximating the denominator degrees of freedom which, in the balanced data case, will coincide with the denominator degrees of freedom that would have been used in the classical mixed modelling approach, described in section 6.1
+
+Inference about the random effects is more difficult, and does rely on large sample likelihood results (see section 2.4). In particular, in the large sample limit
+
+In practice, the most sensible approach is to treat the p-values from the log-ratio tests as “very approximate”. If the p-value is very large, or very small, there is no practical difficulty about interpreting it, but on the borderline of significance, more care is needed. Pinheiro and Bates (2000) give a simulation approach which could be used in such cases.
+
+Mixed models in R
+The simplest way to specify the random effects structure is with a one sided formula. For example  ̃x|g would set up Zi according to the  ̃x part of the formula while the levels of the factor variable, g, would be used to split the data into groups (i.e. the levels of g are effectively the group index, i). The random effects formula is one sided, because there is no choice about the response variable — it must be whatever was specified in the fixed effects formula. So an example call to lme looks something like this:
+
+lme(y ̃x+z,dat, ̃x|g)
+
+alternatively
+lme(y ̃x+z,dat,list(g= ̃x))
+
+
+
+Notes from Stavanger presentation
+-use original NPD application for field size estimate - give more accurate
+-Use of production drilling to estimate effect of draw-down phase.  
+
+
+
+#use of simple random effects
+ In addition the "re" class implements simple random effects.
+For example s(x,z,bs="re") specifies a random effect Zb
+where b ∼ N(0,Iσ^2_b)
+
+). Z is given by model.matrix(~x:z-1).
+This approach is slow for large numbers od random effects,
+however.
+
+
