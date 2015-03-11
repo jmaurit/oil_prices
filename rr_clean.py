@@ -7,6 +7,7 @@ import sys
 import seaborn as sn
 import Quandl
 import numpy as np
+import statsmodels as sm
 
 #download, merge and clean dataset
 
@@ -133,5 +134,17 @@ oil_price.columns=["year", "deflator", "price", "price_l1",
 prod_data=oil_prod.merge(oil_price, on="year")
 prod_data=prod_data.merge(yearly_investments, on=["name", "year"])
 prod_data=prod_data.merge(field_data, on="name")
+
+#add data on cost
+
+cost_index=pd.read_csv("research/oil_prices/data/cost_index.csv")
+
+#add production year data
+def prod_year(group):
+	return(pd.DataFrame([i for i in range(len(group["name"]))]))
+
+prod_data["prod_year"]=prod_data.groupby("name").apply(prod_year)
+prod_year.reset_index(inplace=True)
+prod_data["prod_year"]=prod_year.iloc[:,2]
 
 prod_data.to_csv('/Users/johannesmauritzen/research/oil_prices/data/prod_data.csv')

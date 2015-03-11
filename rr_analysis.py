@@ -14,12 +14,7 @@ import statsmodels.api as sm
 import statsmodels.formula.api as smf
 import matplotlib.pyplot as plt
 import random
-
-import rpy2.robjects as robjects
-
-from rpy2.robjects.packages import importr
-
-mgcv = importr("mgcv")
+import math
 
 
 # R code:
@@ -32,27 +27,12 @@ mgcv = importr("mgcv")
 
 # summary(lm.D90 <- lm(weight ~ group - 1))# omitting intercept
 
-
+#try https://github.com/thehackerwithin/Python2010/wiki/PyBCSession08
 
 #rpy2*********
-x = robjects.Vector([4.17,5.58,5.18,6.11,4.50,4.61,5.17,4.53,5.33,5.14])
-y = robjects.Vector([random.randrange(1,10) for i in range(10)])
-
-fmla = robjects.Formula('y ~ s(x) -1')
-env = fmla.environment
-env['x'] = x
-env['y'] = y
 
 mgcv = importr('mgcv')
 fit = mgcv.gam(fmla)
-
-# omitting the intercept
-lm_D90 = r.lm("ctl ~ trt")
-print(r.summary(lm_D90))
-
-#now with mgcv
-fmla = robjects.Formula('y ~ x')
-mgcv.gam()
 
 
 

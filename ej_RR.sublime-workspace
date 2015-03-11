@@ -179,21 +179,38 @@
 			}
 		},
 		{
+			"file": "rr_analysis_1.r",
+			"settings":
+			{
+				"buffer_size": 663,
+				"line_ending": "Unix",
+				"name": "rr_analysis_1.r"
+			}
+		},
+		{
+			"file": "rr_descriptives.py",
+			"settings":
+			{
+				"buffer_size": 1888,
+				"line_ending": "Unix"
+			}
+		},
+		{
 			"file": "rr_clean.py",
 			"settings":
 			{
-				"buffer_size": 7037,
+				"buffer_size": 7599,
 				"line_ending": "Unix",
 				"name": "rr_clean.py"
 			}
 		},
 		{
-			"file": "rr_analysis.py",
+			"file": "industry_costs.py",
 			"settings":
 			{
-				"buffer_size": 4932,
+				"buffer_size": 1825,
 				"line_ending": "Unix",
-				"name": "rr_analysis.py"
+				"name": "costs.py"
 			}
 		},
 		{
@@ -224,10 +241,13 @@
 			}
 		},
 		{
+			"contents": "",
 			"file": "GAMM_practice.r",
+			"file_size": -1,
+			"file_write_time": -1,
 			"settings":
 			{
-				"buffer_size": 5313,
+				"buffer_size": 0,
 				"line_ending": "Unix",
 				"name": "GAMM_practice.r"
 			}
@@ -325,6 +345,7 @@
 	},
 	"file_history":
 	[
+		"/Users/johannesmauritzen/research/oil_prices/rr_analysis.py",
 		"/Users/johannesmauritzen/Google Drive/Research/rOil/oil_clean.R",
 		"/Users/johannesmauritzen/Google Drive/Research/rOil/oil_modeling.R",
 		"/Users/johannesmauritzen/Google Drive/Research/rOil/presentations/oil_prices_wSimulation.tex",
@@ -406,6 +427,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"oil_price_real",
 			"read.csv",
 			"<-",
 			"oil_price",
@@ -472,6 +494,7 @@
 		"regex": false,
 		"replace_history":
 		[
+			"price",
 			"pd.read_csv",
 			"=",
 			"oil_price_real",
@@ -531,7 +554,7 @@
 	"groups":
 	[
 		{
-			"selected": 4,
+			"selected": 6,
 			"sheets":
 			[
 				{
@@ -627,8 +650,8 @@
 						"selection":
 						[
 							[
-								98,
-								98
+								1358,
+								988
 							]
 						],
 						"settings":
@@ -639,30 +662,56 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 981.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 4,
-					"file": "rr_clean.py",
+					"file": "rr_analysis_1.r",
 					"settings":
 					{
-						"buffer_size": 7037,
+						"buffer_size": 663,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								609,
+								609
 							]
 						],
 						"settings":
 						{
-							"auto_name": "rr_clean.py",
+							"auto_name": "rr_analysis_1.r",
+							"syntax": "Packages/R/R.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 256.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "rr_descriptives.py",
+					"settings":
+					{
+						"buffer_size": 1888,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								388,
+								477
+							]
+						],
+						"settings":
+						{
 							"syntax": "Packages/Python/Python.tmLanguage"
 						},
 						"translation.x": 0.0,
@@ -672,36 +721,61 @@
 					"type": "text"
 				},
 				{
-					"buffer": 5,
-					"file": "rr_analysis.py",
+					"buffer": 6,
+					"file": "rr_clean.py",
 					"settings":
 					{
-						"buffer_size": 4932,
+						"buffer_size": 7599,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								4833,
-								4833
+								7207,
+								7207
 							]
 						],
 						"settings":
 						{
-							"auto_name": "rr_analysis.py",
-							"syntax": "Packages/Python/Python.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
+							"auto_name": "rr_clean.py",
+							"syntax": "Packages/Python/Python.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 3420.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
-					"buffer": 6,
+					"buffer": 7,
+					"file": "industry_costs.py",
+					"settings":
+					{
+						"buffer_size": 1825,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1684,
+								1733
+							]
+						],
+						"settings":
+						{
+							"auto_name": "costs.py",
+							"syntax": "Packages/Python/Python.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 654.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 8,
 					"file": "prep.py",
 					"settings":
 					{
@@ -728,7 +802,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 7,
+					"buffer": 9,
 					"file": "referee1.txt",
 					"settings":
 					{
@@ -755,7 +829,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 8,
+					"buffer": 10,
 					"file": "notes.txt",
 					"settings":
 					{
@@ -782,19 +856,19 @@
 					"type": "text"
 				},
 				{
-					"buffer": 9,
+					"buffer": 11,
 					"file": "GAMM_practice.r",
 					"settings":
 					{
-						"buffer_size": 5313,
+						"buffer_size": 0,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								5230,
-								5054
+								0,
+								0
 							]
 						],
 						"settings":
@@ -810,7 +884,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 10,
+					"buffer": 12,
 					"file": "spline_intro.py",
 					"settings":
 					{
