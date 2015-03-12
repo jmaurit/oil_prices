@@ -45,7 +45,7 @@ oil_price=oil_nom.merge(deflator, how="inner", left_index=True, right_index=True
 oil_price["oil_price_real"]=oil_price["oil_price_nom"]*(100/oil_price["deflator_2010"])
 oil_price=oil_price.reset_index()
 oil_price.columns=["year", "oil_price_nom", "deflator_2010", "oil_price_real"]
-
+oil_price.to_csv("research/oil_prices/data/oil_price.csv", index=False)
 #from npd
 overview=pd.read_csv("http://factpages.npd.no/ReportServer?/FactPages/TableView/field&rs:Command=Render&rc:Toolbar=false&rc:Parameters=f&rs:Format=CSV&Top100=false&IpAddress=158.37.94.112&CultureCode=en")
 month_prod=pd.read_csv("http://factpages.npd.no/ReportServer?/FactPages/TableView/field_production_monthly&rs:Command=Render&rc:Toolbar=false&rc:Parameters=f&rs:Format=CSV&Top100=false&IpAddress=158.37.94.56&CultureCode=nb-no")
@@ -136,15 +136,16 @@ prod_data=prod_data.merge(yearly_investments, on=["name", "year"])
 prod_data=prod_data.merge(field_data, on="name")
 
 #add data on cost
-
+#prod_data=pd.read_csv('/Users/johannesmauritzen/research/oil_prices/data/prod_data.csv')
+#from data cleaned from industry_cost.py
 cost_index=pd.read_csv("research/oil_prices/data/cost_index.csv")
+prod_data=prod_data.merge(cost_index[["year", "cost_index"]], on="year", how="left")
 
+prod_data=prod_data.sort(columns=["name", "year"])
 #add production year data
-def prod_year(group):
-	return(pd.DataFrame([i for i in range(len(group["name"]))]))
+def create_prod_year(year):
+	return(pd.DataFrame({"prod_year":[i for i in range(len(year))]}))
 
-prod_data["prod_year"]=prod_data.groupby("name").apply(prod_year)
-prod_year.reset_index(inplace=True)
-prod_data["prod_year"]=prod_year.iloc[:,2]
+prod_data['prod_year']=prod_data.groupby("name")["year"].transform(create_prod_year)
 
-prod_data.to_csv('/Users/johannesmauritzen/research/oil_prices/data/prod_data.csv')
+prod_data.to_csv('/Users/johannesmauritzen/research/oil_prices/data/prod_data.csv', index=False)

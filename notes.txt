@@ -50,13 +50,9 @@ lme(y ̃x+z,dat, ̃x|g)
 alternatively
 lme(y ̃x+z,dat,list(g= ̃x))
 
-
-
 Notes from Stavanger presentation
 -use original NPD application for field size estimate - give more accurate
 -Use of production drilling to estimate effect of draw-down phase.  
-
-
 
 #use of simple random effects
  In addition the "re" class implements simple random effects.

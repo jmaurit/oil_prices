@@ -29,22 +29,33 @@ ppi_oandg["month"]=month
 ppi_oandg["ppi_oandg"]=[float(i) for i in ppi_oandg["ppi_oandg"]]
 ppi_yearly=ppi_oandg[["year", "ppi_oandg"]].groupby("year").mean()
 
+oil_price=pd.read_csv("research/oil_prices/data/oil_price.csv")
 #merge with prices
 ppi_yearly=oil_price.merge(ppi_yearly.reset_index(), on="year", how="outer")
-
+ppi_yearly["year"]=ppi_yearly["year"].apply(int)
 #info from eia
 #Costs of Crude Oil and Natural Gas Wells Drilled
 #All (Real*) Thousand dollars per well
 #http://www.eia.gov/dnav/pet/pet_crd_wellcost_s1_a.htm
 
 well_costs=pd.read_csv("research/oil_prices/data/well_costs.csv", sep=";", decimal=",")
-well_costs["cost_index"]=well_costs["cost"]/754.6*100
+well_costs["well_costs"]=well_costs["cost"]/754.6*100
 
-cost_index=well_costs.merge(ppi_yearly.reset_index(), on="year", how="outer")
-cost_index["ppi_oandg"][cost_index["ppi_oandg"].isnull()]=cost_index["cost_index"][cost_index["ppi_oandg"].isnull()]
+cost_index=well_costs.merge(ppi_yearly, on="year", how="outer")
+cost_index=cost_index.sort(columns="year")
+cost_index["cost_index"]=cost_index["ppi_oandg"]
+cost_index["cost_index"][cost_index["ppi_oandg"].isnull()]=cost_index["well_costs"][cost_index["ppi_oandg"].isnull()]
 
-cost_index=cost_index[["year", "cost_index"]]
+#make plot
+fig, (ax1, ax2) = plt.subplots(2, sharex=True, sharey=False)
+fig.set_size_inches(8,6)
+ax1.plot(cost_index["year"], cost_index["cost_index"])
+ax1.set_xlabel("Real Cost Index, Oil and Gas Extraction, 2000=100")
+ax2.plot(cost_index["year"], cost_index["oil_price_real"])
+ax2.set_xlabel("Real Price of Crude Oil, 2010 Dollars")
+plt.savefig("research/oil_prices/figures/oil_cost_and_price.png", dpi=160)
+
+
+cost_index=cost_index[["year", "ppi_oandg", "well_costs", "cost_index", "oil_price_real"]]
 cost_index.to_csv("research/oil_prices/data/cost_index.csv")
-
-sm.tsa.arima_model.ARIMA(endog, order, exog=None, dates=None, freq=None, missing='none')
 
