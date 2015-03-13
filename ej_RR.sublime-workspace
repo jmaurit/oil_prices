@@ -144,19 +144,18 @@
 	"buffers":
 	[
 		{
-			"file": "oil_prices_rr.tex",
-			"settings":
-			{
-				"buffer_size": 93002,
-				"line_ending": "Unix",
-				"name": "oil_prices_wSimulation.tex"
-			}
-		},
-		{
 			"file": "oil_prices_new_pres.tex",
 			"settings":
 			{
-				"buffer_size": 9452,
+				"buffer_size": 9455,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "oil_prices_rr.tex",
+			"settings":
+			{
+				"buffer_size": 81056,
 				"line_ending": "Unix"
 			}
 		},
@@ -170,10 +169,10 @@
 			}
 		},
 		{
-			"file": "rr_analysis.r",
+			"file": "rr_analysis_alt_models.r",
 			"settings":
 			{
-				"buffer_size": 6156,
+				"buffer_size": 1507,
 				"line_ending": "Unix",
 				"name": "rr_analysis.r"
 			}
@@ -182,7 +181,7 @@
 			"file": "rr_analysis_1.r",
 			"settings":
 			{
-				"buffer_size": 2600,
+				"buffer_size": 4174,
 				"line_ending": "Unix",
 				"name": "rr_analysis_1.r"
 			}
@@ -345,6 +344,8 @@
 	},
 	"file_history":
 	[
+		"/Users/johannesmauritzen/Google Drive/Research/rOil/presentations/simulation_text.tex",
+		"/Users/johannesmauritzen/research/oil_prices/oil_prices_rr.tex",
 		"/Users/johannesmauritzen/research/oil_prices/rr_analysis.py",
 		"/Users/johannesmauritzen/Google Drive/Research/rOil/oil_clean.R",
 		"/Users/johannesmauritzen/Google Drive/Research/rOil/oil_modeling.R",
@@ -427,6 +428,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"price",
 			"oil_price_real",
 			"read.csv",
 			"<-",
@@ -494,6 +496,7 @@
 		"regex": false,
 		"replace_history":
 		[
+			"I(price",
 			"price",
 			"pd.read_csv",
 			"=",
@@ -559,45 +562,18 @@
 			[
 				{
 					"buffer": 0,
-					"file": "oil_prices_rr.tex",
-					"settings":
-					{
-						"buffer_size": 93002,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1779,
-								1779
-							]
-						],
-						"settings":
-						{
-							"auto_name": "oil_prices_wSimulation.tex",
-							"syntax": "Packages/LaTeXing/support/LaTeX.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 1,
 					"file": "oil_prices_new_pres.tex",
 					"settings":
 					{
-						"buffer_size": 9452,
+						"buffer_size": 9455,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								9331,
-								9331
+								43,
+								43
 							]
 						],
 						"settings":
@@ -607,6 +583,32 @@
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "oil_prices_rr.tex",
+					"settings":
+					{
+						"buffer_size": 81056,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								38655,
+								38655
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/LaTeXing/support/LaTeX.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 17560.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -640,18 +642,18 @@
 				},
 				{
 					"buffer": 3,
-					"file": "rr_analysis.r",
+					"file": "rr_analysis_alt_models.r",
 					"settings":
 					{
-						"buffer_size": 6156,
+						"buffer_size": 1507,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								6153,
-								6082
+								849,
+								738
 							]
 						],
 						"settings":
@@ -661,8 +663,8 @@
 							"tab_size": 5,
 							"translate_tabs_to_spaces": true
 						},
-						"translation.x": 1.0,
-						"translation.y": 4896.0,
+						"translation.x": 0.0,
+						"translation.y": 282.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -672,24 +674,26 @@
 					"file": "rr_analysis_1.r",
 					"settings":
 					{
-						"buffer_size": 2600,
+						"buffer_size": 4174,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1144,
-								818
+								3045,
+								3045
 							]
 						],
 						"settings":
 						{
 							"auto_name": "rr_analysis_1.r",
-							"syntax": "Packages/R/R.tmLanguage"
+							"syntax": "Packages/R/R.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 872.0,
+						"translation.y": 2250.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -706,8 +710,8 @@
 						"selection":
 						[
 							[
-								60,
-								263
+								387,
+								297
 							]
 						],
 						"settings":

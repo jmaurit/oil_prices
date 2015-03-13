@@ -167,63 +167,14 @@ Parametric linear models have the sizeable advantages of simplicity and interpre
 	\end{split}
 	\end{equation}
 
-Here the left hand side variable is yearly production in year $t$ for field $i$.  To try to account for the time profile of production, I split up model-time into a time-to-peak and peak-to-end variable as demonstrated for data for the Statfjord field in figure \ref{statfjord_dem} and then represent each as a cubic function.  Yearly production is assumed to be proportional to the total size of the field as represented by the estimate of the total recoverable resource.  Finally, a term for the oil price as well as five lagged terms are added in order to capture the effects of price.  
+  
 
-\begin{figure}
-\includegraphics[width=1\textwidth]{figures/statfjord_dem_print.png}
-\caption{The production profile can be modeled in two phases - time-to-peak, representing the build-out phase of the oil field and time-from-peak, representing the period of depletion. The is illustrated with data from the Statfjord field.}
-\label{statfjord_dem}
-\end{figure}
-
-Figure \ref{glm_dirty_box} shows the estimates of the coefficients on the oil price and its lags \footnote{The dots on the figure represent 1000 simulations of the estimated coefficient based on the estimated standard error and point estimate from the model}.  The lags are not estimated to have an effect significantly different from zero. However a literal interpretation of the coefficient on the concurrent oil price term would indicate that a 10-dollar increase in the oil price would lead to a lowering of field production of around 4-5\%.
-
-\begin{figure}
-\includegraphics[width=1\textwidth]{figures/glm_dirty_box_print.png}
-\caption{A generalized linear model generates a negative estimate of the coefficient on price in a regression on production.  This result is spurious, caused by a failure to properly control for the production profiles of the fields.}
-\label{glm_dirty_box}
-\end{figure}
 
 This estimate is heavily biased downwards due to the spurious correlation between the field production profiles and the autocorrelated and non-stationary time series of oil prices.  A more formal analysis of the bias can be found in Appendix B, where I simulate data of oil field production in a Monte Carlo experiment.  However, the basic idea is that the parametric representation is not flexible enough to control for the production profiles of the fields.   Instead, a more flexible estimation of the production profile is needed. 
 
 Instead of attempting to estimate the shape of the production profiles of the fields by estimating parameters on linear terms I estimate a non-parametric function for the production profile.  As an illustration, consider the production profile of a single field.  The simplest possible model would then have the form of equation \ref{simp_eqn}. 
 
-\begin{equation}
-Production_{t}=f(time) + \epsilon
-	\label{simp_eqn}
-\end{equation}
-
-Again considering the production profile for the Statfjord field, a smoothed function might look like the black line in figure \ref{statfjord_gam}.   
-
-\begin{figure}
-	\includegraphics[width=1\textwidth]{figures/statfjord_gam_print.png}
-	\caption{An illustration of fitting a simple non-parametric function to the production profile of a single field.}
-	\label{statfjord_gam}
-\end{figure}
-
 In principle any number of well-behaved smoothers could be used to estimate the function, for example a Loess or a kernel smoother.  In practice regression splines are most commonly used.  With a regression spline the data points for the function to be estimated are broken into bins.  For each bin of data a local linear regression is estimated.  For functions of one variable, a cubic parameterization is often used.  These regressions are then essentially tied together at what are called “knots” and the smoothness of the overall function is controlled by a penalty function that consists of the second derivative of the estimated function.
-
-In my regression, I find it helpful to represent the production profile of fields as a two-dimensional function.  This can not be accomplished with a standard cubic regression spline, but I can instead use a Thin Plate (Regression) Spline \citep{wood_thin_2003}.  Though the full details of the implementation are beyond the scope of this paper, for the basic idea consider equation \ref{thin_plate_1}.  
-
-	\begin{equation}
-	y_i = g(x_1, x_2)
-	\label{thin_plate_1}
-	\end{equation}
-
-Following \citet{wood_generalized_2006}, $g$ is the function of $x_1$ and $x_2$ that is to be estimated by $f$, which in turn is estimated by minimizing equation \ref{thin_plate_2}.  Here $\boldsymbol{y}$ represents a vector of $y_i$’s and $\boldsymbol{f} = (f(\boldsymbol{x_1}),f(\boldsymbol{x_2}))^t$.   
-
-	\begin{equation}
-\min \|\boldsymbol{y-f}\|^2 + \lambda J_{22}(f)
-\label{thin_plate_2}
-	\end{equation}
-
-$J_{22}$ represents the penalty function for the smoothness of the function which can be written as in \ref{thin_plate_3}.  The $22$ represents the fact that it is a penalty function of two variables with smoothness measured by the second derivative.
-
-	\begin{equation}
-	J_{22}{f}= \diffp[2]{f}{x_1}^2 + \diffp[2]{f}{{x_1}{x_2}} + \diffp[2]{f}{x_2}^2dx_1 dx_2
-\label{thin_plate_3}
-	\end{equation}
-
-In short, a function of $x_1$ and $x_2$ is found that is minimizing errors in the sense of minimizing Euclidean distance subject to a penalty function of “wiggiliness”.  The actual implementation is somewhat more involved in order to increase the computational efficiency of the estimation.  For further details I again refer to \citet{wood_thin_2003}.
 
 The advantage to using splines over other smoothing methods is that it can be represented in a linear form.  Thus estimation of the model can be done using standard and efficient matrix algebra algorithms. For further details I refer to the discussion in \citet{hastie_generalized_1990} and \citet{wood_generalized_2006}.  The latter is a particularly useful reference for implementing generalized additive models in R.
 
@@ -239,28 +190,7 @@ I do not want to estimate smoothed curves individually for each field.  While th
 \end{split}
 \end{equation}
 
-In this model I am estimating the parameters and functions from all fields $i$. As in the parametric model presented earlier, the left-hand-side variable is yearly oil production for field $i$. Also like the parametric model I split the production-time component element in two: up to and after the peak in production. 
-While a shape for the entire production profile could be estimated with one smoothed function, splitting it up allows for more flexibility and better overall fit of the model as estimated by deviance score and the related estimated degrees of freedom of the model.  More so, production up to a peak and the subsequent decline represents two distinct processes.  The first is driven by the physical investment and build-out of the field, while the latter is dominated by depletion of the field and subsequent drop in pressure. It makes sense to model these two processes separately, and later I will also attempt to estimate separate price effects for the two phases. 
-
-I also allow the smoothed functions to vary with the total size of the field as measured by the estimated total recoverable oil since the shape of the production profile tends to vary substantially by field size.  Inspection of a selection of fields, such as shown in figure \ref{field_inspection}, shows that smaller fields tend to reach their peak quickly while larger fields take more time. 
-
-The estimated field-size variable is however an imperfect measure.  First, estimates for newer fields will likely have higher measurement errors than established fields that are well explored and where a significant amount of the oil has already been extracted.  The total reserves estimates are also likely correlated with the price terms as estimates of recoverable reserves likely change depending on the level of the oil price.  Nonetheless, since I am only using the variable to help to control for the general shape of the production profiles of fields and not as an exogenous regressor, the inclusion of the variable should not materially affect the estimation.
-
-\begin{figure}
-	\includegraphics[width=1\textwidth]{figures/field_inspection_print.png}
-	\caption{A selection of production profiles of oil fields.  The shape can vary substantially by field size as well as other factors.}
-	\label{field_inspection}
-\end{figure}
-
-Even with a smoothed function that is allowed to vary by field-size, a substantially better fit, as well as more nuanced analysis could be obtained by splitting the estimation into small and large fields, this time measured by the maximum production of the field - a measure of field size that is less likely to be highly correlated with price.  The improvement in fit can be seen by inspecting the fitted values of the models as in figure \ref{bench_vs_split}. The split estimation provides a particularly better fit for smaller and mid-sized fields.
-
-\begin{figure}
-	\includegraphics[width=1\textwidth]{figures/bench_vs_split_print.png}
-	\caption{A benchmarking model shows that a substantially better fit can be achieved by splitting the analysis into small and large fields, where a somewhat arbitrary maximum yearly production of 8 million SMU is used as the separating value.}
-	\label{bench_vs_split}
-\end{figure}
-
-Plots of the estimated smoothed functions in the model are not directly informative about the effects of price and so I do not include them in the main text.  However they can be helpful in gaining a intuition behind the estimation procedure so I have included them in appendix 2 along with other model diagnostics and robustness checks.  
+In this model I am estimating the parameters and functions from all fields $i$. As in the parametric model presented earlier, the left-hand-side variable is yearly oil production for field $i$. Also like the parametric model I split the production-time component element in two: up to and after the peak in production.
 
 \section{The Effect of Oil Price on Field Production}
 
@@ -268,20 +198,61 @@ The variables of interest in this article is the oil price and its lags, which I
 
 Alternatively, a change in price of oil can be seen as a lifting of a production constraint.  A higher oil price means that added investments in production become attractive in order to either increase the total amount extracted from a field or to shift production forward.  However investments in the offshore sector can be complex and lengthy, and any production lift would be expected to happen with a lag.  As mentioned earlier, including several lags also allows for the possibility of adaptive expectations of future oil prices.The results for the price terms are shown in figure \ref{gam_price_8}.
 
-\begin{figure}
-	\includegraphics[width=1\textwidth]{figures/gam_price_8_print.png}
-	\caption{The coefficient estimates on the price terms where two additional lags are added to the model.  Significant positive results are found on the 8th lag for both large and small fields, providing evidence for adaptive price expectations by producers.}
-	\label{gam_price_8}
-\end{figure}
+\begin{table}
+\begin{center}
+\begin{tabular}{l c c c }
+\hline
+                                 & w/out Rand. Effects & w Rand. Effects & Lags 1-5 \\
+\hline
+(Intercept)                      & $0.335$        & $-4.016^{***}$ & $-3.971^{***}$ \\
+                                 & $(0.265)$      & $(0.297)$      & $(0.212)$      \\
+I(in\_place\_oil\_mill\_sm3/100) & $0.337^{***}$  & $-0.014$       & $-0.015$       \\
+                                 & $(0.009)$      & $(0.022)$      & $(0.022)$      \\
+I(cost\_index/10)                & $-0.018^{**}$  & $-0.030^{***}$ & $-0.030^{***}$ \\
+                                 & $(0.006)$      & $(0.006)$      & $(0.005)$      \\
+I(price/10)                      & $-0.006$       & $0.014$        &                \\
+                                 & $(0.017)$      & $(0.016)$      &                \\
+I(price\_l1/10)                  & $0.004$        & $0.021$        & $0.029^{*}$    \\
+                                 & $(0.017)$      & $(0.017)$      & $(0.014)$      \\
+I(price\_l2/10)                  & $0.037^{*}$    & $0.047^{**}$   & $0.048^{***}$  \\
+                                 & $(0.017)$      & $(0.016)$      & $(0.014)$      \\
+I(price\_l3)                     & $0.003$        & $0.003$        & $0.002$        \\
+                                 & $(0.002)$      & $(0.001)$      & $(0.001)$      \\
+I(price\_l4)                     & $0.000$        & $0.004^{**}$   & $0.004^{***}$  \\
+                                 & $(0.002)$      & $(0.001)$      & $(0.001)$      \\
+I(price\_l5/10)                  & $-0.020$       & $0.012$        & $0.019$        \\
+                                 & $(0.013)$      & $(0.012)$      & $(0.010)$      \\
+I(price\_l6/10)                  & $-0.010$       & $0.008$        &                \\
+                                 & $(0.012)$      & $(0.011)$      &                \\
+I(price\_l7/10)                  & $-0.008$       & $0.007$        &                \\
+                                 & $(0.012)$      & $(0.012)$      &                \\
+I(price\_l8/10)                  & $-0.044^{***}$ & $-0.011$       &                \\
+                                 & $(0.011)$      & $(0.011)$      &                \\
+EDF: s(prod\_year)               & $6.381^{***}$  &                &                \\
+                                 & $(7.249)$      &                &                \\
+EDF: s(year)                     & $2.768^{***}$  & $3.000^{***}$  & $3.000^{***}$  \\
+                                 & $(2.956)$      & $(3.000)$      & $(3.000)$      \\
+EDF: s(prod\_year,name)          &                & $33.002^{***}$ & $33.014^{***}$ \\
+                                 &                & $(72.000)$     & $(72.000)$     \\
+\hline
+AIC                              &                &                &                \\
+BIC                              &                &                &                \\
+Log Likelihood                   &                &                &                \\
+Deviance                         & 2306267.814    & 1976585.232    & 1980468.734    \\
+Deviance explained               & 0.848          & 0.870          & 0.870          \\
+Dispersion                       & 1785.243       & 1562.520       & 1560.671       \\
+R$^2$                            & 0.841          & 0.865          & 0.866          \\
+GCV score                        & 1814.469       & 1621.811       & 1614.802       \\
+Num. obs.                        & 1088           & 1088           & 1088           \\
+Num. smooth terms                & 2              & 2              & 2              \\
+\hline
+\multicolumn{4}{l}{\scriptsize{$^{***}p<0.001$, $^{**}p<0.01$, $^*p<0.05$}}
+\end{tabular}
+\caption{Statistical models}
+\label{GAM_model_table}
+\end{center}
+\end{table}
  
-
-The estimated coefficients for the concurrent and first three lags of the oil price are not estimated to be significantly different than zero.  For large fields a modest effect at the fourth, sixth and seventh lags are estimated, though only at a 10\% significance level, \footnote{The lines in the boxplot represent conservative 95\% confidence intervals and are calculated using a bayesian-inspired simulation from the posterior distribution of the coefficients.  P-values (stars) shown in the table in the appendix were calculated by standard asymptotic methods and show significant results for the 4th and 6th lags at the 5\% level.} while for small fields an effect is estimated only at the sixth lags. The magnitude of these effects is in the neighborhood of a 2\% increase in production for a 10 dollar increase in the oil price.  A larger and more significant effect is found for both small and large fields at the 8th lag, with a magnitude implying an approximately 3 to 4\% increase in production for a 10 dollar increase in the oil price.  
-
-Despite the clear implications of most simplified Hotelling models, the lack of significant results for the concurrent price and the modest lagged effect is not surprising. In general, operating an oil production rig and related offshore infrastructure is an extremely expensive venture with high fixed costs.  In the challenging conditions of the North Sea, the expenses are multiplied.  Thus any short-term benefit of strategically altering production in relation to movements in the oil price are dominated by the large costs of having excess pumping capacity.  In other words, oil producers have a strong incentive to pump as much oil out at any given time given the existing production capacity.
-
-Instead, the results point to a mechanism where oil producers react to higher oil prices by increasing investment in those fields, leading to higher oil production only with a considerable lag.   This story is in line with a trend of increased total extraction estimates from the Norwegian continental shelf as a whole as well as from existing fields over the last 15 years of strongly rising oil prices \footnote{\url{http://npd.no/Templates/OD/Article.aspx?id=4731&epslanguage=en}}.
-
-I prefer the un-pooled models I have presented above because of the improvement in model fit and because operators of small and large fields may be expected to have substantially different reactions to changes in price as well as different time profiles of production. Nonetheless, it can be instructive to show results from a pooled model where a fixed effect and interaction variable is introduced to distinguish the effects of small and large fields. The model can be written as equation \ref{pooled_eqn}.  The terms in the model are mostly the same as in \ref{gam_price_eqn} but with an added dummy term for small fields - those with a maximum yearly production of 8 million SM3 or below, $smallfield$, and interaction terms.  
 
 \begin{equation}
 \begin{split}
@@ -294,47 +265,6 @@ I prefer the un-pooled models I have presented above because of the improvement 
 \label{pooled_eqn}
 \end{split}
 \end{equation}
-
-The full results for the estimates of all the parametric terms can be found in table \ref{table:pooled} in the appendix.  The estimated coefficients on the price terms are shown in figure \ref{gam_price_pooled}. In the regression none of the interaction effects were significantly different than zero, nor were the concurrent price term or the first three lags.  The fourth and sixth through eighth lag were however significant and positive, again at a magnitude of approximately 2\% increase in production for a \$10 increase in the oil price.
-
-\begin{figure}
-	\includegraphics[width=1\textwidth]{figures/gam_price_pooled_print.png}
-	\caption{The estimated coefficients on the price terms for a pooled model of oil field production.  Significant estimates are found on the fourth, sixth, seventh and eighth price lags}
-	\label{gam_price_pooled}
-\end{figure}
-
-In the above discussion, I have been implicitly giving the coefficients a causal interpretation, which deserves some discussion.  My main identifying assumption is that production at the field level can not cause significant changes in the oil price.  A stronger but still relevant assumption that may be necessary since field production is correlated across fields is that total production from the Norwegian continental shelf does not affect oil price.  
-
-Both of these assumptions are likely satisfied.  Oil is a globally traded commodity and total Norwegian production accounts only for a small fraction of total production.  In 2013 Norwegian production made up only 2.3 \% of the world total. \footnote{\url{http://www.eia.gov/countries/country-data.cfm?fips=NO#pet}}  A drastic change in production, on par with the halt in production that occurred in Libya in 2011, \footnote{Before the Libyan revolution of 2011, Norwegian and Libyan yearly oil production were of a similar magnitude, 2.1 versus 1.8 million barrels of oil in 2010 \url{http://www.eia.gov/countries/country-data.cfm?fips=LY#pet}} would have been required to have had any significant effect on world oil supply and in turn prices. 
-
-One of the main implications of the interpretation that higher oil prices leads to increased extraction through increased investment is that while the effect on production will be lagged, higher oil prices will have a more immediate effect on investments.  I test for this with the model as written in equation \ref{gam_invest_eqn}
-
-\begin{equation}
-\begin{split}
-	Log(Investment_{i,t})&=f(timetopeak_{i,t}, totalrecoverableoil_i) \\
-	 \quad &+ f(peaktoend_{i,t}, totalrecoverableoil_i) \\
-	 \quad &+ \alpha oilproduction_{i,t} \\
-	 \quad & + \beta_1 oilprice + \beta_2 oilpricel1 + ... + oil_pricel8 \\
-	 \quad &+ \delta smallfield \\
-	 \quad &+ \gamma_1 oilprice*smallfield + \gamma_2 oilprice*smallfield + ... 
-	+  \epsilon \\
-\label{gam_invest_eqn}
-\end{split}
-\end{equation}
-
-In the equation investment in each field $i$ at time $t$ is a function of the state of field development, as modeled by a non-parametric function of time to and from the peak as well as the total size of the field - as in the model of oil field production.  In addition I include a term for oil production in field $i$ at time $t$.  The coefficients of interest are again those on the oil price and its lags which I interact with a dummy variable for large and small fields, $smallfield$.
-
-The results for the estimation of the estimated coefficients on the oil price and its lags is shown in figure \ref{gam_price_invest_box} while full results are also shown in table \ref{table:investment} in appendix 1.  The coefficient on the concurrent oil price as well as the third and fourth lags are all significantly positive, with coefficients that can be interpreted to mean that a 10 dollar increase in the oil price leads to between a 5 to 10 \% increase in oil field investment in the concurrent and second subsequent year and between a 10 to 20\% increase in the third subsequent year.  
-
-\begin{figure}
-	\includegraphics[width=1\textwidth]{figures/invest_pooled_print.png}
-	\caption{Estimated coefficients for the price terms in a model of oil field investments.  A rise in the oil price leads to an increase in investment in the concurrent year as well as in the second and third lag. Negative coefficients are found for the sixth through 8th lags.}
-	\label{gam_price_invest_box}
-\end{figure}
-
-The results of the regression on investment fits nicely with the previous results on oil production which showed a significant effect in the 4th through 6th lags.  A story consistent with both results is that higher oil prices induce increased investment in production capacity, though it takes time to get the extra capacity in place and the effects on production to be felt.
-
-The estimated coefficients on the 6th, 7th and 8th lagged coefficients are shown to be significantly negative. An explanation is that a higher oil price induces producers to speed up a build out of a field, leading to more investment earlier, but relatively less in later years.  An implication of this theory is that the effect of price will primarily be in the build-out phase of a fields production profile.  This is explored in the following section.
 
 \section{The effect of price in the phases of oil production}
 
@@ -383,10 +313,6 @@ I also estimate a pooled model, with both small and large fields.  This model pr
 \end{figure}
 
 Figure \ref{gam_buildout_hist} shows a histogram of the time it takes to fully build out an oil field and reach peak production.  We see that the vast majority of fields are built out quickly, reaching their peak production within one or two years.  Since the effect of price on the build-out phase is estimated with a lag of between 5 and 8 year, this indicates that changes in price likely has most effect well before production in a field even begins.  In turn, this suggests that changes in price that occur during the planning stage of a fields development are the most important in determining the production of the field.  This result fits well with the industry structure.  As mentioned, before physical investment in a field can begin and production started, detailed plans need to be approved by several government agencies and capital must be allocated.  Changing the level of investments in reaction to a change in prices after plans have been finalized is likely to lead to both an expensive delay as well as other costs that heavily outweigh any benefits of increased future production.  
-
-
-
-
 \section{Conclusion}
 
 The main results of this research is to show that production in existing Norwegian offshore fields has no significant concurrent reaction to higher oil prices while a slight effect is estimated  with a lag of between 4 and 8 years.  Oil producers do not appear to be behaving strategically in relation to short-term production - increasing or reducing production in response to changes in oil price.  Instead they are likely using storage or financial instruments to hedge short-term price movements. Changes in oil prices can rather be seen as a relaxing of a production constraint, justifying increased investment that leads to either a higher total extraction rate or an inter-temporal shifting of production. Furthermore, it appears that the most of the effect of price comes at the planning phase of a field's production life.  Little to no effect of price on production is found in the build-out or depletion phase.
