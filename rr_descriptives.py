@@ -12,6 +12,10 @@ import matplotlib.pyplot as plt
 import random
 import statsmodels.api as sm
 
+
+brentprices=pd.read_excel("http://www.eia.gov/dnav/pet/hist_xls/RBRTEm.xls", sheetname="Data 1")
+
+
 #first on individual field data
 field_data=pd.read_csv('/Users/johannesmauritzen/research/oil_prices/data/field_data.csv')
 prod_data=pd.read_csv('/Users/johannesmauritzen/research/oil_prices/data/prod_data.csv')
