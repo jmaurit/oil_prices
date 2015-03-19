@@ -13,7 +13,6 @@ import random
 import statsmodels.api as sm
 
 
-brentprices=pd.read_excel("http://www.eia.gov/dnav/pet/hist_xls/RBRTEm.xls", sheetname="Data 1")
 
 
 #first on individual field data

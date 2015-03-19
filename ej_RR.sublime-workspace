@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"scale_col",
+				"scale_color_grey"
+			],
+			[
 				"gamm_mc",
 				"gamm_mc_0"
 			],
@@ -155,7 +159,7 @@
 			"file": "oil_prices_rr.tex",
 			"settings":
 			{
-				"buffer_size": 81056,
+				"buffer_size": 44162,
 				"line_ending": "Unix"
 			}
 		},
@@ -181,15 +185,12 @@
 			"file": "rr_simulation.r",
 			"settings":
 			{
-				"buffer_size": 4245,
+				"buffer_size": 6114,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"contents": "#rr_descriptives.py\n\n#Descriptives for revise and resubmit\n\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport matplotlib as mpl\nimport numpy as np\nimport sys\nimport seaborn as sns\nimport matplotlib.pyplot as plt\nimport random\nimport statsmodels.api as sm\n\n\n\n\n#first on individual field data\nfield_data=pd.read_csv('/Users/johannesmauritzen/research/oil_prices/data/field_data.csv')\nprod_data=pd.read_csv('/Users/johannesmauritzen/research/oil_prices/data/prod_data.csv')\n\n#remove fields with zero oil\n\nfield_data=field_data[field_data[\"in_place_oil_mill_sm3\"]!=0]\n\n#histogram of size, in terms of in place oil\nplt.hist(field_data[\"in_place_oil_mill_sm3\"], 50, facecolor='green', alpha=0.5)\nplt.hist(field_data[\"recoverable_oil\"], 50, facecolor='red', alpha=0.5)\nplt.show()\n\n#show scatter between recoverable and in_place_oil\nfig, ax = plt.subplots()\nax.scatter(x=field_data[\"in_place_oil_mill_sm3\"], y=field_data[\"recoverable_oil\"])\nplt.show()\n\n# Fit and summarize OLS model\nX=field_data[\"in_place_oil_mill_sm3\"]\nX=sm.add_constant(X)\nY=field_data[\"recoverable_oil\"]\nmod = sm.OLS(Y,X)\nresults = mod.fit()\nfitted=np.column_stack((results.fittedvalues, mod.exog[:,1]))\nx_fit=np.linspace(0, 1200, 100)\na,b=results.params\ny_fit = a+x_fit*b\n\n\n\n\nfig, ax = plt.subplots()\nax.scatter(x=field_data[\"in_place_oil_mill_sm3\"], y=field_data[\"recoverable_oil\"])\nax.plot(x_fit, y_fit)\nax.annotate('dy/dx~0.52', xy=(400,300), xytext=(300,300))\nfig.set_size_inches(5,4)\nfig.savefig('/Users/johannesmauritzen/research/oil_prices/figures/in_place_vs_recov.png',dpi=100)\n\nplt.show()\n\nprint res.summary()\n\n\nsns.lmplot(\"in_place_oil_mill_sm3\", \"recoverable_oil\", field_data, \n	scatter_kws={\"marker\": \".\", \"color\": \"slategray\"},\n          line_kws={\"linewidth\": 1, \"color\": \"seagreen\"})\nsns.axlabel(xlabel='In-place Oil (mill SM3)', ylabel='Estimated Recoverable Oil (mill SM3)')\nplt.show()\n\nplt.close()\n\n\n",
 			"file": "rr_descriptives.py",
-			"file_size": 1988,
-			"file_write_time": 1426498381000000,
 			"settings":
 			{
 				"buffer_size": 1891,
@@ -242,10 +243,7 @@
 			}
 		},
 		{
-			"contents": "",
 			"file": "GAMM_practice.r",
-			"file_size": -1,
-			"file_write_time": -1,
 			"settings":
 			{
 				"buffer_size": 0,
@@ -563,7 +561,7 @@
 	"groups":
 	[
 		{
-			"selected": 4,
+			"selected": 1,
 			"sheets":
 			[
 				{
@@ -588,7 +586,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 2400.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -598,15 +596,15 @@
 					"file": "oil_prices_rr.tex",
 					"settings":
 					{
-						"buffer_size": 81056,
+						"buffer_size": 44162,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								38655,
-								38655
+								574,
+								574
 							]
 						],
 						"settings":
@@ -614,7 +612,7 @@
 							"syntax": "Packages/LaTeXing/support/LaTeX.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 17560.0,
+						"translation.y": 241.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -658,8 +656,8 @@
 						"selection":
 						[
 							[
-								270,
-								359
+								1604,
+								1604
 							]
 						],
 						"settings":
@@ -670,7 +668,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 298.0,
+						"translation.y": 1001.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -680,15 +678,15 @@
 					"file": "rr_simulation.r",
 					"settings":
 					{
-						"buffer_size": 4245,
+						"buffer_size": 6114,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3077,
-								3077
+								4669,
+								4669
 							]
 						],
 						"settings":
@@ -697,7 +695,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 2795.0,
+						"translation.y": 3854.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -740,8 +738,8 @@
 						"selection":
 						[
 							[
-								1692,
-								1764
+								1749,
+								1709
 							]
 						],
 						"settings":
@@ -750,7 +748,7 @@
 							"syntax": "Packages/Python/Python.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 901.0,
+						"translation.y": 883.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"

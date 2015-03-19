@@ -5,12 +5,14 @@ library(dplyr)
 library(reshape2)
 library(zoo)
 library(sandwich)
+library(grid)
 
 #make function that inputs simulated field_size and outputs simulated
 #first production year
 #should be so that large fields are found more often early on.  
 
 gen_year<-function(size, maxsize){
+	#Generates initial year as a function of size/maxsize
 	#test
 	#size=15
 	#maxsize=1267
@@ -34,6 +36,7 @@ return(year)
 #Simulation of data****************************************************************
 
 gen_production_shape<-function(field){
+	#Given size of field, generates production shape based on
 	#
 	#field<-c(20, 1990, 1)
 	#
@@ -58,33 +61,58 @@ gen_production_shape<-function(field){
 
 
 #GAM simualtion *********************************
-add_uncertainty<-function(beta0=0, fields){ 
+add_uncertainty<-function(beta, fields){ 
 	fields$prod<-fields$prod_shape*
-		(exp(beta0*(fields$price))*
-			rlnorm(length(fields$price), meanlog=0, sdlog=.05))
+		exp(beta*(fields$prices))*
+			rlnorm(length(fields$prices), meanlog=0, sdlog=.10)
 	return(fields)
 }
 
-run_gam<-function(formula, fields, beta=0){
-	#
-	#fields <- sim_fields_unc
-	#formula<-formula(prod ~ s(prod_time) + size + prices)
-	#
+run_gam<-function(formula, fields){
+	#runs GAM model and returns coefficient on price
+	# formula<-formula(prod~s(prod_years, bs="cr") + prices + size)
+
+	# beta<-0.05
+	# fields<-add_uncertainty(fields=sim_fields, beta=0)
+
 	gam_sim<-gam(formula,
 		family=gaussian(link=log), weights=size, data=fields, 
 		na.action='na.omit')
+	coefficients(gam_sim)
 	return(coefficients(gam_sim)["prices"])
 }
 
+run_glm<-function(formula, fields){
+	#test
+	#formula <- formula_glm
+	#fields <- sim_fields_unc
+	#test
+	
+	glm_sim<-lm(formula, data=fields)
+	return(coefficients(glm_sim)["prices"])
+}
 
+mc_run<-function(formula, use_gam=TRUE, fields, beta){
+	#adds uncertainty then runs regression
+	#test
 
-run_glm<-function(formula, fields, beta=0){
-	return(NA)
+	# use_gam=TRUE
+	#
+	fields_unc<-add_uncertainty(fields=fields, beta=beta)
+	if(use_gam){
+		return(run_gam(formula, fields_unc))
+	}
+	else{
+		return(run_glm(formula, fields_unc))
+	}
 }
 
 #****************************************************
 
+oil_price<-read.csv("research/oil_prices/data/oil_price.csv")
 
+
+max<-1267
 field_size<-round(exp(rnorm(40,mean=4, sd=1.5)), digits=1)
 init_year<-trunc(sapply(field_size, gen_year, maxsize=max))
 fields<-cbind(field_size, init_year,1:length(init_year))
@@ -102,56 +130,74 @@ sim_fields<-merge(sim_fields, prices, by="year")
 sim_fields<-sim_fields[order(sim_fields$name, sim_fields$year),]
 
 #test adding uncertainty and chart
-sim_fields_unc<-add_uncertainty(sim_fields, beta=0)
+sim_fields_unc<-add_uncertainty(fields=sim_fields, beta=0)
 
 simulated_production<-ggplot(sim_fields_unc)+
- geom_line(aes(x=year, y=prod, color=factor(name)),alpha=.3) +
+ geom_line(aes(x=year, y=prod, color=factor(name)),alpha=.3, size=1) +
  guides(color=FALSE) +
+ scale_color_grey(start=0, end=.3) +
+ theme_bw() +
  labs(x="", y="Simulated Production from Fields")
 
-png("/Users/johannesmauritzen/research/oil_prices/figures/simulated_production.png", 
-	width = 27.81, height = 21, units = "cm", res=150, pointsize=10)
-simulated_production
+formula_1<- formula(prod~s(prod_years, name, bs="re") +prices + size + s(year, bs="cr", k=4))
+formula_2<- formula(prod~s(prod_years, bs="cr") + prices + size + s(year, bs="cr", k=4))
+formula_3<- formula(prod~s(prod_years, bs="cr") + prices + size)
+
+sim_fields_unc<-add_uncertainty(fields=sim_fields, beta=0)
+run_gam(formula=formula_3, fields=sim_fields_unc)
+
+gamm_mc_beta0<-replicate(100, mc_run(beta=0, formula=formula_1, fields=sim_fields, use_gam=TRUE))
+gamm_mc_beta05<-replicate(100, mc_run(beta=.05, formula=formula_1, fields=sim_fields, use_gam=TRUE))
+gamm_mc_beta0<-as.data.frame(gamm_mc_1)
+gamm_mc_data<-data.frame(beta0=gamm_mc_beta0, beta05=gamm_mc_beta05)
+#write.csv(gamm_mc_data, "/Users/johannesmauritzen/research/oil_prices/mc_data.csv")
+gam_mc_data<-read.csv("/Users/johannesmauritzen/research/oil_prices/mc_data.csv")
+gam_mc_data$X<-NULL
+gam_mc_data<-melt(gam_mc_data)
+colnames(gam_mc_data)<-c("beta", "coefficient")
+levels(gam_mc_data$beta)<-c("0", "0.05")
+levels(gam_mc_data)
+
+gam_mc_plot<-ggplot(gam_mc_data, aes(x=coefficient, fill=beta)) +
+geom_density(alpha=.5, size=0) +
+geom_vline(aes(xintercept=c(0, 0.05))) +
+xlab("beta_hat, estimated by GAM") +
+ylab("") +
+scale_fill_grey() +
+theme_bw()
+
+formula_glm <- formula(prod ~ prod_years + I(prod_years^2) + I(prod_years^3) + 
+	I(prod_years^4) + size + prices + year + I(year^2) + I(year^3))
+
+glm_mc_beta0<-replicate(100, mc_run(beta=0, formula=formula_glm, fields=sim_fields, use_gam=FALSE))
+glm_mc_beta05<-replicate(100, mc_run(beta=0.05, formula=formula_glm, fields=sim_fields, use_gam=FALSE))
+
+glm_mc_data<-data.frame(beta0=glm_mc_beta0, beta05=glm_mc_beta05)
+glm_mc_data<-melt(glm_mc_data)
+colnames(glm_mc_data)<-c("beta", "coefficient")
+levels(glm_mc_data$beta)<-c("0", "0.05")
+
+
+glm_mc_plot<-ggplot(glm_mc_data, aes(x=coefficient, fill=beta)) +
+geom_density(alpha=.5, size=0) +
+geom_vline(aes(xintercept=c(0, 0.05))) +
+scale_fill_grey() +
+theme_bw() +
+guides(fill=FALSE) +
+xlab("beta_hat, estimated by GLM") +
+ylab("Density")
+
+png("/Users/johannesmauritzen/research/oil_prices/figures/mc_plot.png", 
+	width = 30, height = 30, units = "cm", res=150, pointsize=12)
+	grid.newpage()
+	pushViewport(viewport(layout = grid.layout(2, 2)))
+	vplayout <- function(x, y)
+	 viewport(layout.pos.row = x, layout.pos.col = y)
+	print(simulated_production, vp = vplayout(1,1:2))
+	print(glm_mc_plot, vp = vplayout(2, 1))
+	print(gam_mc_plot, vp = vplayout(2, 2))
 dev.off()
 
-formula_1= formula(prod~s(prod_years) + size + prices)
-
-gamm_mc_1<-replicate(5, run_gam(beta=0, formula=formula_1, fields=sim_fields_unc))
-
-gamm_mc_1<-as.data.frame(gamm_mc_1)
-
-gam_model_price_mc<-ggplot(gamm_mc_1, aes(x=gamm_mc_1)) + 
-geom_histogram(aes(y=..density..)) +
-geom_density() +
-xlab("Estimated Coefficient on Price")
-
-png("/Users/johannesmauritzen/Google Drive/github/rOil/presentations/figures/gam_model_price_mc.png", 
-	width = 27.81, height = 21, units = "cm", res=50, pointsize=10)
-gam_model_price_mc
-dev.off()
-
-
-formula_0=formula(prod~time_to_peak + time_to_peak_sq + time_to_peak_cu + 
-	peak_to_end + peak_to_end_sq + peak_to_end_cu +size + price)
-
-
-
-
-
-gamm_mc_0<-replicate(1000, gam_mc(beta=0, formula=formula_0, 
-	fields=sim_fields, prices=prices))
-
-gamm_mc_0<-as.data.frame(gamm_mc_0)
-
-lin_model_price_mc<-ggplot(gamm_mc_0, aes(x=gamm_mc_0)) + 
-geom_histogram(aes(y=..density..)) +
-geom_density() +
-xlab("Estimated Coefficient on Price")
-
-png("/Users/johannesmauritzen/Google Drive/github/rOil/presentations/figures/lin_model_price_mc.png", 
-	width = 27.81, height = 21, units = "cm", res=50, pointsize=10)
-lin_model_price_mc
-dev.off()
 
 
 
