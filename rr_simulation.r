@@ -6,40 +6,33 @@ library(reshape2)
 library(zoo)
 library(sandwich)
 library(grid)
+library(rmarkdown)
 
+#render rmd file
+rmarkdown::render("/Users/johannesmauritzen/research/oil_prices/mc_sim.rmd")
 #make function that inputs simulated field_size and outputs simulated
+
 #first production year
 #should be so that large fields are found more often early on.  
 
-gen_year<-function(size, maxsize){
-	#Generates initial year as a function of size/maxsize
-	#test
-	#size=15
-	#maxsize=1267
-	#
-
-	#let small fields be distributed uniformly from 1975 to 2013
-	if(size<10){
-		year<-trunc(runif(1, 1975, 2008))	
-	} else{	#while large fields should be more common earlier on
-		range<-FALSE
-		while(range==FALSE){
-			year<-trunc(rnorm(1,mean=(1973+(maxsize+300)/(size+300)), sd=10))
-			ifelse(year>=1970 & year<=2013, range<-TRUE, range<-FALSE)
-			#print(paste("in while loop", year))
-			}	
+gen_year<-function(size){
+	#while large fields should be more common earlier - from a normal dist.
+	#with mean at 1970
+	#constrained to be between 1970 and 2013
+	range<-FALSE
+	while(range==FALSE){
+		year<-trunc(rnorm(1,mean=(1970), sd=10))
+		ifelse(year>=1970 & year<=1990, range<-TRUE, range<-FALSE)
 		}
-return(year)	
+		
+return(year)
 }
 
 
 #Simulation of data****************************************************************
 
 gen_production_shape<-function(field){
-	#Given size of field, generates production shape based on
-	#
-	#field<-c(20, 1990, 1)
-	#
+	#Given size of field, generates production shape
 	size<-as.numeric(field[1])
 	start<-as.numeric(field[2])
 	name<-field[3]
@@ -64,17 +57,12 @@ gen_production_shape<-function(field){
 add_uncertainty<-function(beta, fields){ 
 	fields$prod<-fields$prod_shape*
 		exp(beta*(fields$prices))*
-			rlnorm(length(fields$prices), meanlog=0, sdlog=.10)
+			rlnorm(length(fields$prices), meanlog=0, sdlog=.03)
 	return(fields)
 }
 
 run_gam<-function(formula, fields){
 	#runs GAM model and returns coefficient on price
-	# formula<-formula(prod~s(prod_years, bs="cr") + prices + size)
-
-	# beta<-0.05
-	# fields<-add_uncertainty(fields=sim_fields, beta=0)
-
 	gam_sim<-gam(formula,
 		family=gaussian(link=log), weights=size, data=fields, 
 		na.action='na.omit')
@@ -83,21 +71,11 @@ run_gam<-function(formula, fields){
 }
 
 run_glm<-function(formula, fields){
-	#test
-	#formula <- formula_glm
-	#fields <- sim_fields_unc
-	#test
-	
 	glm_sim<-lm(formula, data=fields)
 	return(coefficients(glm_sim)["prices"])
 }
 
 mc_run<-function(formula, use_gam=TRUE, fields, beta){
-	#adds uncertainty then runs regression
-	#test
-
-	# use_gam=TRUE
-	#
 	fields_unc<-add_uncertainty(fields=fields, beta=beta)
 	if(use_gam){
 		return(run_gam(formula, fields_unc))
@@ -109,13 +87,16 @@ mc_run<-function(formula, use_gam=TRUE, fields, beta){
 
 #****************************************************
 
-oil_price<-read.csv("research/oil_prices/data/oil_price.csv")
+oil_price<-read.csv("/Users/johannesmauritzen/research/oil_prices/data/oil_price.csv")
 
-
-max<-1267
-field_size<-round(exp(rnorm(40,mean=4, sd=1.5)), digits=1)
-init_year<-trunc(sapply(field_size, gen_year, maxsize=max))
+field_size<-round(exp(rnorm(80,mean=2, sd=1)), digits=1)
+field_size<-field_size[field_size>5]
+init_year<-trunc(sapply(field_size, gen_year))
 fields<-cbind(field_size, init_year,1:length(init_year))
+
+#alternatively
+#true_data<-read.csv('/Users/johannesmauritzen/research/oil_prices/data/field_data.csv')
+#fields<-data.frame(field_size=true_data$recoverable_oil, init_year=)
 
 #real price series
 prices<-oil_price[c("year", "oil_price_real")]
@@ -130,7 +111,7 @@ sim_fields<-merge(sim_fields, prices, by="year")
 sim_fields<-sim_fields[order(sim_fields$name, sim_fields$year),]
 
 #test adding uncertainty and chart
-sim_fields_unc<-add_uncertainty(fields=sim_fields, beta=0)
+sim_fields_unc<-add_uncertainty(fields=sim_fields, beta=0.05)
 
 simulated_production<-ggplot(sim_fields_unc)+
  geom_line(aes(x=year, y=prod, color=factor(name)),alpha=.3, size=1) +
@@ -139,20 +120,17 @@ simulated_production<-ggplot(sim_fields_unc)+
  theme_bw() +
  labs(x="", y="Simulated Production from Fields")
 
-formula_1<- formula(prod~s(prod_years, name, bs="re") +prices + size + s(year, bs="cr", k=4))
+formula_1<- formula(prod~s(prod_years, name, bs="re") + prices + size + s(year, bs="cr", k=4))
 formula_2<- formula(prod~s(prod_years, bs="cr") + prices + size + s(year, bs="cr", k=4))
 formula_3<- formula(prod~s(prod_years, bs="cr") + prices + size)
+formula_4<- formula(prod~s(prod_years, size) + prices + s(year, bs="cr", k=4))
 
-sim_fields_unc<-add_uncertainty(fields=sim_fields, beta=0)
-run_gam(formula=formula_3, fields=sim_fields_unc)
-
-gamm_mc_beta0<-replicate(100, mc_run(beta=0, formula=formula_1, fields=sim_fields, use_gam=TRUE))
-gamm_mc_beta05<-replicate(100, mc_run(beta=.05, formula=formula_1, fields=sim_fields, use_gam=TRUE))
-gamm_mc_beta0<-as.data.frame(gamm_mc_1)
-gamm_mc_data<-data.frame(beta0=gamm_mc_beta0, beta05=gamm_mc_beta05)
+gam_mc_beta0<-replicate(100, mc_run(beta=0, formula=formula_4, fields=sim_fields, use_gam=TRUE))
+gam_mc_beta05<-replicate(100, mc_run(beta=.05, formula=formula_4, fields=sim_fields, use_gam=TRUE))
+gam_mc_data<-data.frame(beta0=gam_mc_beta0, beta05=gam_mc_beta05)
 #write.csv(gamm_mc_data, "/Users/johannesmauritzen/research/oil_prices/mc_data.csv")
-gam_mc_data<-read.csv("/Users/johannesmauritzen/research/oil_prices/mc_data.csv")
-gam_mc_data$X<-NULL
+#gam_mc_data<-read.csv("/Users/johannesmauritzen/research/oil_prices/mc_data.csv")
+#gam_mc_data$X<-NULL
 gam_mc_data<-melt(gam_mc_data)
 colnames(gam_mc_data)<-c("beta", "coefficient")
 levels(gam_mc_data$beta)<-c("0", "0.05")
