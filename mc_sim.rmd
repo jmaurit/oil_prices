@@ -10,7 +10,7 @@ output:
 
 In this appendix, I use Monte Carlo simulations to motivate and verify the use of Generalized Additive Models in order to estimate the effect of price on production.  For the sake of the reproducibility, the full r-code and results are imbedded and explained in the document.  
 
-First, load some r packages that we will need
+First, we load some r packages that we will need:
 
 ```{r}
 library(ggplot2) #for plotting
@@ -19,26 +19,20 @@ library(mgcv) #for GAM modeling
 ```
 
 ##Functions
-Below is the code for a function that generates a starting year for an oil field conditional on the size of the oil field.  I could use the actual field sizes and starting years from the Norwegian Continental Shelf, but generating them randomly inserts a generality to the Monte Carlo results.  
+Below is the code for a function that generates a starting year for an oil field conditional on the size of the oil field.  I could use the actual field sizes and starting years from the Norwegian Continental Shelf, but generating them randomly inserts a generality to the Monte Carlo results. 
 
-The code takes as input the size of the field, in terms of recoverable oil, and then if the field is smaller than 10 returns a year uniformly distributed between 1970 and 2013.  If the size is larger than 10, then the starting year is taken from a constrained normal distribution with a mean at 1975.  This is meant to reflect the common industry pattern of "creaming" - where large finds tend to be found earlier and which is apparent in the actual field-time distribution on the Norwegian Continental Shelf.  
+The function generates a starting year for field production from a half-normal distribution with a mean at 1970, but constrained to be between 1970 to 2000.  This is meant to reflect the common industry pattern that most significant finds are found early in a regions activity.
 
 ```{r}
 gen_year<-function(size){
-	#Generates initial year as a function of size/maxsize
-	#let small fields be distributed uniformly from 1975 to 2013
-	if(size<10){
-		year<-trunc(runif(1, 1970, 2013))	
-	} else{	
-	#while large fields should be more common earlier - from a normal dist.
-	#with mean at 1975
-	#constrained to be between 1970 and 2013
-		range<-FALSE
-		while(range==FALSE){
-			year<-trunc(rnorm(1,mean=(1975), sd=10))
-			ifelse(year>=1970 & year<=2013, range<-TRUE, range<-FALSE)
-			}
+	#half-normal distribution with mean at 1970
+	#constrained to be between 1970 and 2000
+	range<-FALSE
+	while(range==FALSE){
+		year<-trunc(rnorm(1,mean=(1970), sd=10))
+		ifelse(year>=1970 & year<=2000, range<-TRUE, range<-FALSE)
 		}
+		
 return(year)
 }	
 ```
@@ -111,7 +105,7 @@ run_glm<-function(formula, fields){
 }
 ```
 
-The below function encapsulates the two core operations involved in each step of the Monte Carlo experiment. The effect of price and uncertainty are added to each field via the "add_uncertainty()" function.  Then either a GAM or GLM regression is fun on the data.
+The below function encapsulates the two core operations involved in each step of the Monte Carlo experiment. The effect of price and uncertainty are added to each field via the "add_uncertainty()" function.  Then either a GAM or GLM regression is run on the data.
 
 ```{r}
 mc_run<-function(formula, use_gam=TRUE, fields, beta){
@@ -186,7 +180,7 @@ colnames(glm_mc_data)<-c("beta", "coefficient")
 levels(glm_mc_data$beta)<-c("0", "0.05")
 ```
 
-Below we plot the results in the form of emperical density functions of the results.  The vertical black lines represent the true values of beta.  Clearly, the GLM estimation has a significant negative bias.
+Below we plot the results in the form of empirical density functions of the results.  The vertical black lines represent the true values of beta.  Clearly, the GLM estimation has a significant negative bias.
 ```{r, fig.width=8, fig.height=5, message=FALSE}
 ggplot(glm_mc_data, aes(x=coefficient, fill=beta)) +
 geom_density(alpha=.5, size=0) +
@@ -198,10 +192,10 @@ xlab("beta_hat, estimated by GLM") +
 ylab("Density")
 ```
 ### GAM Monte Carlo Experiment
-Below we set the formula as our preffered GAM model with field-level random effects and smooth terms for both the production years and for calendar time, the latter restricted to have a 4-knot basis.
+Below we set the formula as a slightly simplified version of our preffered GAM model. I have removed the cost index as this was not taken into account when generating the data.  For simplicity I also do not take into account lagged price terms as the main point of this monte-carlo experiment is to show how the production profile can be effectively controlled for.  
 
 ```{r}
-formula_1<- formula(prod~s(prod_years, name, bs="re") + prices + size + s(year, bs="cr", k=4))
+formula_1<- formula(prod~s(prod_years, size) + prices + year + I(year^2))
 ```
 
 We then run the Monte Carlo experiment 100 times, again setting $\beta=0$ and $\beta=0.05$.

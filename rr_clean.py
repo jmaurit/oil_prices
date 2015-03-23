@@ -149,3 +149,31 @@ def create_prod_year(year):
 prod_data['prod_year']=prod_data.groupby("name")["year"].transform(create_prod_year)
 
 prod_data.to_csv('/Users/johannesmauritzen/research/oil_prices/data/prod_data.csv', index=False)
+
+
+#add build-out dummy
+prod_data=pd.read_csv('/Users/johannesmauritzen/research/oil_prices/data/prod_data.csv')
+
+def build_out_phase(field):
+	"""
+	returns dummy variables with input of fields
+	"""
+	#test
+	#field=prod_data[prod_data.name=="STATFJORD"]
+	#
+	prod_max=field.oil_prod_mill_sm3.max()
+	year_max=field.year[field.oil_prod_mill_sm3==prod_max].max()
+	field["build_out"]=0
+	field["build_out"][field.year<year_max]=1
+	return(field.build_out)
+
+build_out=prod_data.groupby("name").apply(build_out_phase).reset_index()
+
+prod_data["build_out"]=build_out["build_out"]
+
+prod_data.to_csv('/Users/johannesmauritzen/research/oil_prices/data/prod_data.csv', index=False)
+
+
+
+
+

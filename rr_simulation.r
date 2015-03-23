@@ -57,7 +57,7 @@ gen_production_shape<-function(field){
 add_uncertainty<-function(beta, fields){ 
 	fields$prod<-fields$prod_shape*
 		exp(beta*(fields$prices))*
-			rlnorm(length(fields$prices), meanlog=0, sdlog=.03)
+			rlnorm(length(fields$prices), meanlog=0, sdlog=.05)
 	return(fields)
 }
 
@@ -123,7 +123,7 @@ simulated_production<-ggplot(sim_fields_unc)+
 formula_1<- formula(prod~s(prod_years, name, bs="re") + prices + size + s(year, bs="cr", k=4))
 formula_2<- formula(prod~s(prod_years, bs="cr") + prices + size + s(year, bs="cr", k=4))
 formula_3<- formula(prod~s(prod_years, bs="cr") + prices + size)
-formula_4<- formula(prod~s(prod_years, size) + prices + s(year, bs="cr", k=4))
+formula_4<- formula(prod~s(prod_years, size) + prices + year + I(year^2))
 
 gam_mc_beta0<-replicate(100, mc_run(beta=0, formula=formula_4, fields=sim_fields, use_gam=TRUE))
 gam_mc_beta05<-replicate(100, mc_run(beta=.05, formula=formula_4, fields=sim_fields, use_gam=TRUE))
