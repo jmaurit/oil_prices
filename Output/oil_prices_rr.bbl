@@ -1,4 +1,4 @@
-\begin{thebibliography}{31}
+\begin{thebibliography}{32}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -263,6 +263,16 @@ Simon Wood.
   Hall/{CRC} Texts in Statistical Science)}.
 \newblock Chapman and Hall/{CRC}, 1 edition edition, February 2006.
 \newblock ISBN 1584884746.
+
+\bibitem[Wood(2003)]{wood_thin_2003}
+Simon~N. Wood.
+\newblock Thin plate regression splines.
+\newblock \emph{Journal of the Royal Statistical Society: Series B (Statistical
+  Methodology)}, 65\penalty0 (1):\penalty0 95–114, 2003.
+\newblock ISSN 1467-9868.
+\newblock \doi{10.1111/1467-9868.00374}.
+\newblock URL
+  \url{http://onlinelibrary.wiley.com/doi/10.1111/1467-9868.00374/abstract}.
 
 \bibitem[Wood(2011)]{wood_fast_2011}
 Simon~N. Wood.

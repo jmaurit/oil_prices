@@ -53,13 +53,14 @@ coef<-gam_mod_2d$coefficients[5:13]
 se<-summary(gam_mod_2d)$p.table[5:13,2]
 ymin<-coef-2*se
 ymax<-coef+2*se
-gam_2d_coef<-data.frame(coef=coef, se=se, lag=0:8, ymin=ymin, ymax=ymax)
+gam_2d_coef<-data.frame(coef=coef, se=se, lag=0:8, ymin=ymin, ymax=ymax, type="2d Smooth Model")
 
-2d_coef_plot<-ggplot(gam_2d_coef) +
+coef_plot_2d<-ggplot(gam_2d_coef) +
 geom_pointrange(aes(x=lag, y=coef, ymin = ymin, ymax = ymax)) +
 geom_hline(aes(y=0)) +
 theme_bw() +
-labs(x="Lags", y="Estimated Coefficient on Oil Price")
+labs(x="Lags", y="Estimated Coefficient on Oil Price", 
+    title="2-dim. Smooth Model")
 
 
 #With random effects
@@ -76,13 +77,29 @@ coef<-gam_mod_re$coefficients[6:14]
 se<-summary(gam_mod_re)$p.table[6:14,2]
 ymin<-coef-2*se
 ymax<-coef+2*se
-gam_re<-data.frame(coef=coef, se=se, lag=0:8, ymin=ymin, ymax=ymax)
+gam_re<-data.frame(coef=coef, se=se, lag=0:8, ymin=ymin, ymax=ymax, type="Random Effects Model")
+
+model_coef<-rbind(gam_re, gam_2d_coef)
 
 re_coef_plot<-ggplot(gam_re) +
 geom_pointrange(aes(x=lag, y=coef, ymin = ymin, ymax = ymax)) +
 geom_hline(aes(y=0)) +
 theme_bw() +
-labs(x="Lags", y="Estimated Coefficient on Oil Price", main="Random Effects Model")
+labs(x="Lags", y="Estimated Coefficient on Oil Price", 
+   title="Random Effects Model")
+
+coef_plot<-ggplot(model_coef) +
+geom_pointrange(aes(x=lag, y=coef, ymin = ymin, ymax = ymax)) +
+geom_hline(aes(y=0)) +
+facet_wrap(~type, nrow=2) +
+theme_bw() +
+labs(x="Lags", y="Estimated Coefficient on Oil Price")
+
+png("/Users/johannesmauritzen/research/oil_prices/figures/price_coefficents.png",
+width = 25, height =15, units = "cm", res=150, pointsize=12) 
+print(coef_plot)
+dev.off()
+
 
 #Now create counterfactuals - 
 #oil price production if 30 dollars and 100 dollars
@@ -116,9 +133,9 @@ anova_mod2<-anova(gam_mod_re, gam_mod_re_lim_conc, test="F")
 anova_mod3<-anova(gam_mod_re_lim_conc,gam_mod_re_no_price, test="F")
 
 #list of results
-results<-list(gam_mod, gam_mod_re, gam_mod_re_lim_conc)
+results<-list(gam_mod, gam_mod_re, gam_mod_2d)
 texreg(results, 
-    custom.model.names = c("w/out Rand. Effects", "w Rand. Effects", "Lags 1-5"),
+    custom.model.names = c("w/out Rand. Effects", "w Rand. Effects", "2-d Smooth"),
     digits = 3,
     label = "GAM_model_table")
 

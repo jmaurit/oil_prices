@@ -128,7 +128,7 @@ formula_4<- formula(prod~s(prod_years, size) + prices + year + I(year^2))
 gam_mc_beta0<-replicate(100, mc_run(beta=0, formula=formula_4, fields=sim_fields, use_gam=TRUE))
 gam_mc_beta05<-replicate(100, mc_run(beta=.05, formula=formula_4, fields=sim_fields, use_gam=TRUE))
 gam_mc_data<-data.frame(beta0=gam_mc_beta0, beta05=gam_mc_beta05)
-#write.csv(gamm_mc_data, "/Users/johannesmauritzen/research/oil_prices/mc_data.csv")
+write.csv(gam_mc_data, "/Users/johannesmauritzen/research/oil_prices/mc_data.csv")
 #gam_mc_data<-read.csv("/Users/johannesmauritzen/research/oil_prices/mc_data.csv")
 #gam_mc_data$X<-NULL
 gam_mc_data<-melt(gam_mc_data)

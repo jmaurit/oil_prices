@@ -5,45 +5,45 @@ The style file: plainnat.bst
 Database file #1: oil_prices.bib
 Warning--empty institution in british_petroleum_statistical_2013
 Warning--empty publisher in r_core_team_r:_2013
-You've used 31 entries,
+You've used 32 entries,
             2773 wiz_defined-function locations,
-            830 strings with 11738 characters,
-and the built_in function-call counts, 12604 in all, are:
-= -- 1248
-> -- 463
-< -- 30
-+ -- 170
-- -- 138
-* -- 998
-:= -- 2021
-add.period$ -- 155
-call.type$ -- 31
-change.case$ -- 137
-chr.to.int$ -- 30
-cite$ -- 64
-duplicate$ -- 600
-empty$ -- 1104
-format.name$ -- 179
-if$ -- 2617
+            837 strings with 11885 characters,
+and the built_in function-call counts, 13032 in all, are:
+= -- 1292
+> -- 473
+< -- 31
++ -- 174
+- -- 141
+* -- 1032
+:= -- 2089
+add.period$ -- 161
+call.type$ -- 32
+change.case$ -- 141
+chr.to.int$ -- 31
+cite$ -- 66
+duplicate$ -- 620
+empty$ -- 1145
+format.name$ -- 183
+if$ -- 2708
 int.to.chr$ -- 2
 int.to.str$ -- 1
-missing$ -- 32
-newline$ -- 224
-num.names$ -- 124
-pop$ -- 207
+missing$ -- 33
+newline$ -- 232
+num.names$ -- 128
+pop$ -- 211
 preamble$ -- 1
-purify$ -- 108
+purify$ -- 111
 quote$ -- 0
-skip$ -- 394
+skip$ -- 407
 stack$ -- 0
-substring$ -- 506
-swap$ -- 51
+substring$ -- 532
+swap$ -- 52
 text.length$ -- 3
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 311
+type$ -- 322
 warning$ -- 2
-while$ -- 126
+while$ -- 130
 width$ -- 0
-write$ -- 527
+write$ -- 546
 (There were 2 warnings)

@@ -21,12 +21,12 @@ library(mgcv) #for GAM modeling
 ##Functions
 Below is the code for a function that generates a starting year for an oil field conditional on the size of the oil field.  I could use the actual field sizes and starting years from the Norwegian Continental Shelf, but generating them randomly inserts a generality to the Monte Carlo results. 
 
-The function generates a starting year for field production from a half-normal distribution with a mean at 1970, but constrained to be between 1970 to 2000.  This is meant to reflect the common industry pattern that most significant finds are found early in a regions activity.
+The function generates a starting year for field production from a half-normal distribution with a mean at 1970, but constrained to be between 1970 to 1990.  This is meant to reflect the common industry pattern that most significant finds are found early in a regions activity.
 
 ```{r}
-gen_year<-function(size){
+gen_year<-function(sizexz){
 	#half-normal distribution with mean at 1970
-	#constrained to be between 1970 and 2000
+	#constrained to be between 1970 and 1990
 	range<-FALSE
 	while(range==FALSE){
 		year<-trunc(rnorm(1,mean=(1970), sd=10))
@@ -79,12 +79,13 @@ where f is the logistic cumulative distribution function.
 add_uncertainty<-function(beta, fields){ 
 	fields$prod<-fields$prod_shape*
 		exp(beta*(fields$prices))*
-			rlnorm(length(fields$prices), meanlog=0, sdlog=.10)
+			rlnorm(length(fields$prices), meanlog=0, sdlog=.05)
 	return(fields)
 }
 ```
 
 The below function takes a regression formula and a data frame of field production data and runs a GAM regression, returning the coefficient on $prices$ variable.
+
 ```{r}
 run_gam<-function(formula, fields){
 	#runs GAM model and returns coefficient on price
@@ -98,6 +99,7 @@ run_gam<-function(formula, fields){
 ```
 
 The below function takes a formula and a data frame of field production data and runs a GLM model, returning the estimated coefficient on the $prices$ variable. 
+
 ```{r}
 run_glm<-function(formula, fields){	
 	glm_sim<-lm(formula, data=fields)
@@ -141,6 +143,7 @@ prices$prices<-prices$prices/10
 
 
 Now we create the simulated smoothed production profiles of the fields
+
 ```{r}
 sim_fields<-apply(fields, 1, gen_production_shape)
 sim_fields<-Reduce(rbind, sim_fields)
@@ -148,7 +151,8 @@ sim_fields<-merge(sim_fields, prices, by="year")
 sim_fields<-sim_fields[order(sim_fields$name, sim_fields$year),]
 ````
 
-Below we do a single run of generating production uncertainty, while setting the effect of prices to zero to visualize what the data looks like.  It looks reasonable.     
+Below we do a single run of generating production uncertainty, while setting the effect of prices to zero to visualize what the data looks like.  It looks reasonable. 
+
 ```{r ggplot, fig.width=8, fig.height=5, message=FALSE}
 sim_fields_unc<-add_uncertainty(fields=sim_fields, beta=0)
 ggplot(sim_fields_unc)+
@@ -158,8 +162,11 @@ ggplot(sim_fields_unc)+
  theme_bw() +
  labs(x="", y="Simulated Production from Fields")
  ```
-###GLM Monte Carlo Experiment
+
+##GLM Monte Carlo Experiment
+
 Lets start with a monte-carlo regression using standard GLM, using a 4th-degree polynomial in order to try to control for the production profile of the fields.  
+
 ```{r}
 formula_glm <- formula(I(log(prod)) ~ prod_years + I(prod_years^2) + I(prod_years^3) + 
 	I(prod_years^4) + size + prices + year + I(year^2) + I(year^3))
@@ -173,6 +180,7 @@ glm_mc_beta05<-replicate(100, mc_run(beta=0.05, formula=formula_glm, fields=sim_
 ```
 
 We transform the data in order to make it easier to visualize
+
 ```{r}
 glm_mc_data<-data.frame(beta0=glm_mc_beta0, beta05=glm_mc_beta05)
 glm_mc_data<-melt(glm_mc_data)
@@ -181,6 +189,7 @@ levels(glm_mc_data$beta)<-c("0", "0.05")
 ```
 
 Below we plot the results in the form of empirical density functions of the results.  The vertical black lines represent the true values of beta.  Clearly, the GLM estimation has a significant negative bias.
+
 ```{r, fig.width=8, fig.height=5, message=FALSE}
 ggplot(glm_mc_data, aes(x=coefficient, fill=beta)) +
 geom_density(alpha=.5, size=0) +
@@ -191,7 +200,9 @@ guides(fill=FALSE) +
 xlab("beta_hat, estimated by GLM") +
 ylab("Density")
 ```
-### GAM Monte Carlo Experiment
+
+## GAM Monte Carlo Experiment
+
 Below we set the formula as a slightly simplified version of our preffered GAM model. I have removed the cost index as this was not taken into account when generating the data.  For simplicity I also do not take into account lagged price terms as the main point of this monte-carlo experiment is to show how the production profile can be effectively controlled for.  
 
 ```{r}
@@ -207,6 +218,7 @@ gam_mc_beta05<-replicate(100, mc_run(beta=.05, formula=formula_1, fields=sim_fie
 
 
 Converting the data to a format for plotting
+
 ```{r}
 gam_mc_data<-data.frame(beta0=gam_mc_beta0, beta05=gam_mc_beta05)
 gam_mc_data<-melt(gam_mc_data)
@@ -215,7 +227,8 @@ levels(gam_mc_data$beta)<-c("0", "0.05")
 levels(gam_mc_data)
 ```
 
-Plotting the results, we see that the GAM model does a substantially better job of getting close to the "true" value.  
+Plotting the results, we see that the GAM model does a substantially better job of getting close to the "true" value. 
+
 ```{r, fig.width=8, fig.height=5, message=FALSE}
 ggplot(gam_mc_data, aes(x=coefficient, fill=beta)) +
 geom_density(alpha=.5, size=0) +

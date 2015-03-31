@@ -14,7 +14,6 @@ import statsmodels.api as sm
 
 
 
-
 #first on individual field data
 field_data=pd.read_csv('/Users/johannesmauritzen/research/oil_prices/data/field_data.csv')
 prod_data=pd.read_csv('/Users/johannesmauritzen/research/oil_prices/data/prod_data.csv')

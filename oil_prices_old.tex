@@ -178,7 +178,7 @@ Figure \ref{glm_dirty_box} shows the estimates of the coefficients on the oil pr
 \label{glm_dirty_box}
 \end{figure}
 
-This estimate is heavily biased downwards due to the spurious correlation between the field production profiles and the autocorrelated and non-stationary time series of oil prices.  A more formal analysis of the bias can be found in the online appendix, \url{jmaurit.github.io#oil_price_sim}, where I simulated data of oil field production in a monte carlo experiment.  However, the basic problem is that the parametric representation is not flexible enough to control for the production profiles of the fields.   Instead, a more flexible estimation of the production profile is needed. 
+This estimate is heavily biased downwards due to the spurious correlation between the field production profiles and the autocorrelated and non-stationary time series of oil prices.  A more formal analysis of the bias can be found in the on-line appendix, \url{jmaurit.github.io#oil_price_sim}, where I simulated data of oil field production in a monte carlo experiment.  However, the basic problem is that the parametric representation is not flexible enough to control for the production profiles of the fields.   Instead, a more flexible estimation of the production profile is needed. 
 
 Instead of attempting to estimate the shape of the production profiles of the fields by estimating parameters on linear terms I estimate a non-parametric function for the production profile.  As an illustration, consider the production profile of a single field.  The simplest possible model would then have the form of equation \ref{simp_eqn}. 
 

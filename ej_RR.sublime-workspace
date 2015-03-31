@@ -163,8 +163,26 @@
 			"file": "oil_prices_rr.tex",
 			"settings":
 			{
-				"buffer_size": 44159,
+				"buffer_size": 37686,
 				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "rr_descriptives.r",
+			"settings":
+			{
+				"buffer_size": 3253,
+				"line_ending": "Unix",
+				"name": "rr_descriptives.r"
+			}
+		},
+		{
+			"file": "rr_analysis_1.r",
+			"settings":
+			{
+				"buffer_size": 6549,
+				"line_ending": "Unix",
+				"name": "rr_analysis_1.r"
 			}
 		},
 		{
@@ -177,22 +195,10 @@
 			}
 		},
 		{
-			"file": "rr_analysis_1.r",
-			"settings":
-			{
-				"buffer_size": 6035,
-				"line_ending": "Unix",
-				"name": "rr_analysis_1.r"
-			}
-		},
-		{
-			"contents": "---\ntitle: \"Monte Carlo Simulations\"\noutput:\n  html_document:\n    toc: true\n    theme: united\n---\n\n#Appendix A: Monte Carlo Simulations\n\nIn this appendix, I use Monte Carlo simulations to motivate and verify the use of Generalized Additive Models in order to estimate the effect of price on production.  For the sake of the reproducibility, the full r-code and results are imbedded and explained in the document.  \n\nFirst, we load some r packages that we will need:\n\n```{r}\nlibrary(ggplot2) #for plotting\nlibrary(reshape2) #for some data manipulation\nlibrary(mgcv) #for GAM modeling\n```\n\n##Functions\nBelow is the code for a function that generates a starting year for an oil field conditional on the size of the oil field.  I could use the actual field sizes and starting years from the Norwegian Continental Shelf, but generating them randomly inserts a generality to the Monte Carlo results. \n\nThe function generates a starting year for field production from a half-normal distribution with a mean at 1970, but constrained to be between 1970 to 2000.  This is meant to reflect the common industry pattern that most significant finds are found early in a regions activity.\n\n```{r}\ngen_year<-function(sizexz){\n	#half-normal distribution with mean at 1970\n	#constrained to be between 1970 and 2000\n	range<-FALSE\n	while(range==FALSE){\n		year<-trunc(rnorm(1,mean=(1970), sd=10))\n		ifelse(year>=1970 & year<=2000, range<-TRUE, range<-FALSE)\n		}\n		\nreturn(year)\n}	\n```\n\nThe following function takes a variable field with three components: size, starting year, and id. It then generates a time grid of production proportional to the square root of the size.  It then generates a smooth cumulative time path of production based on the logistic function:\n\n$cumProd=\\frac{size}{1+exp(\\frac{-prodTime_t}{3})}$\n\nThe cumulative production series is then first-differenced to created the production profile of the field, and a data frame with the production shape and other field characteristics are returned. \n\n\n```{r}\ngen_production_shape<-function(field){\n	#Given size of field, generates production shape based on\n	#\n	#field<-c(20, 1990, 1)\n	#\n	size<-as.numeric(field[1])\n	start<-as.numeric(field[2])\n	name<-field[3]\n\n	t<-trunc(sqrt(size)) + 3\n	time<- -t:(t)\n	year<-start:(start+2*t-1)\n\n	#use a cumulative logistic function to represent shape of function\n	cum_production <- 1/(1+exp(-(time)/3))*size\n\n	#take difference to create production per year\n	prod_shape <- diff(cum_production)\n	prod_years <- 1:length(prod_shape)\n	production<-data.frame(year, prod_shape, name, size, prod_years)\n	return(production)\n}\n```\n\nThe next function takes input of a data frame with the smooth production profile and oil prices, as well as the \"true\" effect of oil price on production beta.  The oil price effect is then added to the production series as well as uncertainty in the form of a draws from a log-normal distribution.	The final production data can then be described as:\n\n$log(production) = f`(time) + beta*log(price) + epsilon$\n\nwhere f is the logistic cumulative distribution function.  \n\n```{r}\nadd_uncertainty<-function(beta, fields){ \n	fields$prod<-fields$prod_shape*\n		exp(beta*(fields$prices))*\n			rlnorm(length(fields$prices), meanlog=0, sdlog=.10)\n	return(fields)\n}\n```\n\nThe below function takes a regression formula and a data frame of field production data and runs a GAM regression, returning the coefficient on $prices$ variable.\n```{r}\nrun_gam<-function(formula, fields){\n	#runs GAM model and returns coefficient on price\n	\n	gam_sim<-gam(formula,\n		family=gaussian(link=log), weights=size, data=fields, \n		na.action='na.omit')\n	coefficients(gam_sim)\n	return(coefficients(gam_sim)[\"prices\"])\n}\n```\n\nThe below function takes a formula and a data frame of field production data and runs a GLM model, returning the estimated coefficient on the $prices$ variable. \n```{r}\nrun_glm<-function(formula, fields){	\n	glm_sim<-lm(formula, data=fields)\n	return(coefficients(glm_sim)[\"prices\"])\n}\n```\n\nThe below function encapsulates the two core operations involved in each step of the Monte Carlo experiment. The effect of price and uncertainty are added to each field via the \"add_uncertainty()\" function.  Then either a GAM or GLM regression is run on the data.\n\n```{r}\nmc_run<-function(formula, use_gam=TRUE, fields, beta){\n	#adds uncertainty then runs regression\n	#\n	fields_unc<-add_uncertainty(fields=fields, beta=beta)\n	if(use_gam){\n		return(run_gam(formula, fields_unc))\n	}\n	else{\n		return(run_glm(formula, fields_unc))\n	}\n}\n```\n\n##Generate fields\n\n```{r}\nfield_size<-round(exp(rnorm(40,mean=4, sd=1.5)), digits=1)\ninit_year<-trunc(sapply(field_size, gen_year))\nfields<-cbind(field_size, init_year,1:length(init_year))\n```\n\nThen, we can load the oil price data\n\n```{r}\noil_price<-read.csv(\"/Users/johannesmauritzen/research/oil_prices/data/oil_price.csv\")\nprices<-oil_price[c(\"year\", \"oil_price_real\")]\nnames(prices)<-c(\"year\", \"prices\")\n#change units to $10 to aid interpretation\nprices$prices<-prices$prices/10\n```\n\n\nNow we create the simulated smoothed production profiles of the fields\n```{r}\nsim_fields<-apply(fields, 1, gen_production_shape)\nsim_fields<-Reduce(rbind, sim_fields)\nsim_fields<-merge(sim_fields, prices, by=\"year\")\nsim_fields<-sim_fields[order(sim_fields$name, sim_fields$year),]\n````\n\nBelow we do a single run of generating production uncertainty, while setting the effect of prices to zero to visualize what the data looks like.  It looks reasonable.     \n```{r ggplot, fig.width=8, fig.height=5, message=FALSE}\nsim_fields_unc<-add_uncertainty(fields=sim_fields, beta=0)\nggplot(sim_fields_unc)+\n geom_line(aes(x=year, y=prod, color=factor(name)),alpha=.3, size=1) +\n guides(color=FALSE) +\n scale_color_grey(start=0, end=.3) +\n theme_bw() +\n labs(x=\"\", y=\"Simulated Production from Fields\")\n ```\n###GLM Monte Carlo Experiment\nLets start with a monte-carlo regression using standard GLM, using a 4th-degree polynomial in order to try to control for the production profile of the fields.  \n```{r}\nformula_glm <- formula(I(log(prod)) ~ prod_years + I(prod_years^2) + I(prod_years^3) + \n	I(prod_years^4) + size + prices + year + I(year^2) + I(year^3))\n```\n\nWe then do a 100 runs of the Monte Carlo experiment, setting the \"true\" effect of price, $beta=0$ and $beta=0.05$.  The latter being interpreted as a 10 dollar increase in the oil price leading to 5% more production.  \n\n```{r}\nglm_mc_beta0<-replicate(100, mc_run(beta=0, formula=formula_glm, fields=sim_fields, use_gam=FALSE))\nglm_mc_beta05<-replicate(100, mc_run(beta=0.05, formula=formula_glm, fields=sim_fields, use_gam=FALSE))\n```\n\nWe transform the data in order to make it easier to visualize\n```{r}\nglm_mc_data<-data.frame(beta0=glm_mc_beta0, beta05=glm_mc_beta05)\nglm_mc_data<-melt(glm_mc_data)\ncolnames(glm_mc_data)<-c(\"beta\", \"coefficient\")\nlevels(glm_mc_data$beta)<-c(\"0\", \"0.05\")\n```\n\nBelow we plot the results in the form of empirical density functions of the results.  The vertical black lines represent the true values of beta.  Clearly, the GLM estimation has a significant negative bias.\n```{r, fig.width=8, fig.height=5, message=FALSE}\nggplot(glm_mc_data, aes(x=coefficient, fill=beta)) +\ngeom_density(alpha=.5, size=0) +\ngeom_vline(aes(xintercept=c(0, 0.05))) +\nscale_fill_grey() +\ntheme_bw() +\nguides(fill=FALSE) +\nxlab(\"beta_hat, estimated by GLM\") +\nylab(\"Density\")\n```\n### GAM Monte Carlo Experiment\nBelow we set the formula as a slightly simplified version of our preffered GAM model. I have removed the cost index as this was not taken into account when generating the data.  For simplicity I also do not take into account lagged price terms as the main point of this monte-carlo experiment is to show how the production profile can be effectively controlled for.  \n\n```{r}\nformula_1<- formula(prod~s(prod_years, size) + prices + year + I(year^2))\n```\n\nWe then run the Monte Carlo experiment 100 times, again setting $\\beta=0$ and $\\beta=0.05$.\n\n```{r}\ngam_mc_beta0<-replicate(100, mc_run(beta=0, formula=formula_1, fields=sim_fields, use_gam=TRUE))\ngam_mc_beta05<-replicate(100, mc_run(beta=.05, formula=formula_1, fields=sim_fields, use_gam=TRUE))\n```\n\n\nConverting the data to a format for plotting\n```{r}\ngam_mc_data<-data.frame(beta0=gam_mc_beta0, beta05=gam_mc_beta05)\ngam_mc_data<-melt(gam_mc_data)\ncolnames(gam_mc_data)<-c(\"beta\", \"coefficient\")\nlevels(gam_mc_data$beta)<-c(\"0\", \"0.05\")\nlevels(gam_mc_data)\n```\n\nPlotting the results, we see that the GAM model does a substantially better job of getting close to the \"true\" value.  \n```{r, fig.width=8, fig.height=5, message=FALSE}\nggplot(gam_mc_data, aes(x=coefficient, fill=beta)) +\ngeom_density(alpha=.5, size=0) +\ngeom_vline(aes(xintercept=c(0, 0.05))) +\nxlab(\"beta_hat, estimated by GAM\") +\nylab(\"\") +\nscale_fill_grey() +\ntheme_bw()\n```\n\n\n\n\n",
 			"file": "mc_sim.rmd",
-			"file_size": 8790,
-			"file_write_time": 1427118817000000,
 			"settings":
 			{
-				"buffer_size": 8792,
+				"buffer_size": 8798,
 				"line_ending": "Unix",
 				"name": "mc_sim.rmd"
 			}
@@ -201,18 +207,7 @@
 			"file": "rr_simulation.r",
 			"settings":
 			{
-				"buffer_size": 5842,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"contents": "#rr_descriptives.py\n\n#Descriptives for revise and resubmit\n\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport matplotlib as mpl\nimport numpy as np\nimport sys\nimport seaborn as sns\nimport matplotlib.pyplot as plt\nimport random\nimport statsmodels.api as sm\n\n\n\n#first on individual field data\nfield_data=pd.read_csv('/Users/johannesmauritzen/research/oil_prices/data/field_data.csv')\nprod_data=pd.read_csv('/Users/johannesmauritzen/research/oil_prices/data/prod_data.csv')\n\n#remove fields with zero oil\n\nfield_data=field_data[field_data[\"in_place_oil_mill_sm3\"]!=0]\n\n#histogram of size, in terms of in place oil\nplt.hist(field_data[\"in_place_oil_mill_sm3\"], 50, facecolor='green', alpha=0.5)\nplt.hist(field_data[\"recoverable_oil\"], 50, facecolor='red', alpha=0.5)\nplt.show()\n\n#show scatter between recoverable and in_place_oil\nfig, ax = plt.subplots()\nax.scatter(x=field_data[\"in_place_oil_mill_sm3\"], y=field_data[\"recoverable_oil\"])\nplt.show()\n\n# Fit and summarize OLS model\nX=field_data[\"in_place_oil_mill_sm3\"]\nX=sm.add_constant(X)\nY=field_data[\"recoverable_oil\"]\nmod = sm.OLS(Y,X)\nresults = mod.fit()\nfitted=np.column_stack((results.fittedvalues, mod.exog[:,1]))\nx_fit=np.linspace(0, 1200, 100)\na,b=results.params\ny_fit = a+x_fit*b\n\n\n\n\nfig, ax = plt.subplots()\nax.scatter(x=field_data[\"in_place_oil_mill_sm3\"], y=field_data[\"recoverable_oil\"])\nax.plot(x_fit, y_fit)\nax.annotate('dy/dx~0.52', xy=(400,300), xytext=(300,300))\nfig.set_size_inches(5,4)\nfig.savefig('/Users/johannesmauritzen/research/oil_prices/figures/in_place_vs_recov.png',dpi=100)\n\nplt.show()\n\nprint res.summary()\n\n\nsns.lmplot(\"in_place_oil_mill_sm3\", \"recoverable_oil\", field_data, \n	scatter_kws={\"marker\": \".\", \"color\": \"slategray\"},\n          line_kws={\"linewidth\": 1, \"color\": \"seagreen\"})\nsns.axlabel(xlabel='In-place Oil (mill SM3)', ylabel='Estimated Recoverable Oil (mill SM3)')\nplt.show()\n\nplt.close()\n\n\n",
-			"file": "rr_descriptives.py",
-			"file_size": 1891,
-			"file_write_time": 1426776370000000,
-			"settings":
-			{
-				"buffer_size": 1890,
+				"buffer_size": 5840,
 				"line_ending": "Unix"
 			}
 		},
@@ -371,6 +366,7 @@
 	},
 	"file_history":
 	[
+		"/Users/johannesmauritzen/research/oil_prices/rr_descriptives.py",
 		"/Users/johannesmauritzen/research/oil_prices/rr_oil_bootstrap.r",
 		"/Users/johannesmauritzen/research/oil_prices/rr_analysis_alt_models.r",
 		"/Users/johannesmauritzen/Google Drive/Research/rOil/presentations/simulation_text.tex",
@@ -590,7 +586,7 @@
 	"groups":
 	[
 		{
-			"selected": 3,
+			"selected": 1,
 			"sheets":
 			[
 				{
@@ -625,20 +621,77 @@
 					"file": "oil_prices_rr.tex",
 					"settings":
 					{
-						"buffer_size": 44159,
+						"buffer_size": 37686,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								24096,
-								24096
+								537,
+								537
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/LaTeXing/support/LaTeX.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 2506.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "rr_descriptives.r",
+					"settings":
+					{
+						"buffer_size": 3253,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								173,
+								349
+							]
+						],
+						"settings":
+						{
+							"auto_name": "rr_descriptives.r",
+							"syntax": "Packages/R/R.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 210.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "rr_analysis_1.r",
+					"settings":
+					{
+						"buffer_size": 6549,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3054,
+								3042
+							]
+						],
+						"settings":
+						{
+							"auto_name": "rr_analysis_1.r",
+							"syntax": "Packages/R/R.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -647,7 +700,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 2,
+					"buffer": 4,
 					"file": "initial_response_to_editor.txt",
 					"settings":
 					{
@@ -674,48 +727,19 @@
 					"type": "text"
 				},
 				{
-					"buffer": 3,
-					"file": "rr_analysis_1.r",
-					"settings":
-					{
-						"buffer_size": 6035,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								84,
-								84
-							]
-						],
-						"settings":
-						{
-							"auto_name": "rr_analysis_1.r",
-							"syntax": "Packages/R/R.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 4,
+					"buffer": 5,
 					"file": "mc_sim.rmd",
 					"settings":
 					{
-						"buffer_size": 8792,
+						"buffer_size": 8798,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1208,
-								1208
+								1172,
+								1172
 							]
 						],
 						"settings":
@@ -725,57 +749,31 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 313.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "rr_simulation.r",
-					"settings":
-					{
-						"buffer_size": 5842,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								212,
-								212
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/R/R.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 792.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 6,
-					"file": "rr_descriptives.py",
+					"file": "rr_simulation.r",
 					"settings":
 					{
-						"buffer_size": 1890,
+						"buffer_size": 5840,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								266,
-								266
+								231,
+								308
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Python/Python.tmLanguage"
+							"syntax": "Packages/R/R.tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -795,17 +793,18 @@
 						"selection":
 						[
 							[
-								8566,
-								8566
+								363,
+								363
 							]
 						],
 						"settings":
 						{
 							"auto_name": "rr_clean.py",
-							"syntax": "Packages/Python/Python.tmLanguage"
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 4334.0,
+						"translation.y": 3523.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -822,8 +821,8 @@
 						"selection":
 						[
 							[
-								2321,
-								2382
+								2380,
+								2339
 							]
 						],
 						"settings":
@@ -832,7 +831,7 @@
 							"syntax": "Packages/Python/Python.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 1116.0,
+						"translation.y": 552.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -886,7 +885,7 @@
 							"syntax": "Packages/Text/Plain text.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 6667.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
