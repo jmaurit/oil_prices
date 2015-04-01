@@ -27,26 +27,26 @@ small_rec_oil<-sum(field_data["recoverable_oil"][field_data["recoverable_oil"]<=
 
 prod_data<-read.csv('/Users/johannesmauritzen/research/oil_prices/data/prod_data.csv')
 
-large_fields<-prod_data[prod_data["recoverable_oil"]>3,]
+large_fields<-prod_data[prod_data["recoverable_oil"]>5,]
 large_fields<-prod_data[prod_data["name"]!="EKOFISK",]
 
 
-gam_mod<-gam(oil_prod_mill_sm3~s(prod_year, bs="cr") + 
+gam_mod<-gam(oil_prod_mill_sm3~s(prod_year, bs="cr") +
 	I(in_place_oil_mill_sm3/100) + I(cost_index/10) +
     year + I(year^2) + I(price/10) + I(price_l1/10) + I(price_l2/10) +
-    I(price_l3) + I(price_l4) + I(price_l5/10) + I(price_l6/10) + 
+    I(price_l3/10) + I(price_l4/10) + I(price_l5/10) + I(price_l6/10) + 
     I(price_l7/10) + I(price_l8/10), 
-    family=gaussian(link=log), weights=in_place_oil_mill_sm3, data=large_fields)
+    family=gaussian(link=log), data=large_fields)
 summary(gam_mod)
 
 
-
-gam_mod_2d<-gam(oil_prod_mill_sm3~s(prod_year, in_place_oil_mill_sm3) + 
-  + I(cost_index/10) +
-    year + I(year^2) + (year^3) + I(price/10) + I(price_l1/10) + I(price_l2/10) +
+gam_mod_2d<-gam(oil_prod_mill_sm3~s(prod_year, in_place_oil_mill_sm3) +
+    s(name, bs="re") +
+    I(cost_index/10) +
+    year + I(year^2) + I(price/10) + I(price_l1/10) + I(price_l2/10) +
     I(price_l3/10) + I(price_l4/10) + I(price_l5/10) + I(price_l6/10) + 
     I(price_l7/10) + I(price_l8/10), 
-    family=gaussian(link=log), weights=in_place_oil_mill_sm3, data=large_fields)
+    family=gaussian(link=log), I(in_place_oil_mill_sm3/100), data=large_fields)
 summary(gam_mod_2d)
 
 coef<-gam_mod_2d$coefficients[5:13]
@@ -66,12 +66,14 @@ labs(x="Lags", y="Estimated Coefficient on Oil Price",
 #With random effects
 
 gam_mod_re<-gam(oil_prod_mill_sm3~s(prod_year, name, bs="re") + 
-	I(in_place_oil_mill_sm3/100) + I(cost_index/10) +
-     year + I(year^2) + I(price/10) + I(price_l1/10) + I(price_l2/10) + 
-     I(price_l3/10) + I(price_l4/10) + I(price_l5/10) + I(price_l6/10) + 
-     I(price_l7/10) + I(price_l8/10), 
-     family=gaussian(link=log), weights=in_place_oil_mill_sm3, data=large_fields)
+	I(in_place_oil_mill_sm3/100) + I(in_place_oil_mill_sm3/100) + I(cost_index/10) +
+    year + I(year^2) + I(price/10) + I(price_l1/10) + I(price_l2/10) +
+    I(price_l3/10) + I(price_l4/10) + I(price_l5/10) + I(price_l6/10) + 
+    I(price_l7/10) + I(price_l8/10), 
+     family=gaussian(link=log), weights=I(in_place_oil_mill_sm3/100), data=large_fields)
 summary(gam_mod_re)
+
+#weights=I(in_place_oil_mill_sm3/100) ,
 
 coef<-gam_mod_re$coefficients[6:14]
 se<-summary(gam_mod_re)$p.table[6:14,2]

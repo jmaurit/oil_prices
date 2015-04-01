@@ -163,7 +163,7 @@
 			"file": "oil_prices_rr.tex",
 			"settings":
 			{
-				"buffer_size": 37686,
+				"buffer_size": 41066,
 				"line_ending": "Unix"
 			}
 		},
@@ -621,15 +621,15 @@
 					"file": "oil_prices_rr.tex",
 					"settings":
 					{
-						"buffer_size": 37686,
+						"buffer_size": 41066,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								537,
-								537
+								28706,
+								28706
 							]
 						],
 						"settings":
@@ -637,7 +637,7 @@
 							"syntax": "Packages/LaTeXing/support/LaTeX.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 2506.0,
+						"translation.y": 13538.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -682,8 +682,8 @@
 						"selection":
 						[
 							[
-								3054,
-								3042
+								1073,
+								1073
 							]
 						],
 						"settings":
@@ -694,7 +694,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 706.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"

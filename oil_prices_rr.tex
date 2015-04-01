@@ -173,13 +173,23 @@ In this model I am estimating the parameters and functions from all fields $i$. 
 
 $f(year_t)$ represents a function of the calendar year.  The main purpose of including this term is to control for the effects of technological change.  I could use a smoothed function here as well, however in order to avoid over fitting the model, I use a simple quadratic representation. 
 
-Finally, $oil\_price\_lags_t$ represents the variables of interest - a vector of concurrent and up to 8 lagged terms for the oil price. I also experimented with using quadratic terms for the oil price and its lags, however these could not be shown to be significant. 
+Finally, $oil\_price\_lags_t$ represents the variables of interest - a vector of concurrent and lagged terms for the oil price. Initially I included eight lagged terms of the oil price, however in the preferred specification I drop lags 5 through 8 as they where not individually significant, nor as a group did they improve the fit of the model - as tested by an F-test. I also experimented with using quadratic terms for the oil price and its lags, however these could not be shown to be significant. 
 
-The smoothed function is estimated using a cubic regression spline...
+The smoothed function is estimated using a cubic regression spline. Here a cubic polynomial function is used to fit the shape in sections, separated at points known as knots, but continuous up to the second derivative.  The major advantage of this method, is that it can be represented in linear form $\boldsymbol{X \beta} $, and thus normal matrix algebra techniques can be used.  
 
-One objection to this model may be that a fixed effect controlling for the general production profile of oil fields does not sufficiently address idiosyncratic differences between the fields. To address this I can add the term, $\beta_r Z$, where $Z$ represents field random effects that takes into account uncertainty based on random variation between the fields.
+The model is then fit by minimizing,
 
-Another substantial objection may be that the smoothed function of production time may not be sufficient in controlling for the variation in production profiles shapes across fields.  In particular, production profiles differ substantially by the size of the field. A solution is to allow the shape to vary by production.  Thus the smoothed can be written as a function of both production time and in place oil: $f(production\_time_{i,t}, in\_place\_oil_{i,t})$.
+\begin{equation}
+
+||\boldsymbol{y} - \boldsymbol{X\beta} ||^2 + \lambda \int_{0}^{1} [f´´(x)]^2dx
+
+\end{equation}
+
+The latter term, an estimate of the second derivative of the function, acts a penalty for the ``wiggiliness'' of the function. The total smoothness can then be controlled by adjusting the $\lambda$ term. However, instead of setting this arbitrarily, cross-validation is used. Intuitively, each data point is left out and the smooth term that provides the best predicted fit for each data point is chosen.  For further details on the cubic regression spline, I refer to \citet{wood_generalized_2006}.
+
+One objection to this model may be that a fixed effect controlling for the general production profile of oil fields does not sufficiently address idiosyncratic differences between the fields. To address this I can add field random effects that takes into account uncertainty based on random variation between the fields. The smoothed function can then be written as $f(production\_time_{i,t})*Z$.  Where $Z~N(0, \sigma)$ and $\sigma$ is to be estimated.  
+
+Another potential issue may be that the smoothed function of production time may not be sufficient in controlling for the variation in production profiles shapes across fields.  In particular, production profiles differ substantially by the size of the field. A solution is to allow the shape to vary by production.  Thus the smoothed can be written as a function of both production time and in place oil: $f(production\_time_{i,t}, in\_place\_oil_{i,t})$.
 
 Estimating a smoothed function of two variables requires a somewhat more involved method.  In particular I use Thin-plate regression spline \citep{wood_thin_2003}. Consider equation \ref{thin_plate_1}. 
 
@@ -202,7 +212,9 @@ $J_{22}$ represents the penalty function for the smoothness of the function whic
 \label{thin_plate_3}
 	\end{equation}
 
-In short, a function of $x_1$ and $x_2$ is found that is minimizing errors in the sense of minimizing Euclidean distance subject to a penalty function of “wiggiliness”.  The actual implementation is somewhat more involved in order to increase the computational efficiency of the estimation.  For further details I again refer to \citet{wood_thin_2003}.
+In short, a function of $x_1$ and $x_2$ is found that is minimizing errors in the sense of minimizing Euclidean distance subject to a penalty function of “wiggiliness”.  The actual implementation is somewhat more involved in order to increase the computational efficiency of the estimation.  For further details I again refer to \citet{wood_thin_2003}. 
+
+In the formulation with a two-dimensional smoothed function, it is not possible to estimate a random effects component for computational reasons. 
 
 \section{The Effect of Oil Price on Field Production}
 
