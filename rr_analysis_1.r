@@ -12,7 +12,6 @@ library(lubridate)
 library(grid)
 library(boot)
 library(arm)
-library(gamm4)
 library(lme4)
 library(nlme)
 library(texreg)
@@ -33,21 +32,46 @@ large_fields<-prod_data[prod_data["name"]!="EKOFISK",]
 
 gam_mod<-gam(oil_prod_mill_sm3~s(prod_year, bs="cr") +
 	I(in_place_oil_mill_sm3/100) + I(cost_index/10) +
-    year + I(year^2) + I(price/10) + I(price_l1/10) + I(price_l2/10) +
+    s(year, bs="cr", k=4) + I(price/10) + I(price_l1/10) + I(price_l2/10) +
     I(price_l3/10) + I(price_l4/10) + I(price_l5/10) + I(price_l6/10) + 
     I(price_l7/10) + I(price_l8/10), 
-    family=gaussian(link=log), data=large_fields)
+    family=gaussian(link=log), weights=I(in_place_oil_mill_sm3/100), data=large_fields)
 summary(gam_mod)
+#,weights=I(in_place_oil_mill_sm3/100)
+
+#terms
+
+pdat <- with(large_fields,
+             data.frame(prod_year = round(seq(min(prod_year), max(prod_year), length = 36)),
+                        year = round(seq(min(year), max(year), length = 36)),
+                        oil_prod_mill_sm3 = rep(mean(oil_prod_mill_sm3), 36),
+                        in_place_oil_mill_sm3 = rep(mean(in_place_oil_mill_sm3), 36),
+                        cost_index = rep(mean(cost_index), 36),
+                        price = rep(mean(price), 36),
+                        price_l1 = rep(mean(price_l1), 36),
+                        price_l2= rep(mean(price_l2), 36),
+                        price_l3= rep(mean(price_l3), 36),
+                        price_l4 = rep(mean(price_l4), 36),
+                        price_l5= rep(mean(price_l5), 36),
+                        price_l6 = rep(mean(price_l6), 36),
+                        price_l7 = rep(mean(price_l7), 36),
+                        price_l8= rep(mean(price_l8), 36)
+                        ))
+pred2 <- predict(gam_mod, pdat, type = "terms", se.fit = TRUE)
+pred2$fit
+pred2$se
 
 
 gam_mod_2d<-gam(oil_prod_mill_sm3~s(prod_year, in_place_oil_mill_sm3) +
-    s(name, bs="re") +
+    s(year, bs="cr", k=4) +
     I(cost_index/10) +
-    year + I(year^2) + I(price/10) + I(price_l1/10) + I(price_l2/10) +
+     I(price/10) + I(price_l1/10) + I(price_l2/10) +
     I(price_l3/10) + I(price_l4/10) + I(price_l5/10) + I(price_l6/10) + 
     I(price_l7/10) + I(price_l8/10), 
-    family=gaussian(link=log), I(in_place_oil_mill_sm3/100), data=large_fields)
+    family=gaussian(link=log), weights=I(in_place_oil_mill_sm3/100), data=large_fields)
 summary(gam_mod_2d)
+#, weights=I(in_place_oil_mill_sm3/100)
+#year + I(year^2) +
 
 coef<-gam_mod_2d$coefficients[5:13]
 se<-summary(gam_mod_2d)$p.table[5:13,2]
@@ -66,8 +90,9 @@ labs(x="Lags", y="Estimated Coefficient on Oil Price",
 #With random effects
 
 gam_mod_re<-gam(oil_prod_mill_sm3~s(prod_year, name, bs="re") + 
+    s(year, bs="cr", k=4) +
 	I(in_place_oil_mill_sm3/100) + I(in_place_oil_mill_sm3/100) + I(cost_index/10) +
-    year + I(year^2) + I(price/10) + I(price_l1/10) + I(price_l2/10) +
+    I(price/10) + I(price_l1/10) + I(price_l2/10) +
     I(price_l3/10) + I(price_l4/10) + I(price_l5/10) + I(price_l6/10) + 
     I(price_l7/10) + I(price_l8/10), 
      family=gaussian(link=log), weights=I(in_place_oil_mill_sm3/100), data=large_fields)
@@ -75,8 +100,8 @@ summary(gam_mod_re)
 
 #weights=I(in_place_oil_mill_sm3/100) ,
 
-coef<-gam_mod_re$coefficients[6:14]
-se<-summary(gam_mod_re)$p.table[6:14,2]
+coef<-gam_mod_re$coefficients[4:12]
+se<-summary(gam_mod_re)$p.table[4:12,2]
 ymin<-coef-2*se
 ymax<-coef+2*se
 gam_re<-data.frame(coef=coef, se=se, lag=0:8, ymin=ymin, ymax=ymax, type="Random Effects Model")

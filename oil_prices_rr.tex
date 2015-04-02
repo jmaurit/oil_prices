@@ -191,7 +191,7 @@ One objection to this model may be that a fixed effect controlling for the gener
 
 Another potential issue may be that the smoothed function of production time may not be sufficient in controlling for the variation in production profiles shapes across fields.  In particular, production profiles differ substantially by the size of the field. A solution is to allow the shape to vary by production.  Thus the smoothed can be written as a function of both production time and in place oil: $f(production\_time_{i,t}, in\_place\_oil_{i,t})$.
 
-Estimating a smoothed function of two variables requires a somewhat more involved method.  In particular I use Thin-plate regression spline \citep{wood_thin_2003}. Consider equation \ref{thin_plate_1}. 
+Estimating a smoothed function of two variables requires a somewhat more involved method.  In particular, a Thin-plate regression spline \citep{wood_thin_2003} is used. Consider equation \ref{thin_plate_1}. 
 
 	\begin{equation}
 	y_i = g(x_1, x_2)
@@ -214,7 +214,7 @@ $J_{22}$ represents the penalty function for the smoothness of the function whic
 
 In short, a function of $x_1$ and $x_2$ is found that is minimizing errors in the sense of minimizing Euclidean distance subject to a penalty function of “wiggiliness”.  The actual implementation is somewhat more involved in order to increase the computational efficiency of the estimation.  For further details I again refer to \citet{wood_thin_2003}. 
 
-In the formulation with a two-dimensional smoothed function, it is not possible to estimate a random effects component for computational reasons. 
+Unfortunately, In the formulation with a two-dimensional smoothed function, it is not possible to estimate a random effects component for computational reasons. 
 
 \section{The Effect of Oil Price on Field Production}
 
@@ -228,55 +228,49 @@ Alternatively, a change in price of oil can be seen as a lifting of a production
 \hline
                                              & w/out Rand. Effects & w Rand. Effects & 2-d Smooth \\
 \hline
-(Intercept)                                  & $-28746.236^{***}$ & $-70463.727^{***}$ & $-58741.031^{***}$ \\
-                                             & $(3386.956)$       & $(2942.538)$       & $(2959.556)$       \\
-I(in\_place\_oil\_mill\_sm3/100)             & $0.333^{***}$      & $-0.028$           &                    \\
-                                             & $(0.009)$          & $(0.023)$          &                    \\
-I(cost\_index/10)                            & $-0.005$           & $-0.019^{***}$     & $-0.000$           \\
-                                             & $(0.006)$          & $(0.006)$          & $(0.004)$          \\
-year                                         & $28.793^{***}$     & $70.938^{***}$     & $58.352^{***}$     \\
-                                             & $(3.393)$          & $(2.951)$          & $(2.955)$          \\
-I(year^2)                                    & $-0.007^{***}$     & $-0.018^{***}$     & $-0.015^{***}$     \\
-                                             & $(0.001)$          & $(0.001)$          & $(0.001)$          \\
-I(price/10)                                  & $0.030$            & $0.026$            & $0.008$            \\
-                                             & $(0.015)$          & $(0.015)$          & $(0.010)$          \\
-I(price\_l1/10)                              & $0.050^{**}$       & $0.034^{*}$        & $0.020$            \\
-                                             & $(0.016)$          & $(0.015)$          & $(0.010)$          \\
-I(price\_l2/10)                              & $0.070^{***}$      & $0.058^{***}$      & $0.055^{***}$      \\
-                                             & $(0.017)$          & $(0.015)$          & $(0.010)$          \\
-I(price\_l3)                                 & $0.004^{*}$        &                    &                    \\
-                                             & $(0.002)$          &                    &                    \\
-I(price\_l4)                                 & $0.003$            &                    &                    \\
-                                             & $(0.002)$          &                    &                    \\
-I(price\_l5/10)                              & $-0.008$           & $0.010$            & $-0.003$           \\
-                                             & $(0.013)$          & $(0.012)$          & $(0.008)$          \\
-I(price\_l6/10)                              & $-0.001$           & $0.007$            & $-0.003$           \\
-                                             & $(0.012)$          & $(0.011)$          & $(0.008)$          \\
-I(price\_l7/10)                              & $0.009$            & $0.008$            & $0.002$            \\
-                                             & $(0.012)$          & $(0.011)$          & $(0.008)$          \\
-I(price\_l8/10)                              & $-0.004$           & $-0.001$           & $-0.021^{***}$     \\
-                                             & $(0.010)$          & $(0.009)$          & $(0.006)$          \\
-EDF: s(prod\_year)                           & $6.505^{***}$      &                    &                    \\
-                                             & $(7.326)$          &                    &                    \\
-I(price\_l3/10)                              &                    & $0.024$            & $0.031^{**}$       \\
-                                             &                    & $(0.015)$          & $(0.010)$          \\
-I(price\_l4/10)                              &                    & $0.046^{***}$      & $0.026^{**}$       \\
-                                             &                    & $(0.013)$          & $(0.009)$          \\
-EDF: s(prod\_year,name)                      &                    & $33.287^{***}$     &                    \\
-                                             &                    & $(72.000)$         &                    \\
-EDF: s(prod\_year,in\_place\_oil\_mill\_sm3) &                    &                    & $28.195^{***}$     \\
-                                             &                    &                    & $(28.469)$         \\
+(Intercept)                                  & $0.335^{*}$    & $-4.017^{***}$ & $-574.287^{***}$ \\
+                                             & $(0.146)$      & $(0.183)$      & $(51.125)$       \\
+I(in\_place\_oil\_mill\_sm3/100)             & $0.337^{***}$  & $-0.014$       &                  \\
+                                             & $(0.005)$      & $(0.014)$      &                  \\
+I(cost\_index/10)                            & $-0.018^{***}$ & $-0.030^{***}$ & $-0.014^{***}$   \\
+                                             & $(0.003)$      & $(0.003)$      & $(0.002)$        \\
+I(price/10)                                  & $-0.006$       & $0.014$        & $0.007$          \\
+                                             & $(0.009)$      & $(0.010)$      & $(0.006)$        \\
+I(price\_l1/10)                              & $0.004$        & $0.021^{*}$    & $0.015^{*}$      \\
+                                             & $(0.010)$      & $(0.010)$      & $(0.006)$        \\
+I(price\_l2/10)                              & $0.037^{***}$  & $0.047^{***}$  & $0.048^{***}$    \\
+                                             & $(0.009)$      & $(0.010)$      & $(0.006)$        \\
+I(price\_l3/10)                              & $0.030^{***}$  & $0.025^{**}$   & $0.033^{***}$    \\
+                                             & $(0.009)$      & $(0.009)$      & $(0.006)$        \\
+I(price\_l4/10)                              & $0.003$        & $0.043^{***}$  & $0.028^{***}$    \\
+                                             & $(0.008)$      & $(0.008)$      & $(0.005)$        \\
+I(price\_l5/10)                              & $-0.020^{**}$  & $0.012$        & $-0.001$         \\
+                                             & $(0.007)$      & $(0.007)$      & $(0.005)$        \\
+I(price\_l6/10)                              & $-0.010$       & $0.008$        & $-0.001$         \\
+                                             & $(0.007)$      & $(0.007)$      & $(0.004)$        \\
+I(price\_l7/10)                              & $-0.008$       & $0.007$        & $0.004$          \\
+                                             & $(0.007)$      & $(0.007)$      & $(0.004)$        \\
+I(price\_l8/10)                              & $-0.044^{***}$ & $-0.011$       & $-0.027^{***}$   \\
+                                             & $(0.006)$      & $(0.007)$      & $(0.004)$        \\
+EDF: s(prod\_year)                           & $6.381^{***}$  &                &                  \\
+                                             & $(7.249)$      &                &                  \\
+EDF: s(year)                                 & $2.768^{***}$  & $3.000^{***}$  & $3.000^{***}$    \\
+                                             & $(2.956)$      & $(3.000)$      & $(3.000)$        \\
+EDF: s(prod\_year,name)                      &                & $33.002^{***}$ &                  \\
+                                             &                & $(72.000)$     &                  \\
+EDF: s(prod\_year,in\_place\_oil\_mill\_sm3) &                &                & $27.445^{***}$   \\
+                                             &                &                & $(27.895)$       \\
 \hline
-AIC                                          &                    &                    &                    \\
-BIC                                          &                    &                    &                    \\
-Log Likelihood                               &                    &                    &                    \\
-Deviance                                     & 2391636.349        & 1980765.291        & 914018.219         \\
-Deviance explained                           & 0.843              & 0.870              & 0.940              \\
-Dispersion                                   & 1850.403           & 1564.940           & 718.678            \\
-R$^2$                                        & 0.835              & 0.865              & 0.937              \\
-GCV score                                    & 1879.759           & 1623.406           & 741.957            \\
-Num. obs.                                    & 1088               & 1088               & 1088               \\
-Num. smooth terms                            & 1                  & 1                  & 1                  \\
+AIC                                          &                &                &                  \\
+BIC                                          &                &                &                  \\
+Log Likelihood                               &                &                &                  \\
+Deviance                                     & 23062.678      & 19765.833      & 9057.204         \\
+Deviance explained                           & 0.848          & 0.870          & 0.940            \\
+Dispersion                                   & 5.410          & 5.965          & 2.325            \\
+R$^2$                                        & 0.841          & 0.865          & 0.938            \\
+GCV score                                    & 18.145         & 16.218         & 7.355            \\
+Num. obs.                                    & 1088           & 1088           & 1088             \\
+Num. smooth terms                            & 2              & 2              & 2                \\
 \hline
 \multicolumn{4}{l}{\scriptsize{$^{***}p<0.001$, $^{**}p<0.01$, $^*p<0.05$}}
 \end{tabular}
