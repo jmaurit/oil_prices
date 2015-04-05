@@ -169,9 +169,9 @@ A simple model can be written as in equation \ref{gam_price_eqn}.
 \end{split}
 \end{equation}
 
-In this model I am estimating the parameters and functions from all fields $i$. The left-hand-side variable, $Log(production_{i,t})$ is the yearly oil production for field $i$ at production time $t$ in millions of standard cubic meters (SM3).  On the right hand side is a smoothed function of the production profile over time $f(production\_time_{i,t})$, $in\_place\_oil_{i,t}$ is the estimated in place oil of the field, and $cost\_index_{t}$ represents the producer price index for oil and gas extraction. 
+In this model I am estimating the parameters and functions from all fields $i$. The left-hand-side variable, $Log(production_{i,t})$ is the log of yearly oil production for field $i$ at production time $t$ in millions of standard cubic meters (SM3).  On the right hand side is a smoothed function of the production profile over time $f(production\_time_{i,t})$; $in\_place\_oil_{i,t}$ is the estimated in place oil of the field, and $cost\_index_{t}$ represents the producer price index for oil and gas extraction. 
 
-$f(year_t)$ represents a function of the calendar year.  The main purpose of including this term is to control for the effects of technological change.  I could use a smoothed function here as well, however in order to avoid over fitting the model, I use a simple quadratic representation. 
+$f(year_t)$ represents a function of the calendar year.  The main purpose of including this term is to control for the effects of technological change.
 
 Finally, $oil\_price\_lags_t$ represents the variables of interest - a vector of concurrent and lagged terms for the oil price. Initially I included eight lagged terms of the oil price, however in the preferred specification I drop lags 5 through 8 as they where not individually significant, nor as a group did they improve the fit of the model - as tested by an F-test. I also experimented with using quadratic terms for the oil price and its lags, however these could not be shown to be significant. 
 
@@ -187,7 +187,19 @@ The model is then fit by minimizing,
 
 The latter term, an estimate of the second derivative of the function, acts a penalty for the ``wiggiliness'' of the function. The total smoothness can then be controlled by adjusting the $\lambda$ term. However, instead of setting this arbitrarily, cross-validation is used. Intuitively, each data point is left out and the smooth term that provides the best predicted fit for each data point is chosen.  For further details on the cubic regression spline, I refer to \citet{wood_generalized_2006}.
 
-One objection to this model may be that a fixed effect controlling for the general production profile of oil fields does not sufficiently address idiosyncratic differences between the fields. To address this I can add field random effects that takes into account uncertainty based on random variation between the fields. The smoothed function can then be written as $f(production\_time_{i,t})*Z$.  Where $Z~N(0, \sigma)$ and $\sigma$ is to be estimated.  
+The advantage of this simple model that use smoothed functions of single-variable cubic regression splines is that the smoothed terms can be interpreted directly, and thus we can do a visual check of their appropriateness. The top panel of figure \ref{smooths} shows the estimated smoothed function of the field production profile, where all other co-variates are held at their average value.  The function appears reasonable, showing the expected pattern of an initial build-out period followed by an extended depletion phase. 
+
+In the second panel, the smoothed function of calendar time $year_t$ is shown. Here a cubic regression spline is also used, however the number of knots is restricted to four in order to avoid over-fitting - capturing gradual trends over time like technological change, but not the variation  caused by volatile oil prices. The function increases strongly in the early period, likely reflecting the effects of learning and technological change in a new industry in Norwegian waters, while flattening out in the latter years. 
+
+Extended differences in the oil price will likely have some long-term effects on technology and learning, which in turn may be picked up in the smoothed function here, rather than in the parametric price terms.  I discuss this further in the conclusion.  
+
+\begin{figure}
+	\includegraphics[width=1\textwidth]{figures/smooths.png}
+	\caption{The estimated smoothed functions over production time and calendar time.}
+	\label{smooths}
+\end{figure}
+
+One objection to the simple model is that a fixed effect controlling for the general production profile of oil fields does not sufficiently address idiosyncratic differences between the fields. To address this I can add field random effects that takes into account uncertainty based on random variation between the fields in the estimation. The smoothed function can then be written as $f(production\_time_{i,t})*Z$.  Where $Z~N(0, \sigma)$ and $\sigma$ is the variance term to be estimated.  
 
 Another potential issue may be that the smoothed function of production time may not be sufficient in controlling for the variation in production profiles shapes across fields.  In particular, production profiles differ substantially by the size of the field. A solution is to allow the shape to vary by production.  Thus the smoothed can be written as a function of both production time and in place oil: $f(production\_time_{i,t}, in\_place\_oil_{i,t})$.
 
@@ -214,13 +226,15 @@ $J_{22}$ represents the penalty function for the smoothness of the function whic
 
 In short, a function of $x_1$ and $x_2$ is found that is minimizing errors in the sense of minimizing Euclidean distance subject to a penalty function of “wiggiliness”.  The actual implementation is somewhat more involved in order to increase the computational efficiency of the estimation.  For further details I again refer to \citet{wood_thin_2003}. 
 
-Unfortunately, In the formulation with a two-dimensional smoothed function, it is not possible to estimate a random effects component for computational reasons. 
+Unfortunately, estimating a random effects component is not possible with a two-dimensional smoothed function for computational reasons.  In the presentation of results, I therefor present models side-by-side that use both one-dimensional smooth functions with random effects of the field production profile and two-dimensional smooth functions.
 
 \section{The Effect of Oil Price on Field Production}
 
-The variables of interest in this article is the oil price and its lags, which I include as nine linear parametric terms in the model.  The idea of including both a concurrent oil price term as well as eight lags is that a change in price could conceivably have two effects on oil production in a field.  First, the field operator could be operating on the basis of some short-term extraction rule - choosing to pump out less at times of lower prices in order to pump out more at periods of high prices.  
+Table \ref{GAM_model_table} shows the parametric coefficient terms and other summary statistics of the regression results.  The first column shows results for the simple model with a single-dimensional smoothed function of the production profile.  The second column shows results with field-level random effects, while the third columns shows results when a two-dimensional smoothed function is used to control for production profiles across field size. The latter two models are my preferred models, providing a substantially better fit, as measured by both deviance explained and R^2. Monte Carlo Experiments, which I describe further below, also indicates that the latter two models provide consistently less-biased parametric estimates of the price terms.  
 
-Alternatively, a change in price of oil can be seen as a lifting of a production constraint.  A higher oil price means that added investments in production become attractive in order to either increase the total amount extracted from a field or to shift production forward.  However investments in the offshore sector can be complex and lengthy, and any production lift would be expected to happen with a lag.  As mentioned earlier, including several lags also allows for the possibility of adaptive expectations of future oil prices.The results for the price terms are shown in figure \ref{gam_price_8}.
+The variables of interest in this article is the oil price and its lags, which I include as eight linear parametric terms in the model.  The idea of including both a concurrent oil price term as well as eight lags is that a change in price could conceivably have two effects on oil production in a field.  First, the field operator could be operating on the basis of some short-term extraction rule - choosing to pump out less at times of lower prices in order to pump out more at periods of high prices.  
+
+Alternatively, a change in price of oil can be seen as a lifting of a production constraint.  A higher oil price means that added investments in production become attractive in order to either increase the total amount extracted from a field or to shift production forward.  However investments in the offshore sector can be complex and lengthy, and any production lift would be expected to happen with a lag.  As mentioned earlier, including several lags also allows for the possibility of adaptive expectations of future oil prices.  
 
 \begin{table}
 \begin{center}
@@ -261,9 +275,6 @@ EDF: s(prod\_year,name)                      &                & $33.002^{***}$ &
 EDF: s(prod\_year,in\_place\_oil\_mill\_sm3) &                &                & $27.445^{***}$   \\
                                              &                &                & $(27.895)$       \\
 \hline
-AIC                                          &                &                &                  \\
-BIC                                          &                &                &                  \\
-Log Likelihood                               &                &                &                  \\
 Deviance                                     & 23062.678      & 19765.833      & 9057.204         \\
 Deviance explained                           & 0.848          & 0.870          & 0.940            \\
 Dispersion                                   & 5.410          & 5.965          & 2.325            \\
@@ -274,18 +285,22 @@ Num. smooth terms                            & 2              & 2              &
 \hline
 \multicolumn{4}{l}{\scriptsize{$^{***}p<0.001$, $^{**}p<0.01$, $^*p<0.05$}}
 \end{tabular}
-\caption{Statistical models}
+\caption{Model results. Standard errors in parenthesis.}
 \label{GAM_model_table}
 \end{center}
 \end{table}
  
-
+For convenience the estimated coefficients on the price terms from the two preferred models are shown in figure \ref{price_coefficients}. In general the results from the two models agree with each other, indicating little to no effect in the concurrent price term, but with significant effects estimated on the 1st to 4th lags, with a peak at the 2nd lag.  F-tests of restricted models without the concurrent and 5-8th lag confirm that these terms do not significantly improve the fit of the models.
 
 \begin{figure}
 	\includegraphics[width=1\textwidth]{figures/price_coefficents.png}
 	\caption{Estimated coefficients from two GAM models: a model with random field effects and single smoothed function of production time, and another with a two dimensional smoothed function of production time and field size.  The points represent the point estimates, while the lines represent approximate 95\% confidence intervals. Significant positive coefficients are estimated on lags of between 1-4.  However, little to no effect is measured on the concurrent price term.}
-	\label{price\_coefficients}
+	\label{price_coefficients}
 \end{figure}
+
+For computationally intensive Generalized Additive Models, few if any analytic results are available to confirm that the estimates are unbiased.  Instead, I rely on Monte Carlo experiments to test for biased results.  Here, I create artificial field data using a cumulative logistic function with a linear price term and random variation. I then estimate the effect of price repeatedly, generating a new random component before each new estimation. Details of the Monte Carlo experiment can be found in the online appendix \url{https://github.com/jmaurit/oil_prices/blob/master/mc_sim.html}.  
+
+The main results are shown in figure \ref{mc_results}.  The top panel shows one run of the artificially generated data. I compare estimations of a concurrent price term, $beta_hat$ made with a Generalized Linear Model and Generalized Additive Model with a 2-dimensional smooth function.  I set the true parameter $beta$ to both $0$ and $0.05$, which are shown as vertical lines in the figures.  The figure shows that while a bias exists in the estimation of the GLM model, especially for when the true value is $0.05$, the Generalized Additive Model generally provides unbiased results. 
 
 \begin{figure}
 	\includegraphics[width=1\textwidth]{figures/mc_plot.png}
@@ -295,7 +310,7 @@ Num. smooth terms                            & 2              & 2              &
 
 \section{Conclusion}
 
-The main results of this research is to show that production in existing Norwegian offshore fields has no significant concurrent reaction to higher oil prices while a slight effect is estimated  with a lag of between 4 and 8 years.  Oil producers do not appear to be behaving strategically in relation to short-term production - increasing or reducing production in response to changes in oil price.  Instead they are likely using storage or financial instruments to hedge short-term price movements. Changes in oil prices can rather be seen as a relaxing of a production constraint, justifying increased investment that leads to either a higher total extraction rate or an inter-temporal shifting of production. Furthermore, it appears that the most of the effect of price comes at the planning phase of a field's production life.  Little to no effect of price on production is found in the build-out or depletion phase.
+The main results of this research is to show that production in existing Norwegian offshore fields has no significant concurrent reaction to higher oil prices while a slight effect is estimated  with a lag of between 1 and 4 years.  Oil producers do not appear to be behaving strategically in relation to short-term production - increasing or reducing production in response to changes in oil price.  Instead they are likely using storage or financial instruments to hedge short-term price movements. Changes in oil prices can rather be seen as a relaxing of a production constraint, justifying increased investment that leads to either a higher total extraction rate or an inter-temporal shifting of production.
 
 The modest estimated effect of prices on production adds weight to the argument of \citet{hamilton_oil_2012} that most of the increased supply of oil that comes from higher prices is from expanding the geographic and technological boundaries of oil production.  For example exploration of deep-water oil deposits off the coast of Brazil and extraction of oil sands in western Canada.   
 

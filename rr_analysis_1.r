@@ -41,25 +41,79 @@ summary(gam_mod)
 
 #terms
 
-pdat <- with(large_fields,
-             data.frame(prod_year = round(seq(min(prod_year), max(prod_year), length = 36)),
-                        year = round(seq(min(year), max(year), length = 36)),
-                        oil_prod_mill_sm3 = rep(mean(oil_prod_mill_sm3), 36),
-                        in_place_oil_mill_sm3 = rep(mean(in_place_oil_mill_sm3), 36),
-                        cost_index = rep(mean(cost_index), 36),
-                        price = rep(mean(price), 36),
-                        price_l1 = rep(mean(price_l1), 36),
-                        price_l2= rep(mean(price_l2), 36),
-                        price_l3= rep(mean(price_l3), 36),
-                        price_l4 = rep(mean(price_l4), 36),
-                        price_l5= rep(mean(price_l5), 36),
-                        price_l6 = rep(mean(price_l6), 36),
-                        price_l7 = rep(mean(price_l7), 36),
-                        price_l8= rep(mean(price_l8), 36)
+pdat1 <- with(large_fields,
+             data.frame(prod_year = round(seq(min(prod_year), max(prod_year), length = 200)),
+                        year = rep(mean(year), 200),
+                        oil_prod_mill_sm3 = rep(mean(oil_prod_mill_sm3), 200),
+                        in_place_oil_mill_sm3 = rep(mean(in_place_oil_mill_sm3), 200),
+                        cost_index = rep(mean(cost_index), 200),
+                        price = rep(mean(price), 200),
+                        price_l1 = rep(mean(price_l1), 200),
+                        price_l2= rep(mean(price_l2), 200),
+                        price_l3= rep(mean(price_l3), 200),
+                        price_l4 = rep(mean(price_l4), 200),
+                        price_l5= rep(mean(price_l5), 200),
+                        price_l6 = rep(mean(price_l6), 200),
+                        price_l7 = rep(mean(price_l7), 200),
+                        price_l8= rep(mean(price_l8), 200)
                         ))
-pred2 <- predict(gam_mod, pdat, type = "terms", se.fit = TRUE)
-pred2$fit
-pred2$se
+
+pred1 <- predict(gam_mod, pdat1, type = "terms", se.fit = TRUE)
+s_prod_year<-pred1$fit[,12]
+prod_year<-pdat1$prod_year
+se_s<-pred1$se[,12]
+smooth_pred1<-data.frame(s_prod_year = s_prod_year, prod_year=prod_year, 
+    conf_plus=(s_prod_year +2*se_s),
+    conf_minus=(s_prod_year -2*se_s))
+
+
+prod_smooth<-ggplot(smooth_pred1, aes(x=prod_year))+
+    geom_ribbon(aes(ymin=conf_minus, ymax=conf_plus), alpha=.5, fill="grey") +
+    geom_line(aes(y=s_prod_year)) + 
+    labs(x="Production Years", y="Smooth Function of Production Time") +
+    theme_bw() 
+
+pdat2 <- with(large_fields,
+             data.frame(prod_year = rep(mean(prod_year), 200),
+                        year = round(seq(min(year), max(year), length = 200)),
+                        oil_prod_mill_sm3 = rep(mean(oil_prod_mill_sm3), 200),
+                        in_place_oil_mill_sm3 = rep(mean(in_place_oil_mill_sm3), 200),
+                        cost_index = rep(mean(cost_index), 200),
+                        price = rep(mean(price), 200),
+                        price_l1 = rep(mean(price_l1), 200),
+                        price_l2= rep(mean(price_l2), 200),
+                        price_l3= rep(mean(price_l3), 200),
+                        price_l4 = rep(mean(price_l4), 200),
+                        price_l5= rep(mean(price_l5), 200),
+                        price_l6 = rep(mean(price_l6), 200),
+                        price_l7 = rep(mean(price_l7), 200),
+                        price_l8= rep(mean(price_l8), 200)
+                        ))
+
+pred2 <- predict(gam_mod, pdat2, type = "terms", se.fit = TRUE)
+s_year<-pred2$fit[,13]
+year<-pdat2$year
+se_s<-pred2$se[,13]
+smooth_pred2<-data.frame(s_year = s_year, year=year, 
+    conf_plus=(s_year +2*se_s),
+    conf_minus=(s_year -2*se_s))
+
+cal_smooth<-ggplot(smooth_pred2, aes(x=year))+
+    geom_ribbon(aes(ymin=conf_minus, ymax=conf_plus), alpha=.5, fill="grey") +
+    geom_line(aes(y=s_year)) + 
+    labs(x="Years", y="Smooth Function of Calendar Time") +
+    ylim(-3,1) +
+    theme_bw() 
+
+png("/Users/johannesmauritzen/research/oil_prices/figures/smooths.png", 
+    width = 25, height = 20, units = "cm", res=100, pointsize=12)
+    grid.newpage()
+    pushViewport(viewport(layout = grid.layout(2, 1)))
+    vplayout <- function(x, y)
+      viewport(layout.pos.row = x, layout.pos.col = y)
+    print(prod_smooth, vp = vplayout(1, 1))
+    print(cal_smooth, vp = vplayout(2, 1))
+dev.off()
 
 
 gam_mod_2d<-gam(oil_prod_mill_sm3~s(prod_year, in_place_oil_mill_sm3) +

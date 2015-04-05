@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2013.10.11)  31 MAR 2015 18:12
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2013.10.29)  4 APR 2015 10:13
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -141,43 +141,7 @@ Package: url 2006/04/12  ver 3.3  Verb mode for urls, etc.
 Package: placeins 2005/04/18  v 2.2
 ) (/usr/local/texlive/2013/texmf-dist/tex/latex/comment/comment.sty
 \CommentStream=\write3
-Excluding comment 'comment') (Output/oil_prices_rr.aux
-! Missing \endcsname inserted.
-<to be read again> 
-                   \protect 
-l.48 \newlabel{price\_coefficients}{{3}{18}}
-                                            
-The control sequence marked <to be read again> should
-not appear between \csname and \endcsname.
-
-
-! LaTeX Error: Missing \begin{document}.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.48 \newlabel{price\_coefficients}{{3}{18}}
-                                            
-You're in trouble here.  Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-! Extra \endcsname.
-\@ifundefined ...dafter \ifx \csname #1\endcsname 
-                                                  \relax \expandafter \@firs...
-l.48 \newlabel{price\_coefficients}{{3}{18}}
-                                            
-I'm ignoring this, since I wasn't doing a \csname.
-
-! Missing \endcsname inserted.
-<to be read again> 
-                   \protect 
-l.48 \newlabel{price\_coefficients}{{3}{18}}
-                                            
-The control sequence marked <to be read again> should
-not appear between \csname and \endcsname.
-
-)
+Excluding comment 'comment') (Output/oil_prices_rr.aux)
 \openout1 = `oil_prices_rr.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 30.
@@ -274,9 +238,7 @@ G,.JBIG2,.JB2,.eps]
 (/usr/local/texlive/2013/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
-)) [1
-
-{/usr/local/texlive/2013/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+))
 Overfull \hbox (2.80026pt too wide) in paragraph at lines 36--38
 []\OT1/cmr/m/n/10 I use de-tailed field-level data on Nor-we-gian off-shore oil
  field pro-duc-tion and a semi-parametric
@@ -285,7 +247,9 @@ Overfull \hbox (2.80026pt too wide) in paragraph at lines 36--38
 Missing character: There is no ‚ in font cmr10!
 Missing character: There is no Ä in font cmr10!
 Missing character: There is no ô in font cmr10!
-[2] [3]
+[1
+
+{/usr/local/texlive/2013/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2]
 Missing character: There is no ‚ in font cmr10!
 Missing character: There is no Ä in font cmr10!
 Missing character: There is no ú in font cmr10!
@@ -305,19 +269,19 @@ and I'll forget about whatever was undefined.
 
 Missing character: There is no Ä in font cmr10!
 Missing character: There is no ô in font cmr10!
-[4] <figures/oil_decline.png, id=26, 987.69pt x 789.95125pt>
+[3] <figures/oil_decline.png, id=23, 987.69pt x 789.95125pt>
 File: figures/oil_decline.png Graphic file (type png)
 <use figures/oil_decline.png>
 Package pdftex.def Info: figures/oil_decline.png used on input line 79.
 (pdftex.def)             Requested size: 469.75502pt x 375.70084pt.
-[5] [6 <./figures/oil_decline.png>] [7]
+[4] [5 <./figures/oil_decline.png>] [6]
 Missing character: There is no ‚ in font cmr10!
 Missing character: There is no Ä in font cmr10!
 Missing character: There is no ú in font cmr10!
 Missing character: There is no ‚ in font cmr10!
 Missing character: There is no Ä in font cmr10!
 Missing character: There is no ù in font cmr10!
-[8] [9]
+[7] [8]
 Missing character: There is no ‚ in font cmr10!
 Missing character: There is no Ä in font cmr10!
 Missing character: There is no ô in font cmr10!
@@ -327,19 +291,19 @@ Underfull \hbox (badness 10000) in paragraph at lines 122--122
 ted-[]topics / taxes-[]and-[]duties / bedriftsbeskatning /
  []
 
-[10]
+[9]
 Overfull \hbox (138.28809pt too wide) in paragraph at lines 124--124
 [][]$\OT1/cmtt/m/n/9 http : / / www . npd . no / en / Topics / Production-[]lic
 ences / Theme-[]articles / Production-[]licence-[]-[]licence-[]to-[]explore-[]d
 iscover-[]and-[]produce-[]/$| 
  []
 
-<figures/data_descriptives.png, id=48, 987.69pt x 710.655pt>
+<figures/data_descriptives.png, id=45, 987.69pt x 710.655pt>
 File: figures/data_descriptives.png Graphic file (type png)
 <use figures/data_descriptives.png>
 Package pdftex.def Info: figures/data_descriptives.png used on input line 132.
 (pdftex.def)             Requested size: 469.75502pt x 337.98753pt.
-[11] [12 <./figures/data_descriptives.png>] [13]
+[10] [11 <./figures/data_descriptives.png>] [12]
 Runaway argument?
  
 ! Paragraph ended before \split was complete.
@@ -555,33 +519,36 @@ l.170 \end{equation}
                     
 Things are pretty mixed up, but I think the worst is over.
 
-[14]
-Missing character: There is no ‚ in font cmr10!
-Missing character: There is no Ä in font cmr10!
-Missing character: There is no ô in font cmr10!
-[15]
-Missing character: There is no ‚ in font cmr10!
-Missing character: There is no Ä in font cmr10!
-Missing character: There is no ú in font cmr10!
-Missing character: There is no ‚ in font cmr10!
-Missing character: There is no Ä in font cmr10!
-Missing character: There is no ù in font cmr10!
+[13]
+! Missing $ inserted.
+<inserted text> 
+                $
+l.183 
+      
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
 
-LaTeX Warning: Reference `gam_price_8' on page 16 undefined on input line 211.
+! Display math should end with $$.
+<to be read again> 
+                   \par 
+l.183 
+      
+The `$' that I just saw supposedly matches a previous `$$'.
+So I shall assume that you typed `$$' both times.
 
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.227 I(year^
-             2)                                    & $-0.007^{***}$     & $-...
+l.184 ||\boldsymbol{y}
+                       - \boldsymbol{X\beta} ||^2 + \lambda \int_{0}^{1} [f¬...
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
 ! Extra }, or forgotten $.
-<template> \unskip \hfil }
-                          \hskip \tabcolsep \endtemplate 
-l.227 ...r^2)                                    &
-                                                   $-0.007^{***}$     & $-0....
+\math@atom #1#2->\binrel@ {#1}\binrel@@ {#2}
+                                            
+l.184 ||\boldsymbol{y}
+                       - \boldsymbol{X\beta} ||^2 + \lambda \int_{0}^{1} [f¬...
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
 you forgot something else, as in `\hbox{$x}'. In such cases
@@ -591,52 +558,194 @@ deleted material, e.g., by typing `I$}'.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.227 ...r^2)                                    &
-                                                   $-0.007^{***}$     & $-0....
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-! Missing } inserted.
-<inserted text> 
-                }
-l.227 ...r^2)                                    &
-                                                   $-0.007^{***}$     & $-0....
+l.184 ||\boldsymbol{y}
+                       - \boldsymbol{X\beta} ||^2 + \lambda \int_{0}^{1} [f¬...
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
 With luck, this will get me unwedged. But if you
 really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
+! Missing } inserted.
+<inserted text> 
+                }
+l.184 ||\boldsymbol{y}
+                       - \boldsymbol{X\beta} ||^2 + \lambda \int_{0}^{1} [f¬...
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
 
-Overfull \hbox (12.55357pt too wide) in paragraph at lines 215--271
+! Missing $ inserted.
+<inserted text> 
+                $
+l.184 ||\boldsymbol{y} - \boldsymbol{X\beta}
+                                             ||^2 + \lambda \int_{0}^{1} [f¬...
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Extra }, or forgotten $.
+\math@atom #1#2->\binrel@ {#1}\binrel@@ {#2}
+                                            
+l.184 ||\boldsymbol{y} - \boldsymbol{X\beta}
+                                             ||^2 + \lambda \int_{0}^{1} [f¬...
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.184 ||\boldsymbol{y} - \boldsymbol{X\beta}
+                                             ||^2 + \lambda \int_{0}^{1} [f¬...
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+! Missing } inserted.
+<inserted text> 
+                }
+l.184 ||\boldsymbol{y} - \boldsymbol{X\beta}
+                                             ||^2 + \lambda \int_{0}^{1} [f¬...
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.184 ||\boldsymbol{y} - \boldsymbol{X\beta} ||^
+                                                2 + \lambda \int_{0}^{1} [f¬...
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.185 
+      
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+Missing character: There is no ¬ in font cmr10!
+Missing character: There is no ¥ in font cmr10!
+Missing character: There is no ¬ in font cmr10!
+Missing character: There is no ¥ in font cmr10!
+
+! LaTeX Error: Bad math environment delimiter.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.186 \end{equation}
+                    
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+! You can't use `\eqno' in vertical mode.
+\endmathdisplay@a ...\df@tag \@empty \else \veqno 
+                                                  \alt@tag \df@tag \fi \ifx ...
+l.186 \end{equation}
+                    
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.186 \end{equation}
+                    
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+! Display math should end with $$.
+<to be read again> 
+                   \endgroup 
+l.186 \end{equation}
+                    
+The `$' that I just saw supposedly matches a previous `$$'.
+So I shall assume that you typed `$$' both times.
+
+[14] <figures/smooths.png, id=68, 987.69pt x 789.95125pt>
+File: figures/smooths.png Graphic file (type png)
+<use figures/smooths.png>
+Package pdftex.def Info: figures/smooths.png used on input line 197.
+(pdftex.def)             Requested size: 469.75502pt x 375.70084pt.
+Missing character: There is no ‚ in font cmr10!
+Missing character: There is no Ä in font cmr10!
+Missing character: There is no ô in font cmr10!
+[15] [16 <./figures/smooths.png>]
+Missing character: There is no ‚ in font cmr10!
+Missing character: There is no Ä in font cmr10!
+Missing character: There is no ú in font cmr10!
+Missing character: There is no ‚ in font cmr10!
+Missing character: There is no Ä in font cmr10!
+Missing character: There is no ù in font cmr10!
+! Missing $ inserted.
+<inserted text> 
+                $
+l.233 ...easured by both deviance explained and R^
+                                                  2. Monte Carlo Experiments...
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.234 
+      
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+
+Overfull \hbox (427.86533pt too wide) in paragraph at lines 233--234
+\OT1/cmr/m/n/10.95 stan-tially bet-ter fit, as mea-sured by both de-viance ex-p
+lained and R$[]\OML/cmm/m/it/10.95 :MonteCarloExperiments; whichIdescribefurthe
+rbelow; alsoindicatesthatthelattertwomodelsprovideconsistentlyless \OMS/cmsy/m/
+n/10.95 ^^@
+ []
+
+[17]
+Overfull \hbox (1.60356pt too wide) in paragraph at lines 241--288
  [] 
  []
 
-
-LaTeX Warning: Float too large for page by 62.77367pt on input line 274.
-
-<figures/price_coefficents.png, id=71, 1481.535pt x 888.31876pt>
+<figures/price_coefficents.png, id=82, 1481.535pt x 888.31876pt>
 File: figures/price_coefficents.png Graphic file (type png)
 <use figures/price_coefficents.png>
-Package pdftex.def Info: figures/price_coefficents.png used on input line 279.
+Package pdftex.def Info: figures/price_coefficents.png used on input line 296.
 (pdftex.def)             Requested size: 469.75502pt x 281.65176pt.
-<figures/mc_plot.png, id=72, 1777.64125pt x 1777.64125pt>
+<figures/mc_plot.png, id=83, 1777.64125pt x 1777.64125pt>
 File: figures/mc_plot.png Graphic file (type png)
 <use figures/mc_plot.png>
-Package pdftex.def Info: figures/mc_plot.png used on input line 285.
+Package pdftex.def Info: figures/mc_plot.png used on input line 306.
 (pdftex.def)             Requested size: 469.75502pt x 469.74359pt.
-[16] [17] [18 <./figures/price_coefficents.png>] [19 <./figures/mc_plot.png>] (
+[18] [19] [20 <./figures/price_coefficents.png>] [21 <./figures/mc_plot.png>] (
 Output/oil_prices_rr.bbl
 Missing character: There is no ‚ in font cmr10!
 Missing character: There is no Ä in font cmr10!
 Missing character: There is no ì in font cmr10!
-[20]
+[22]
 Underfull \hbox (badness 2205) in paragraph at lines 57--62
 []\OT1/cmr/m/n/10.95 British Petroleum.  Sta-tis-ti-cal re-view of world en-erg
 y 2013.  Tech-ni-cal re-port, 2013.
  []
 
-[21]
+[23]
 Missing character: There is no ¬ in font cmr10!
 Missing character: There is no © in font cmr10!
 Missing character: There is no ¬ in font cmr10!
@@ -655,7 +764,7 @@ Missing character: There is no Ä in font cmr6!
 Missing character: There is no † in font cmr6!
 Missing character: There is no ¬ in font cmr10!
 Missing character: There is no © in font cmr10!
-[22]
+[24]
 Missing character: There is no √ in font cmr10!
 Missing character: There is no • in font cmr10!
 Missing character: There is no √ in font cmr10!
@@ -665,65 +774,51 @@ Missing character: There is no Ä in font cmr10!
 Missing character: There is no ì in font cmr10!
 Missing character: There is no ¬ in font cmr10!
 Missing character: There is no © in font cmr10!
-[23]
+Missing character: There is no ‚ in font cmr10!
+Missing character: There is no Ä in font cmr10!
+Missing character: There is no ì in font cmr10!
+[25]
 Missing character: There is no ‚ in font cmr10!
 Missing character: There is no Ä in font cmr10!
 Missing character: There is no ì in font cmr10!
 Missing character: There is no ‚ in font cmr10!
 Missing character: There is no Ä in font cmr10!
 Missing character: There is no ì in font cmr10!
-Missing character: There is no ‚ in font cmr10!
-Missing character: There is no Ä in font cmr10!
-Missing character: There is no ì in font cmr10!
-) [24] (Output/oil_prices_rr.aux
-! Missing \endcsname inserted.
-<to be read again> 
-                   \protect 
-l.48 \newlabel{price\_coefficients}{{3}{18}}
-                                            
-The control sequence marked <to be read again> should
-not appear between \csname and \endcsname.
-
-)
-
-LaTeX Warning: There were undefined references.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
- ) 
+) [26] (Output/oil_prices_rr.aux) ) 
 Here is how much of TeX's memory you used:
- 3292 strings out of 493315
- 46748 string characters out of 6137903
- 128204 words of memory out of 5000000
- 6672 multiletter control sequences out of 15000+600000
+ 3297 strings out of 493315
+ 46863 string characters out of 6137903
+ 126186 words of memory out of 5000000
+ 6676 multiletter control sequences out of 15000+600000
  14412 words of font info for 53 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
  38i,10n,32p,1070b,373s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmbsy10.pf
-b></usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
-></usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
-</usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></
-usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></u
-sr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr
-/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr
-/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/l
-ocal/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/loc
-al/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local
-/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/te
-xlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texli
-ve/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/
-2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2
-013/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/201
-3/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2013/
-texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2013/t
-exmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2013/te
-xmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/local/texlive/2013/tex
-mf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb>
-Output written on Output/oil_prices_rr.pdf (24 pages, 699160 bytes).
+</usr/local/texlive/2013/texmf-dist/fonts/ty
+pe1/public/amsfonts/cm/cmbsy10.pfb></usr/local/texlive/2013/texmf-dist/fonts/ty
+pe1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2013/texmf-dist/fonts/typ
+e1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2013/texmf-dist/fonts/type
+1/public/amsfonts/cm/cmbx8.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/
+public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/p
+ublic/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/pu
+blic/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/publ
+ic/amsfonts/cm/cmmib10.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/publ
+ic/amsfonts/cm/cmr10.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public
+/amsfonts/cm/cmr12.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/a
+msfonts/cm/cmr17.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/ams
+fonts/cm/cmr6.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfon
+ts/cm/cmr8.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/
+cm/cmr9.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/
+cmsy10.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/c
+msy6.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cms
+y8.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmti1
+0.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10
+.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.
+pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pf
+b>
+Output written on Output/oil_prices_rr.pdf (26 pages, 775848 bytes).
 PDF statistics:
- 171 PDF objects out of 1000 (max. 8388607)
- 115 compressed objects within 2 object streams
+ 184 PDF objects out of 1000 (max. 8388607)
+ 123 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 21 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 26 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -155,7 +155,7 @@
 			"file": "oil_prices_new_pres.tex",
 			"settings":
 			{
-				"buffer_size": 9455,
+				"buffer_size": 9458,
 				"line_ending": "Unix"
 			}
 		},
@@ -163,7 +163,7 @@
 			"file": "oil_prices_rr.tex",
 			"settings":
 			{
-				"buffer_size": 41066,
+				"buffer_size": 44922,
 				"line_ending": "Unix"
 			}
 		},
@@ -180,7 +180,7 @@
 			"file": "rr_analysis_1.r",
 			"settings":
 			{
-				"buffer_size": 6549,
+				"buffer_size": 10127,
 				"line_ending": "Unix",
 				"name": "rr_analysis_1.r"
 			}
@@ -453,6 +453,12 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"pred1",
+			"pdat1",
+			"36",
+			"38",
+			"36",
+			"100",
 			":build_out",
 			"production",
 			"price",
@@ -523,6 +529,12 @@
 		"regex": false,
 		"replace_history":
 		[
+			"pred2",
+			"pdat2",
+			"200",
+			"36",
+			"38",
+			"36",
 			"",
 			"fields",
 			"I(price",
@@ -594,15 +606,15 @@
 					"file": "oil_prices_new_pres.tex",
 					"settings":
 					{
-						"buffer_size": 9455,
+						"buffer_size": 9458,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								43,
-								43
+								541,
+								541
 							]
 						],
 						"settings":
@@ -611,7 +623,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 766.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -621,15 +633,15 @@
 					"file": "oil_prices_rr.tex",
 					"settings":
 					{
-						"buffer_size": 41066,
+						"buffer_size": 44922,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								28706,
-								28706
+								44019,
+								44019
 							]
 						],
 						"settings":
@@ -637,7 +649,7 @@
 							"syntax": "Packages/LaTeXing/support/LaTeX.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 13538.0,
+						"translation.y": 15965.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -654,18 +666,19 @@
 						"selection":
 						[
 							[
-								173,
-								349
+								1840,
+								1457
 							]
 						],
 						"settings":
 						{
 							"auto_name": "rr_descriptives.r",
+							"r_box_status": false,
 							"syntax": "Packages/R/R.tmLanguage",
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 210.0,
+						"translation.y": 991.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -675,26 +688,27 @@
 					"file": "rr_analysis_1.r",
 					"settings":
 					{
-						"buffer_size": 6549,
+						"buffer_size": 10127,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1073,
-								1073
+								4278,
+								4258
 							]
 						],
 						"settings":
 						{
 							"auto_name": "rr_analysis_1.r",
+							"r_box_status": false,
 							"syntax": "Packages/R/R.tmLanguage",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 706.0,
+						"translation.y": 2317.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
