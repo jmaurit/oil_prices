@@ -1,9 +1,8 @@
 ---
 title: "Monte Carlo Simulations"
 output:
-  html_document:
+  pdf_document:
     toc: true
-    theme: united
 ---
 
 #Appendix A: Monte Carlo Simulations

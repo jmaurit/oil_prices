@@ -131,6 +131,7 @@ INPUT /usr/local/texlive/2013/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy
 INPUT figures/smooths.png
 INPUT ./figures/smooths.png
 INPUT ./figures/smooths.png
+INPUT /usr/local/texlive/2013/texmf-dist/fonts/tfm/public/cm/cmbx5.tfm
 INPUT figures/price_coefficents.png
 INPUT ./figures/price_coefficents.png
 INPUT ./figures/price_coefficents.png

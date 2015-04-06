@@ -47,7 +47,7 @@ For most of the last century, crude oil has been the world’s single most impor
 
 However a significant gap exists in the literature.  While numerous studies have taken up the issue of how the price of oil affects searching for new fields as well as total oil production at both the regional and global level, few studies exist of the effects of oil prices on oil production at the field level.  The studies that do use field- and well-level data, such as \citet{rao_taxation_2010}, often use data from on-shore installations.  However an increasing amount of the world's oil production comes from hard-to-reach off-shore fields.  Production from challenging off-shore environments is substantially different in character than from on-shore installations.
 
-Moreover, studies within the economics literature fail to take into account how oil prices have varying effects on the different stages of field development and production.  The planning, build-out and depletion phase of a field are conceptually unique and how oil companies operating off-shore respond to oil prices can be expected to vary substantially.
+% Moreover, studies within the economics literature fail to take into account how oil prices have varying effects on the different stages of field development and production.  The planning, build-out and depletion phase of a field are conceptually unique and how oil companies operating off-shore respond to oil prices can be expected to vary substantially.
 
 The effect of oil prices on producing fields is an important topic in understanding the mechanisms of how total oil supply reacts in response to price. The response of oil production in existing fields is especially important now as many of the major oil- producing areas, like the Norwegian Continental Shelf are mature and an increasing share of investments will be directed at capacity enhancement in producing fields rather than new field developments. How production from these fields will respond to changes in oil prices has major implications for the oil industry, the state finances of oil-producing countries and long-run oil price formation.
 
@@ -55,7 +55,7 @@ The question of the effect of oil prices on production and the more general ques
 
 But in practice, the question is not as clear cut.  Production in the Norwegian Continental Shelf - as well as most other offshore production areas - has extremely high fixed and operating costs.  Keeping spare capacity available in order to adjust to changing oil prices might simply be too expensive.  Instead, producers may find it more beneficial to use storage and financial instruments in order to hedge short-term price movements. Higher oil prices may however still lead a producer to invest in increased capacity.  Since lag times are significant in the off-shore sector, we would then expect to see a multi-year lagged effect of prices on production.  
 
-However even with the question of lagged production and investment, some ambiguity exists.  \citet{mohn_efforts_2008} suggests and finds evidence for the idea that in periods of high oil prices off-shore producers will invest more in risky wild-cat drilling in search of new fields, but concentrate investments in lower-risk ventures, like expanding production in existing fields, when prices are low.  If this effect were to dominate, then it may even be plausible that production in existing fields reacts \emph{negatively} to increases in price. 
+However even with the question of lagged production and investment, some ambiguity exists.  \citet{mohn_efforts_2008} suggests and finds evidence for the idea that in periods of high oil prices off-shore producers will invest more in risky wild-cat drilling in search of new fields, but concentrate investments in lower-risk ventures, like expanding production in existing fields, when prices are low.  If this effect were to dominate, then it may even be plausible that a fall in prices leads to an \emph{increase} in production. 
 
 %Implications for theories and explanations for understanding of the price mechanism and %the role of speculation.  Hamilton block quote.  
 
@@ -63,7 +63,7 @@ For such a prominent subject, the lack of research on the role of price in oil f
 
 However, over the last few years, a movement towards making the petroleum and other extractive industries more transparent has taken form.  The Norwegian government has been on the forefront of this movement and increasingly committed itself to transparency in the petroleum sector. \footnote{see http://www.regjeringen.no/en/sub/eiti---extractive-industries-tranparency/about-eiti.html?id=633586} Over the last several years, detailed data on most aspects of the country\’s oil industry has become openly available.  
 
-In this article, I use historical production data from all 77 currently or formerly oil-producing fields on the Norwegian continental shelf in order to estimate the effect that prices have on oil production.  
+In this article, I use historical production data from all 77 currently or formerly oil-producing fields on the Norwegian Continental Shelf in order to estimate the effect that prices have on oil production.  
 
 By looking only at the effect of price on fields that currently or previously have produced oil I am limiting the scope of this article.  The effect of oil prices on total production over an extended period of time is due not just to reactions in production in existing fields but also increased searching for new fields.  In fact, an implication of this work is that much of the total production response from higher oil prices is likely from increased searching as well as production from previously un-economic fields.
 
@@ -89,7 +89,6 @@ As a solution I use a semi-parametric model within the Generalized Additive Mode
 
 The results suggest that little to no concurrent effect of oil prices on production exists.  However modest lagged effects of between 1 to 4 years exist.These results are in line with an understanding of the industry as being highly capital intensive with high operating costs.  Maintaining spare capacity in order to adjust to changing oil prices is likely prohibitively inexpensive.  Instead, production is increased through investment, which may take up to several years to show an effect.
 
-\FloatBarrier
 \section{The effect of oil price on production: theory, simulations and empirics}
 
 For modeling aggregate oil production, shape-fitting models, notably \citet{hubbert_energy_1962} and more recently advocated by \citet{deffeyes_hubberts_2001}, have had some success in estimating the timing of peak production at the regional and national level, but they tend to seriously underestimate the total recoverable resource of oil-producing regions and the models can be shown to be fundamentally misspecified \citep{boyce_prediction_2013}.   Simulation type studies where aggregate oil production is modeled through an often complex combination of physical and economic processes also exist in the geo-engineering literature, but their usefulness tends to be weighed down by their complexity as they require quite detailed data and specific assumptions about functional form that can be difficult to justify \citep{brandt_review_2010}.
@@ -162,9 +161,9 @@ A simple model can be written as in equation \ref{gam_price_eqn}.
 \begin{equation}
 \begin{split}
 
-	Log(production_{i,t}) & = f(production\_time_{i,t}) + \beta_1 in\_place\_oil_{i,t} \\
-	 \quad & + \beta_2 oil\_price\_lags_t + \beta_3 cost\_index_{t} +  
-	 f(year_t) + \epsilon_{i,t}
+	Log(production_{i,t}) & = f(production\_time_{i,t}) + f(year_t) + \beta_1 in\_place\_oil_{i,t}\\
+	 \quad & + \beta_3 cost\_index_{t} + \mathbf{\beta_2 oil\_price\_lags_t} +  
+	  \epsilon_{i,t}
 \label{gam_price_eqn}
 \end{split}
 \end{equation}
@@ -181,7 +180,7 @@ The model is then fit by minimizing,
 
 \begin{equation}
 
-||\boldsymbol{y} - \boldsymbol{X\beta} ||^2 + \lambda \int_{0}^{1} [f´´(x)]^2dx
+\| \mathbf{y} - \mathbf{X\beta} \| ^2 + \lambda \int_{0}^{1} [f^{\prime \prime}(x)]^2dx
 
 \end{equation}
 
@@ -199,7 +198,7 @@ Extended differences in the oil price will likely have some long-term effects on
 	\label{smooths}
 \end{figure}
 
-One objection to the simple model is that a fixed effect controlling for the general production profile of oil fields does not sufficiently address idiosyncratic differences between the fields. To address this I can add field random effects that takes into account uncertainty based on random variation between the fields in the estimation. The smoothed function can then be written as $f(production\_time_{i,t})*Z$.  Where $Z~N(0, \sigma)$ and $\sigma$ is the variance term to be estimated.  
+One objection to the simple model is that a fixed effect controlling for the general production profile of oil fields does not sufficiently address idiosyncratic differences between the fields. To address this I can add field random effects that takes into account uncertainty based on random variation between the fields in the estimation. The smoothed function can then be written as $f(production\_time_{i,t}*Z)$.  Where $Z\~N(0, \sigma)$ and $\sigma$ is the variance term to be estimated.  
 
 Another potential issue may be that the smoothed function of production time may not be sufficient in controlling for the variation in production profiles shapes across fields.  In particular, production profiles differ substantially by the size of the field. A solution is to allow the shape to vary by production.  Thus the smoothed can be written as a function of both production time and in place oil: $f(production\_time_{i,t}, in\_place\_oil_{i,t})$.
 
@@ -230,7 +229,7 @@ Unfortunately, estimating a random effects component is not possible with a two-
 
 \section{The Effect of Oil Price on Field Production}
 
-Table \ref{GAM_model_table} shows the parametric coefficient terms and other summary statistics of the regression results.  The first column shows results for the simple model with a single-dimensional smoothed function of the production profile.  The second column shows results with field-level random effects, while the third columns shows results when a two-dimensional smoothed function is used to control for production profiles across field size. The latter two models are my preferred models, providing a substantially better fit, as measured by both deviance explained and R^2. Monte Carlo Experiments, which I describe further below, also indicates that the latter two models provide consistently less-biased parametric estimates of the price terms.  
+Table \ref{GAM_model_table} shows the parametric coefficient terms and other summary statistics of the regression results.  The first column shows results for the simple model with a single-dimensional smoothed function of the production profile.  The second column shows results with field-level random effects, while the third columns shows results when a two-dimensional smoothed function is used to control for production profiles across field size. The latter two models are my preferred models, providing a substantially better fit, as measured by both deviance explained and $R^2$. Monte Carlo Experiments, which I describe further below, also indicates that the latter two models provide consistently less-biased parametric estimates of the price terms.
 
 The variables of interest in this article is the oil price and its lags, which I include as eight linear parametric terms in the model.  The idea of including both a concurrent oil price term as well as eight lags is that a change in price could conceivably have two effects on oil production in a field.  First, the field operator could be operating on the basis of some short-term extraction rule - choosing to pump out less at times of lower prices in order to pump out more at periods of high prices.  
 
@@ -244,33 +243,33 @@ Alternatively, a change in price of oil can be seen as a lifting of a production
 \hline
 (Intercept)                                  & $0.335^{*}$    & $-4.017^{***}$ & $-574.287^{***}$ \\
                                              & $(0.146)$      & $(0.183)$      & $(51.125)$       \\
-I(in\_place\_oil\_mill\_sm3/100)             & $0.337^{***}$  & $-0.014$       &                  \\
+in\_place\_oil\_mill\_100sm3             & $0.337^{***}$  & $-0.014$       &                  \\
                                              & $(0.005)$      & $(0.014)$      &                  \\
 I(cost\_index/10)                            & $-0.018^{***}$ & $-0.030^{***}$ & $-0.014^{***}$   \\
                                              & $(0.003)$      & $(0.003)$      & $(0.002)$        \\
-I(price/10)                                  & $-0.006$       & $0.014$        & $0.007$          \\
+price/10                                  & $-0.006$       & $0.014$        & $0.007$          \\
                                              & $(0.009)$      & $(0.010)$      & $(0.006)$        \\
-I(price\_l1/10)                              & $0.004$        & $0.021^{*}$    & $0.015^{*}$      \\
+price\_l1/10                              & $0.004$        & $0.021^{*}$    & $0.015^{*}$      \\
                                              & $(0.010)$      & $(0.010)$      & $(0.006)$        \\
-I(price\_l2/10)                              & $0.037^{***}$  & $0.047^{***}$  & $0.048^{***}$    \\
-                                             & $(0.009)$      & $(0.010)$      & $(0.006)$        \\
-I(price\_l3/10)                              & $0.030^{***}$  & $0.025^{**}$   & $0.033^{***}$    \\
+price\_l2/10                              & $0.037^{***}$  & $0.047^{***}$  & $0.048^{***}$    \\
+                                             & $(0.009)$      & $(0.010$      & $(0.006)$        \\
+price\_l3/10                              & $0.030^{***}$  & $0.025^{**}$   & $0.033^{***}$    \\
                                              & $(0.009)$      & $(0.009)$      & $(0.006)$        \\
-I(price\_l4/10)                              & $0.003$        & $0.043^{***}$  & $0.028^{***}$    \\
+price\_l4/10                              & $0.003$        & $0.043^{***}$  & $0.028^{***}$    \\
                                              & $(0.008)$      & $(0.008)$      & $(0.005)$        \\
-I(price\_l5/10)                              & $-0.020^{**}$  & $0.012$        & $-0.001$         \\
+price\_l5/10                              & $-0.020^{**}$  & $0.012$        & $-0.001$         \\
                                              & $(0.007)$      & $(0.007)$      & $(0.005)$        \\
-I(price\_l6/10)                              & $-0.010$       & $0.008$        & $-0.001$         \\
+price\_l6/10                              & $-0.010$       & $0.008$        & $-0.001$         \\
                                              & $(0.007)$      & $(0.007)$      & $(0.004)$        \\
-I(price\_l7/10)                              & $-0.008$       & $0.007$        & $0.004$          \\
+price\_l7/10                              & $-0.008$       & $0.007$        & $0.004$          \\
                                              & $(0.007)$      & $(0.007)$      & $(0.004)$        \\
-I(price\_l8/10)                              & $-0.044^{***}$ & $-0.011$       & $-0.027^{***}$   \\
+price\_l8/10                              & $-0.044^{***}$ & $-0.011$       & $-0.027^{***}$   \\
                                              & $(0.006)$      & $(0.007)$      & $(0.004)$        \\
 EDF: s(prod\_year)                           & $6.381^{***}$  &                &                  \\
                                              & $(7.249)$      &                &                  \\
 EDF: s(year)                                 & $2.768^{***}$  & $3.000^{***}$  & $3.000^{***}$    \\
                                              & $(2.956)$      & $(3.000)$      & $(3.000)$        \\
-EDF: s(prod\_year,name)                      &                & $33.002^{***}$ &                  \\
+EDF: s(prod\_year,re\_field)                      &                & $33.002^{***}$ &                  \\
                                              &                & $(72.000)$     &                  \\
 EDF: s(prod\_year,in\_place\_oil\_mill\_sm3) &                &                & $27.445^{***}$   \\
                                              &                &                & $(27.895)$       \\
@@ -290,7 +289,7 @@ Num. smooth terms                            & 2              & 2              &
 \end{center}
 \end{table}
  
-For convenience the estimated coefficients on the price terms from the two preferred models are shown in figure \ref{price_coefficients}. In general the results from the two models agree with each other, indicating little to no effect in the concurrent price term, but with significant effects estimated on the 1st to 4th lags, with a peak at the 2nd lag.  F-tests of restricted models without the concurrent and 5-8th lag confirm that these terms do not significantly improve the fit of the models.
+For convenience the estimated coefficients on the price terms from the two preferred models are shown in figure \ref{price_coefficients}. In general the results from the two models agree with each other, indicating little to no effect in the concurrent price term, but with significant coefficients estimated on the 1st to 4th lags, with a peak at the 2nd lag.  F-tests with comparisons to restricted models without the concurrent and 5-8th lag confirm that these terms do not significantly improve the fit of the models.
 
 \begin{figure}
 	\includegraphics[width=1\textwidth]{figures/price_coefficents.png}
@@ -298,7 +297,7 @@ For convenience the estimated coefficients on the price terms from the two prefe
 	\label{price_coefficients}
 \end{figure}
 
-For computationally intensive Generalized Additive Models, few if any analytic results are available to confirm that the estimates are unbiased.  Instead, I rely on Monte Carlo experiments to test for biased results.  Here, I create artificial field data using a cumulative logistic function with a linear price term and random variation. I then estimate the effect of price repeatedly, generating a new random component before each new estimation. Details of the Monte Carlo experiment can be found in the online appendix \url{https://github.com/jmaurit/oil_prices/blob/master/mc_sim.html}.  
+For computationally intensive Generalized Additive Models, few if any analytic results are available to confirm that the estimates are unbiased.  Instead, I rely on Monte Carlo experiments to test for biasedness.  Here, I create artificial field data using a cumulative logistic function with a linear price term and random variation. I then estimate the effect of price repeatedly, generating the random component before each new estimation. Details of the Monte Carlo experiment can be found in the on-line appendix \url{https://github.com/jmaurit/oil_prices/blob/master/mc_sim.html}.  
 
 The main results are shown in figure \ref{mc_results}.  The top panel shows one run of the artificially generated data. I compare estimations of a concurrent price term, $beta_hat$ made with a Generalized Linear Model and Generalized Additive Model with a 2-dimensional smooth function.  I set the true parameter $beta$ to both $0$ and $0.05$, which are shown as vertical lines in the figures.  The figure shows that while a bias exists in the estimation of the GLM model, especially for when the true value is $0.05$, the Generalized Additive Model generally provides unbiased results. 
 
@@ -308,17 +307,24 @@ The main results are shown in figure \ref{mc_results}.  The top panel shows one 
 	\label{mc_results}
 \end{figure}
 
-\section{Conclusion}
+\section{Conclusion and Discussion}
 
 The main results of this research is to show that production in existing Norwegian offshore fields has no significant concurrent reaction to higher oil prices while a slight effect is estimated  with a lag of between 1 and 4 years.  Oil producers do not appear to be behaving strategically in relation to short-term production - increasing or reducing production in response to changes in oil price.  Instead they are likely using storage or financial instruments to hedge short-term price movements. Changes in oil prices can rather be seen as a relaxing of a production constraint, justifying increased investment that leads to either a higher total extraction rate or an inter-temporal shifting of production.
 
-The modest estimated effect of prices on production adds weight to the argument of \citet{hamilton_oil_2012} that most of the increased supply of oil that comes from higher prices is from expanding the geographic and technological boundaries of oil production.  For example exploration of deep-water oil deposits off the coast of Brazil and extraction of oil sands in western Canada.   
+One important caveat is that I do not claim to capture all possible mechanisms for price to influence production.  Mechanisms that are likely gradual and smooth in nature will be absorbed by the smooth functions in the regression. In particular, price-induced technological change will likely be a smooth process with significant lag times. Referring back to figure \ref{smooths}Perhaps some evidence of this can be seen in the estimated smooth function of the calendar year variable, which shows a slight (and statistically insignificant) upwards slope after approximately 2005, corresponding to a preceding period of rising oil prices.    
 
+The findings in this paper can provide some guidance on the effects of the recent steep fall in the oil price on Norwegian production, as well as production from other off-shore production areas. The fall in total oil production that has continued since the peak in production in 2000 has recently been arrested as several new finds began production after years of increased searching and investment.  As mentioned, a further significant boost is expected in 2019 when production from the large Sverdrup field begins production. The results of this paper indicate that the recent fall in prices is unlikely to have major ramifications for production in existing fields.  Anecdotal evidence however suggests that searching and exploration are being curtailed. Anecdotal evidence also suggests that lower oil prices may be leading to earlier shut-down decisions of depleting fields - a hypothesis that could be explored with future research.  
+
+Finally, relating back to the literature on total oil supply, the modest estimated effect of prices on production adds weight to the argument of \citet{hamilton_oil_2012} that most of the increased supply of oil that comes from higher prices is from expanding the geographic and technological boundaries of oil production.  For example exploration of deep-water oil deposits off the coast of Brazil and extraction of oil sands in western Canada.
+
+
+
+\FloatBarrier
 \section{Software}
 I use the R statistical programming package for all the analysis in this article \citep{r_core_team_r:_2013}.  I use the R package ggplot2 for plotting \citep{wickham_ggplot2:_2009}, plyr for data manipulation and cleaning \citep{wickham_split-apply-combine_2011}, texreg for table formatting \citep{leifeld_texreg:_2013} and mgcv for implementation of the Generalized Additive Models \citep{wood_fast_2011}.
 
 \bibliographystyle{plainnat}
 \bibliography{oil_prices}
 
-\FloatBarrier
+
 \end{document}

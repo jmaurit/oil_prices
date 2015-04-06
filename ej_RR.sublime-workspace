@@ -163,7 +163,7 @@
 			"file": "oil_prices_rr.tex",
 			"settings":
 			{
-				"buffer_size": 44922,
+				"buffer_size": 46563,
 				"line_ending": "Unix"
 			}
 		},
@@ -198,7 +198,7 @@
 			"file": "mc_sim.rmd",
 			"settings":
 			{
-				"buffer_size": 8798,
+				"buffer_size": 8779,
 				"line_ending": "Unix",
 				"name": "mc_sim.rmd"
 			}
@@ -453,6 +453,8 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"0)",
+			"I(p",
 			"pred1",
 			"pdat1",
 			"36",
@@ -529,6 +531,8 @@
 		"regex": false,
 		"replace_history":
 		[
+			"0",
+			"p",
 			"pred2",
 			"pdat2",
 			"200",
@@ -623,7 +627,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 766.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -633,15 +637,15 @@
 					"file": "oil_prices_rr.tex",
 					"settings":
 					{
-						"buffer_size": 44922,
+						"buffer_size": 46563,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								44019,
-								44019
+								539,
+								539
 							]
 						],
 						"settings":
@@ -649,7 +653,7 @@
 							"syntax": "Packages/LaTeXing/support/LaTeX.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 15965.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -678,7 +682,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 991.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -708,7 +712,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 2317.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -745,15 +749,15 @@
 					"file": "mc_sim.rmd",
 					"settings":
 					{
-						"buffer_size": 8798,
+						"buffer_size": 8779,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1172,
-								1172
+								74,
+								74
 							]
 						],
 						"settings":
@@ -763,7 +767,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 792.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -786,6 +790,7 @@
 						],
 						"settings":
 						{
+							"r_box_status": false,
 							"syntax": "Packages/R/R.tmLanguage",
 							"translate_tabs_to_spaces": false
 						},
