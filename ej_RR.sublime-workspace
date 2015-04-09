@@ -163,8 +163,44 @@
 			"file": "oil_prices_rr.tex",
 			"settings":
 			{
-				"buffer_size": 46563,
+				"buffer_size": 48411,
 				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "reply_referee_1.txt",
+			"settings":
+			{
+				"buffer_size": 13497,
+				"line_ending": "Unix",
+				"name": "reply_referee_1"
+			}
+		},
+		{
+			"file": "reply_referee2.txt",
+			"settings":
+			{
+				"buffer_size": 6465,
+				"line_ending": "Unix",
+				"name": "reply_referee2.txt"
+			}
+		},
+		{
+			"file": "reply_referee3.txt",
+			"settings":
+			{
+				"buffer_size": 7676,
+				"line_ending": "Unix",
+				"name": "reply_referee3.txt"
+			}
+		},
+		{
+			"file": "referee1.txt",
+			"settings":
+			{
+				"buffer_size": 20692,
+				"line_ending": "Unix",
+				"name": "referee1.txt"
 			}
 		},
 		{
@@ -180,7 +216,7 @@
 			"file": "rr_analysis_1.r",
 			"settings":
 			{
-				"buffer_size": 10127,
+				"buffer_size": 10154,
 				"line_ending": "Unix",
 				"name": "rr_analysis_1.r"
 			}
@@ -215,7 +251,7 @@
 			"file": "rr_clean.py",
 			"settings":
 			{
-				"buffer_size": 8570,
+				"buffer_size": 8693,
 				"line_ending": "Unix",
 				"name": "rr_clean.py"
 			}
@@ -236,15 +272,6 @@
 				"buffer_size": 2412,
 				"line_ending": "Unix",
 				"name": "prep.py"
-			}
-		},
-		{
-			"file": "referee1.txt",
-			"settings":
-			{
-				"buffer_size": 20692,
-				"line_ending": "Unix",
-				"name": "referee1.txt"
 			}
 		},
 		{
@@ -602,7 +629,7 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 4,
 			"sheets":
 			[
 				{
@@ -637,20 +664,101 @@
 					"file": "oil_prices_rr.tex",
 					"settings":
 					{
-						"buffer_size": 46563,
+						"buffer_size": 48411,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								539,
-								539
+								6457,
+								6457
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/LaTeXing/support/LaTeX.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 2838.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "reply_referee_1.txt",
+					"settings":
+					{
+						"buffer_size": 13497,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								20,
+								3574
+							]
+						],
+						"settings":
+						{
+							"auto_name": "reply_referee_1",
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 984.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "reply_referee2.txt",
+					"settings":
+					{
+						"buffer_size": 6465,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								20,
+								3104
+							]
+						],
+						"settings":
+						{
+							"auto_name": "reply_referee2.txt",
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 984.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "reply_referee3.txt",
+					"settings":
+					{
+						"buffer_size": 7676,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3105,
+								3105
+							]
+						],
+						"settings":
+						{
+							"auto_name": "reply_referee3.txt",
+							"syntax": "Packages/Text/Plain text.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -659,7 +767,34 @@
 					"type": "text"
 				},
 				{
-					"buffer": 2,
+					"buffer": 5,
+					"file": "referee1.txt",
+					"settings":
+					{
+						"buffer_size": 20692,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								14461,
+								20177
+							]
+						],
+						"settings":
+						{
+							"auto_name": "referee1.txt",
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 9328.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
 					"file": "rr_descriptives.r",
 					"settings":
 					{
@@ -670,8 +805,8 @@
 						"selection":
 						[
 							[
-								1840,
-								1457
+								155,
+								155
 							]
 						],
 						"settings":
@@ -688,19 +823,19 @@
 					"type": "text"
 				},
 				{
-					"buffer": 3,
+					"buffer": 7,
 					"file": "rr_analysis_1.r",
 					"settings":
 					{
-						"buffer_size": 10127,
+						"buffer_size": 10154,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								4278,
-								4258
+								5536,
+								5536
 							]
 						],
 						"settings":
@@ -712,13 +847,13 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 3808.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
-					"buffer": 4,
+					"buffer": 8,
 					"file": "initial_response_to_editor.txt",
 					"settings":
 					{
@@ -745,7 +880,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 5,
+					"buffer": 9,
 					"file": "mc_sim.rmd",
 					"settings":
 					{
@@ -773,7 +908,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 6,
+					"buffer": 10,
 					"file": "rr_simulation.r",
 					"settings":
 					{
@@ -801,19 +936,19 @@
 					"type": "text"
 				},
 				{
-					"buffer": 7,
+					"buffer": 11,
 					"file": "rr_clean.py",
 					"settings":
 					{
-						"buffer_size": 8570,
+						"buffer_size": 8693,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								363,
-								363
+								804,
+								1152
 							]
 						],
 						"settings":
@@ -823,13 +958,13 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 3523.0,
+						"translation.y": 535.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
-					"buffer": 8,
+					"buffer": 12,
 					"file": "industry_costs.py",
 					"settings":
 					{
@@ -850,13 +985,13 @@
 							"syntax": "Packages/Python/Python.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 552.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
-					"buffer": 9,
+					"buffer": 13,
 					"file": "prep.py",
 					"settings":
 					{
@@ -883,34 +1018,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 10,
-					"file": "referee1.txt",
-					"settings":
-					{
-						"buffer_size": 20692,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								84,
-								84
-							]
-						],
-						"settings":
-						{
-							"auto_name": "referee1.txt",
-							"syntax": "Packages/Text/Plain text.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 6667.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 11,
+					"buffer": 14,
 					"file": "notes.txt",
 					"settings":
 					{
@@ -937,7 +1045,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 12,
+					"buffer": 15,
 					"file": "GAMM_practice.r",
 					"settings":
 					{
@@ -965,7 +1073,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 13,
+					"buffer": 16,
 					"file": "spline_intro.py",
 					"settings":
 					{

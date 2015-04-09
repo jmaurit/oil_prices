@@ -20,6 +20,9 @@ brentprices["oil_price_nom"]=[float(i) for i in brentprices["oil_price_nom"]]
 brentprices["year"]=brentprices.index.year
 brent_yearly=brentprices.groupby("year").mean()
 
+# from world bank - world GDP
+world_gdp = Quandl.get("WORLDBANK/WLD_NY_GDP_MKTP_KD_ZG", authtoken="WHFoD2EKU2J8H8yGn_bS")
+
 #from bp via Quandl
 
 oil_long = Quandl.get("BP/CRUDE_OIL_PRICES", authtoken="WHFoD2EKU2J8H8yGn_bS")

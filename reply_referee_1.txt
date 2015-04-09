@@ -1,0 +1,75 @@
+Reply to referee 1
+
+Thank you for the careful and constructive review of my paper.  I have made a major revision, including a complete overhaul of the methodology, and a rewriting of most of the sections based on your comments, as well as those of the other referees.  I have also substantially shortened and at some places simplified the analysis in order to comply with Energy Journal length limits, as well as to focus on the main results.  I give a short summary of the major changes below, and then follow with a point-by-point response to your comments. 
+
+Methodologically, I have tried to reduce the complexity of the modeling by excluding the smallest of the fields - chosen as under 3 mill sm3 in recoverable reserves since these show significantly different production profiles than larger fields.  This should not have a major impact on the implications of the paper since they account for only .5 % of total recoverable oil reserves. I also exclude the Ekofisk field, as this has a unique double-hump profile, related to its early history (see p.9). 
+
+I was then able to in some ways simplify the methodology and in others extend it in order to deal with some of the issues you brought up. Significantly, I now use a single-variable smoothed function to control for the profile. This can be interpreted directly, and thus adds intuition to the analysis.  Perhaps more importantly, i was then able to add random effects terms - modeling the idiosyncratic variance between the fields (p. 14).  I compare these results with a model that includes a two-dimensional smoothed function (p.14-15) (but where adding a random effects term is not possible) and the main results generally agree. 
+
+In response to your suggestion that the peak of production could be endogenous to price, I now also include only a single smoothed function for the full production profile, rather than splitting the function into two pieces before and after the peak.  I have further extended the model to try to deal with the issue that you brought up of technological change biasing the results. I have also included a measure of producer prices in the norwegian oil and gas sector, to control for the fact that costs are likely highly correlated with prices. 
+
+The results are on the whole similar, though differ substantially in detail. I still find no significant evidence of a contemporary effect of oil prices on production, however now I define contemporary as the same year.  In lags 1-4, modest but statistically and economically significant effects are found, with the highest effect found after 2 years. These results are more robust and, I believe, more intuitive than those in the previous draft. In total, I believe the paper has been substantially improved due to the implimentations of your suggestions and those of the other referees.   
+
+I have chosen to limit my results to the total average effect of prices on production.  Partly this is out of purely practical consideration of keeping the exposition within Energy Journal limits. But in addition, the results for different phases of production are considerably less robust, mainly because I am only using about half the data for each analysis, but also because I now am using a single smoothed function to model the production profile. Estimations of the effect of prices on investment probably deserves a seperate paper and I have also cut this section. The analysis certainly does lose some detail with these omissions, but I believe the trade-off of better clearity, robustness, and appropriate length is worth it.  
+
+Response to comments:
+
+"I see several problems with this assumption. One is that it ignores significant technical changes in the oil industry (changes that the paper itself discusses). Given these changes, even if oil prices had been constant throughout, fields of a given size discovered in the 1970s would surely follow a different production path than fields of the same size discovered in, say, the 2000s. If so, then the paper’s regression analysis will spuriously attribute any deviations from the average production path for fields of that size—presumably involving relatively lower production at any given point in time for the 1970s fields—to differences in oil prices over the fields’ lifetimes."
+
+This is a good point - I have now tried to pick up the variation due to technical change by introducing a constricted smoothed function of calendar years. The function is restricted (restricting the number of knots to a maximum of 4) in order not to overfit the data - focusing on the long-term factors like technical change, rather than picking up shorter term volatility from changes in the oil-price. See p. The estimated smoothed function appears consistent with it capturing technical change - growing strongly in the early years of exploration and production, followed by a flattening out.  
+
+"A second problem, which the paper acknowledges but then to my mind erroneously dismisses as unimportant, is that field size itself—whether measured by estimates of recoverable oil or by peak production—is affected by price. At high oil prices, more oil will be viewed as recoverable. Moroever (as the paper itself argues), more investments will be made in recovering that oil, which may well affect peak production. But that implies that a field of given “true” size, as measured for example by the physical oil in place, will at different oil prices be treated as being of a different size in the paper’s regression analysis. A different baseline production path will be assigned to it and therefore different effects of oil-price changes estimated for it."
+
+I agree that this is an important point, and was not well addressed in the previous draft.  In this version I have used estimates of total in-place oil rather than recoverable reserves as a proxy for the size of the field.  While these are still subject to uncertainty, they should not be directly correlated with movements in oil prices.  
+
+"Relatedly, given that the paper allows for only linear price effects on log production, the correlation between price and size implies that any non-linear price effects will alter the estimated baseline production paths. This in turn will bias the estimates of the linear effects."
+
+This is a good point, and was worth checking. I attempted several alternative models with squared and other polynomial terms for the price effect, however these did not turn out to be significant, nor did they, combined lead to a better fit for the models, so I decided to stay with the linear price terms.  
+
+"A third problem is that the time at which production peaks, as measured from the start of pro- duction, is likely affected by price as well. If the oil price is high, then (again as the paper itself argues) buildout of a field is likely to be sped up, and vice versa. But that implies that a given number of years before the peak is reached, production will all else equal be lower for a field with rapid buildout induced by a high price than for a field with slower buildout induced by a low price. Since the paper’s regression analysis ignores this, it will estimate a baseline production path that averages across these two fields. As a result, it will all else equal find a spurious negative correlation between deviations of production from the estimated pre-peak baseline path and price. (More generally, estimates of that correlation will be biased downwards.)"
+
+I have changed the model so that a total smoothed function is estimated, rather than estimating two seperate functions, split at a fixed point (the peak).  This allows for variations in the peak to be modeled endogenously in the model.
+
+"A completely separate problem with the paper’s methodology involves the penalty for “wiggliness” in the spline estimation. Clearly, the choice of this penalty is hugely important: the more wiggly the spline estimate of the baseline production path is allowed to be, the fewer and smaller will be the deviations from that baseline, implying smaller estimated price effects. Yet apart from a cryptic reference in Appendix B to a robustness check setting an unexplained “γ parameter that controls smoothness” to 1.4 (as opposed to ?), the paper offers no discussion of how the penalty was chosen."
+
+You are right, this detail deserves better explanation. The smooth parameter is set endogenously in the model through cross-validation. I have now noted this in the paper, provide some intuition and included a reference for the technical details (p.13)
+
+p7 In what sense do the coefficients on the price variables estimate “the average effect of price on production over the entire production profile,” rather than just the effect on contemporaneous production (or for n-th lags, production n years in the future)? 
+
+I think my wording in the original was unclear (and after some thought, perhaps even misleading.)  In this draft, I have given a more direct interpretation, as you suggest. 
+
+p8 In what sense does Figure 2 show “the correlated production profiles of the fields” as opposed to just the pattern of field discoveries?
+
+You are right, I think your wording is a better direct way of saying what I intended to convey - I have changed my wording (p.4). Also, in this draft I make a direct visual comparison of the bell-shaped total production curve with profiles of the largest 10 fields, showing how correlated discoveries and subsequent production coincided to create the bell-shaped total production. (fig 1)
+
+"p17 “the methodologies used to estimate the total recoverable resource of a field are constantly evolving and it is a fair assumption that any consistent bias of the estimates are observed in older fields and corrected for in estimates for newer fields. I can then assume that existing errors are random and will not significantly bias the estimates.” I have a hard time following what is being argued here."
+
+This is no longer included in the paper, since it is no longer relevant. (And I agree, my wording is poor.)
+
+p19 “Yearly production is assumed to be proportional to the total size of the field.” But production is in log form, whereas size is not. In fact, I wonder how much of the bias found in the paper’s Monte Carlo analysis of what it calls the “linear model” may be due simply to the fact that size enters linearly in that model rather than in log form.
+
+This was a good point to think about.  I tried specifications where I used the log of the in-place-oil measure.  This did not lead to any material differences in the results.  In the end, I decided to keep the absolute levels of the in-place oil estimates to be consistent with the other right-hand side variables and their interpretation.  I also included the absolute size measure in the monte-carlo experiments to check for any bias, though generally these experiments show unbiased estimators in the GAM models.
+
+"p29 “A higher oil price means that added investments in production become attractive in order to either increase the total amount extracted from a field or to shift production forward.” Whether investment increases production or just shifts it forward in time seems very important to the general question that the paper addresses. Yet beyond this brief mention the issue is never explored."
+
+You are right, this deserves more attention. I have added some discussion of this in the conclusion (p.21). I don´t think It is feasible to seperate these two with my current data. A combination of the efacts that the measured effects are relatively small, estimated field sizes and recoverbale oil are uncertain, and most importantly, most fields are still producing.  
+
+p29 “including several lags also allows for the possibility of adaptive expectations of future oil prices.” Whether effects of lagged prices reflect long times for investments to take effect or long times for price expectations to adjust again seems very important to the general question that the paper addresses. Yet again, beyond this brief mention the issue is never explored.
+
+
+p31 “The lines in the boxplot . . . are calculated using a bayesian-inspired simulation.”
+
+I agree, I got carried away here.  I have simplified my presenation of the results, now showing simple point estimates with 95% confidence bans calculated in the standard way (1.96*SE) 
+
+p35 How is “investment” defined and measured?
+
+To shorten the exposition and focus the analysis on the effect of prices on production, I have cut the explicit estimation of the effects on investment.  This is a subject that probably deserves its own method and paper, and I probably was not doing it justice.  
+
+"Much of Appendix A (confusingly referred to as appendix 1 and appendix 2 at different points in the paper) is useless to the reader, because other than brief captions, no explanations are given of the figures or of the final table."
+
+I have redone the appendix in the form of an online markdown file.  Here, I include the actual code for the Monte Carlo experiment, with comments, explanations and results imbedded directly.  I hope this improves understanding, as well as providing a direct path to replicating the results.   
+
+"Lastly, the paper is frustratingly messy, with lots of typos—including ones that a simple spell check would have caught—and confusing references to the wrong lags when discussing results."
+
+I have paid extra attention to fixing typos and ensuring consistency.  I hope you will find this draft cleaner, and (mostly) free of errors.
+

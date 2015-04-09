@@ -31,7 +31,7 @@ large_fields<-prod_data[prod_data["name"]!="EKOFISK",]
 
 
 gam_mod<-gam(oil_prod_mill_sm3~s(prod_year, bs="cr") +
-	I(in_place_oil_mill_sm3/100) + I(cost_index/10) +
+	I(log(in_place_oil_mill_sm3 +.01)) + I(cost_index/10) +
     s(year, bs="cr", k=4) + I(price/10) + I(price_l1/10) + I(price_l2/10) +
     I(price_l3/10) + I(price_l4/10) + I(price_l5/10) + I(price_l6/10) + 
     I(price_l7/10) + I(price_l8/10), 
@@ -116,7 +116,7 @@ png("/Users/johannesmauritzen/research/oil_prices/figures/smooths.png",
 dev.off()
 
 
-gam_mod_2d<-gam(oil_prod_mill_sm3~s(prod_year, in_place_oil_mill_sm3) +
+gam_mod_2d<-gam(oil_prod_mill_sm3~s(prod_year, I(log(in_place_oil_mill_sm3 + .01))) +
     s(year, bs="cr", k=4) +
     I(cost_index/10) +
      I(price/10) + I(price_l1/10) + I(price_l2/10) +
@@ -145,7 +145,7 @@ labs(x="Lags", y="Estimated Coefficient on Oil Price",
 
 gam_mod_re<-gam(oil_prod_mill_sm3~s(prod_year, name, bs="re") + 
     s(year, bs="cr", k=4) +
-	I(in_place_oil_mill_sm3/100) + I(in_place_oil_mill_sm3/100) + I(cost_index/10) +
+	I(log(in_place_oil_mill_sm3 + .01)) + I(in_place_oil_mill_sm3/100) + I(cost_index/10) +
     I(price/10) + I(price_l1/10) + I(price_l2/10) +
     I(price_l3/10) + I(price_l4/10) + I(price_l5/10) + I(price_l6/10) + 
     I(price_l7/10) + I(price_l8/10), 
