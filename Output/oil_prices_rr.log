@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2013.10.11)  9 APR 2015 11:00
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2013.10.11)  16 APR 2015 18:01
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -238,16 +238,7 @@ G,.JBIG2,.JB2,.eps]
 (/usr/local/texlive/2013/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
-))
-Overfull \hbox (2.80026pt too wide) in paragraph at lines 34--36
-[]\OT1/cmr/m/n/10 I use de-tailed field-level data on Nor-we-gian off-shore oil
- field pro-duc-tion and a semi-parametric
- []
-
-Missing character: There is no ‚ in font cmr10!
-Missing character: There is no Ä in font cmr10!
-Missing character: There is no ô in font cmr10!
-[1
+)) [1
 
 {/usr/local/texlive/2013/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2]
 Missing character: There is no ‚ in font cmr10!
@@ -258,17 +249,6 @@ Missing character: There is no Ä in font cmr10!
 Missing character: There is no ù in font cmr10!
 Missing character: There is no √ in font cmr9!
 Missing character: There is no § in font cmr9!
-! Undefined control sequence.
-l.62 ...iled data on most aspects of the country\‚
-                                                  Äôs oil industry has becom...
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-Missing character: There is no Ä in font cmr10!
-Missing character: There is no ô in font cmr10!
 [3] <figures/oil_decline.png, id=23, 987.69pt x 789.95125pt>
 File: figures/oil_decline.png Graphic file (type png)
 <use figures/oil_decline.png>
@@ -286,13 +266,13 @@ Missing character: There is no ‚ in font cmr10!
 Missing character: There is no Ä in font cmr10!
 Missing character: There is no ô in font cmr10!
 [7]
-Underfull \hbox (badness 10000) in paragraph at lines 117--117
+Underfull \hbox (badness 10000) in paragraph at lines 116--116
 [][]$\OT1/cmtt/m/n/9 http : / / www . regjeringen . no / en / dep / fin / Selec
 ted-[]topics / taxes-[]and-[]duties / bedriftsbeskatning /
  []
 
 
-Overfull \hbox (138.28809pt too wide) in paragraph at lines 119--119
+Overfull \hbox (138.28809pt too wide) in paragraph at lines 118--118
 [][]$\OT1/cmtt/m/n/9 http : / / www . npd . no / en / Topics / Production-[]lic
 ences / Theme-[]articles / Production-[]licence-[]-[]licence-[]to-[]explore-[]d
 iscover-[]and-[]produce-[]/$| 
@@ -301,358 +281,42 @@ iscover-[]and-[]produce-[]/$|
 [8] <figures/data_descriptives.png, id=42, 987.69pt x 710.655pt>
 File: figures/data_descriptives.png Graphic file (type png)
 <use figures/data_descriptives.png>
-Package pdftex.def Info: figures/data_descriptives.png used on input line 127.
+Package pdftex.def Info: figures/data_descriptives.png used on input line 126.
 (pdftex.def)             Requested size: 469.75502pt x 337.98753pt.
-[9] [10 <./figures/data_descriptives.png>] [11]
-Runaway argument?
- 
-! Paragraph ended before \split was complete.
-<to be read again> 
-                   \par 
-l.159 
-      
-I suspect you've forgotten a `}', causing me to apply this
-control sequence to too much text. How can we recover?
-My plan is to forget the whole thing and hope for the best.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.159 
-      
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-! Missing \endgroup inserted.
-<inserted text> 
-                \endgroup 
-l.159 
-      
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-! Missing \endgroup inserted.
-<inserted text> 
-                \endgroup 
-l.159 
-      
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-! Display math should end with $$.
-<to be read again> 
-                   \par 
-l.159 
-      
-The `$' that I just saw supposedly matches a previous `$$'.
-So I shall assume that you typed `$$' both times.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.160 	Log(production_
-                      {i,t}) & = f(production\_time_{i,t}) + f(year_t) + \be...
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-! Misplaced alignment tab character &.
-l.160 	Log(production_{i,t}) &
-                               = f(production\_time_{i,t}) + f(year_t) + \be...
-I can't figure out why you would want to use a tab mark
-here. If you just want an ampersand, the remedy is
-simple: Just type `I\&' now. But if some right brace
-up above has ended a previous alignment prematurely,
-you're probably due for more error messages, and you
-might try typing `S' now just to see what is salvageable.
-
-! Misplaced alignment tab character &.
-l.161 	 \quad &
-                + \beta_3 cost\_index_{t} + \mathbf{\beta_2 oil\_price\_lags...
-I can't figure out why you would want to use a tab mark
-here. If you just want an ampersand, the remedy is
-simple: Just type `I\&' now. But if some right brace
-up above has ended a previous alignment prematurely,
-you're probably due for more error messages, and you
-might try typing `S' now just to see what is salvageable.
-
-! Misplaced \crcr.
-\endsplit ->\crcr 
-                  \egroup \egroup \iftagsleft@ \@xp \lendsplit@ \else \@xp \...
-l.164 \end{split}
-                 
-I can't figure out why you would want to use a tab mark
-or \cr or \span just now. If something like a right brace
-up above has ended a previous alignment prematurely,
-you're probably due for more error messages, and you
-might try typing `S' now just to see what is salvageable.
-
-! Extra }, or forgotten $.
-\endsplit ->\crcr \egroup 
-                          \egroup \iftagsleft@ \@xp \lendsplit@ \else \@xp \...
-l.164 \end{split}
-                 
-I've deleted a group-closing symbol because it seems to be
-spurious, as in `$x}$'. But perhaps the } is legitimate and
-you forgot something else, as in `\hbox{$x}'. In such cases
-the way to recover is to insert both the forgotten and the
-deleted material, e.g., by typing `I$}'.
-
-! Extra }, or forgotten $.
-\endsplit ->\crcr \egroup \egroup 
-                                  \iftagsleft@ \@xp \lendsplit@ \else \@xp \...
-l.164 \end{split}
-                 
-I've deleted a group-closing symbol because it seems to be
-spurious, as in `$x}$'. But perhaps the } is legitimate and
-you forgot something else, as in `\hbox{$x}'. In such cases
-the way to recover is to insert both the forgotten and the
-deleted material, e.g., by typing `I$}'.
-
-
-! LaTeX Error: \begin{equation} on input line 157 ended by \end{split}.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.164 \end{split}
-                 
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.164 \end{split}
-                 
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.164 \end{split}
-                 
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.164 \end{split}
-                 
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-
-! LaTeX Error: Bad math environment delimiter.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.165 \end{equation}
-                    
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-! You can't use `\eqno' in horizontal mode.
-\endmathdisplay@a ...\df@tag \@empty \else \veqno 
-                                                  \alt@tag \df@tag \fi \ifx ...
-l.165 \end{equation}
-                    
-Sorry, but I'm not programmed to handle this case;
-I'll just pretend that you didn't ask for it.
-If you're in the wrong mode, you might be able to
-return to the right one by typing `I}' or `I$' or `I\par'.
-
-
-! LaTeX Error: \begin{document} ended by \end{equation}.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.165 \end{equation}
-                    
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.165 \end{equation}
-                    
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-! Display math should end with $$.
-<to be read again> 
-                   \endgroup 
-l.165 \end{equation}
-                    
-The `$' that I just saw supposedly matches a previous `$$'.
-So I shall assume that you typed `$$' both times.
-
-! Extra \endgroup.
-<recently read> \endgroup 
-                          
-l.165 \end{equation}
-                    
-Things are pretty mixed up, but I think the worst is over.
-
-[12]
-! Missing $ inserted.
-<inserted text> 
-                $
-l.178 
-      
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-! Display math should end with $$.
-<to be read again> 
-                   \par 
-l.178 
-      
-The `$' that I just saw supposedly matches a previous `$$'.
-So I shall assume that you typed `$$' both times.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.179 \|
-         \mathbf{y} - \mathbf{X\beta} \| ^2 + \lambda \int_{0}^{1} [f^{\prim...
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.180 
-      
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-
-! LaTeX Error: Bad math environment delimiter.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.181 \end{equation}
-                    
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-! You can't use `\eqno' in vertical mode.
-\endmathdisplay@a ...\df@tag \@empty \else \veqno 
-                                                  \alt@tag \df@tag \fi \ifx ...
-l.181 \end{equation}
-                    
-Sorry, but I'm not programmed to handle this case;
-I'll just pretend that you didn't ask for it.
-If you're in the wrong mode, you might be able to
-return to the right one by typing `I}' or `I$' or `I\par'.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.181 \end{equation}
-                    
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-! Display math should end with $$.
-<to be read again> 
-                   \endgroup 
-l.181 \end{equation}
-                    
-The `$' that I just saw supposedly matches a previous `$$'.
-So I shall assume that you typed `$$' both times.
-
-<figures/smooths.png, id=60, 987.69pt x 789.95125pt>
+[9] [10 <./figures/data_descriptives.png>] [11] [12] <figures/smooths.png, id=6
+1, 987.69pt x 789.95125pt>
 File: figures/smooths.png Graphic file (type png)
 <use figures/smooths.png>
-Package pdftex.def Info: figures/smooths.png used on input line 192.
+Package pdftex.def Info: figures/smooths.png used on input line 189.
 (pdftex.def)             Requested size: 469.75502pt x 375.70084pt.
-[13]
-
-LaTeX Warning: Command \~ invalid in math mode on input line 197.
-
-! Please use \mathaccent for accents in math mode.
-\add@accent ...@spacefactor \spacefactor }\accent 
-                                                  #1 #2\egroup \spacefactor ...
-l.197 ...(production\_time_{i,t}*Z)$.  Where $Z\~N
-                                                  (0, \sigma)$ and $\sigma$ ...
-I'm changing \accent to \mathaccent here; wish me luck.
-(Accents are not the same in formulas as they are in text.)
-
-! You can't use `\spacefactor' in math mode.
-\add@accent ...}\accent #1 #2\egroup \spacefactor 
-                                                  \accent@spacefactor 
-l.197 ...(production\_time_{i,t}*Z)$.  Where $Z\~N
-                                                  (0, \sigma)$ and $\sigma$ ...
-Sorry, but I'm not programmed to handle this case;
-I'll just pretend that you didn't ask for it.
-If you're in the wrong mode, you might be able to
-return to the right one by typing `I}' or `I$' or `I\par'.
-
-Missing character: There is no Á in font cmex10!
-[14 <./figures/smooths.png>]
-Missing character: There is no ‚ in font cmr10!
-Missing character: There is no Ä in font cmr10!
-Missing character: There is no ô in font cmr10!
+[13] [14 <./figures/smooths.png>]
 Missing character: There is no ‚ in font cmr10!
 Missing character: There is no Ä in font cmr10!
 Missing character: There is no ú in font cmr10!
 Missing character: There is no ‚ in font cmr10!
 Missing character: There is no Ä in font cmr10!
 Missing character: There is no ù in font cmr10!
-[15]
-Overfull \hbox (1.60356pt too wide) in paragraph at lines 240--287
+[15] [16]
+Overfull \hbox (1.60356pt too wide) in paragraph at lines 237--283
  [] 
  []
 
-[16] [17] <figures/price_coefficents.png, id=84, 1481.535pt x 888.31876pt>
+<figures/price_coefficents.png, id=80, 1481.535pt x 888.31876pt>
 File: figures/price_coefficents.png Graphic file (type png)
 <use figures/price_coefficents.png>
-Package pdftex.def Info: figures/price_coefficents.png used on input line 295.
+Package pdftex.def Info: figures/price_coefficents.png used on input line 291.
 (pdftex.def)             Requested size: 469.75502pt x 281.65176pt.
-[18 <./figures/price_coefficents.png>] <figures/mc_plot.png, id=89, 1777.64125p
-t x 1777.64125pt>
+[17 <./figures/price_coefficents.png>] [18] <figures/mc_plot.png, id=89, 1777.6
+4125pt x 1777.64125pt>
 File: figures/mc_plot.png Graphic file (type png)
 <use figures/mc_plot.png>
-Package pdftex.def Info: figures/mc_plot.png used on input line 305.
+Package pdftex.def Info: figures/mc_plot.png used on input line 301.
 (pdftex.def)             Requested size: 469.75502pt x 469.74359pt.
-[19] [20 <./figures/mc_plot.png>] (Output/oil_prices_rr.bbl
+[19] [20 <./figures/mc_plot.png>] [21] (Output/oil_prices_rr.bbl
 Missing character: There is no ‚ in font cmr10!
 Missing character: There is no Ä in font cmr10!
 Missing character: There is no ì in font cmr10!
-[21]
+
 Underfull \hbox (badness 2205) in paragraph at lines 57--62
 []\OT1/cmr/m/n/10.95 British Petroleum.  Sta-tis-ti-cal re-view of world en-erg
 y 2013.  Tech-ni-cal re-port, 2013.
@@ -663,6 +327,7 @@ Missing character: There is no ¬ in font cmr10!
 Missing character: There is no © in font cmr10!
 Missing character: There is no ¬ in font cmr10!
 Missing character: There is no © in font cmr10!
+[23]
 Missing character: There is no ‚ in font cmr10!
 Missing character: There is no Ä in font cmr10!
 Missing character: There is no † in font cmr10!
@@ -677,7 +342,6 @@ Missing character: There is no Ä in font cmr6!
 Missing character: There is no † in font cmr6!
 Missing character: There is no ¬ in font cmr10!
 Missing character: There is no © in font cmr10!
-[23]
 Missing character: There is no √ in font cmr10!
 Missing character: There is no • in font cmr10!
 Missing character: There is no √ in font cmr10!
@@ -685,9 +349,9 @@ Missing character: There is no • in font cmr10!
 Missing character: There is no ‚ in font cmr10!
 Missing character: There is no Ä in font cmr10!
 Missing character: There is no ì in font cmr10!
+[24]
 Missing character: There is no ¬ in font cmr10!
 Missing character: There is no © in font cmr10!
-[24]
 Missing character: There is no ‚ in font cmr10!
 Missing character: There is no Ä in font cmr10!
 Missing character: There is no ì in font cmr10!
@@ -697,41 +361,41 @@ Missing character: There is no ì in font cmr10!
 Missing character: There is no ‚ in font cmr10!
 Missing character: There is no Ä in font cmr10!
 Missing character: There is no ì in font cmr10!
-) [25] (Output/oil_prices_rr.aux) ) 
+[25]) [26] (Output/oil_prices_rr.aux) ) 
 Here is how much of TeX's memory you used:
- 3299 strings out of 493315
- 46882 string characters out of 6137903
- 123186 words of memory out of 5000000
- 6677 multiletter control sequences out of 15000+600000
+ 3300 strings out of 493315
+ 46896 string characters out of 6137903
+ 122195 words of memory out of 5000000
+ 6678 multiletter control sequences out of 15000+600000
  14721 words of font info for 54 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
- 38i,10n,32p,1070b,373s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/2013/texmf-dist/fonts/ty
-pe1/public/amsfonts/cm/cmbsy10.pfb></usr/local/texlive/2013/texmf-dist/fonts/ty
-pe1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2013/texmf-dist/fonts/typ
-e1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2013/texmf-dist/fonts/type
-1/public/amsfonts/cm/cmbx8.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/
-public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/p
-ublic/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/pu
-blic/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/publ
-ic/amsfonts/cm/cmmib10.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/publ
-ic/amsfonts/cm/cmr10.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public
-/amsfonts/cm/cmr12.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/a
-msfonts/cm/cmr17.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/ams
-fonts/cm/cmr6.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfon
-ts/cm/cmr8.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/
-cm/cmr9.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/
-cmsy10.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/c
-msy6.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cms
-y8.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmti1
-0.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10
-.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.
-pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pf
-b>
-Output written on Output/oil_prices_rr.pdf (25 pages, 779470 bytes).
+ 38i,20n,32p,1068b,373s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/local/texlive/2013/texmf-dist/font
+s/type1/public/amsfonts/cm/cmbsy10.pfb></usr/local/texlive/2013/texmf-dist/font
+s/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2013/texmf-dist/fonts
+/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2013/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmbx8.pfb></usr/local/texlive/2013/texmf-dist/fonts/ty
+pe1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2013/texmf-dist/fonts/typ
+e1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2013/texmf-dist/fonts/type
+1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/
+public/amsfonts/cm/cmmib10.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/
+public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/pu
+blic/amsfonts/cm/cmr12.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/publ
+ic/amsfonts/cm/cmr17.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public
+/amsfonts/cm/cmr6.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/am
+sfonts/cm/cmr8.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfo
+nts/cm/cmr9.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts
+/cm/cmsy10.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/
+cm/cmsy6.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm
+/cmsy8.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/c
+mti10.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cm
+tt10.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmt
+t12.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt
+9.pfb>
+Output written on Output/oil_prices_rr.pdf (26 pages, 780986 bytes).
 PDF statistics:
- 181 PDF objects out of 1000 (max. 8388607)
- 121 compressed objects within 2 object streams
+ 184 PDF objects out of 1000 (max. 8388607)
+ 123 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  26 words of extra memory for PDF output out of 10000 (max. 10000000)
 

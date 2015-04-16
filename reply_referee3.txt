@@ -1,10 +1,10 @@
 Reply to referee 3
 
-Thank you for the careful and constructive review of my paper.  I have made a major revision, including a complete overhaul of the methodology, and a rewriting of most of the sections based on your comments, as well as those of the other referees.  I have also substantially shortened and at some places simplified the analysis in order to comply with Energy Journal length limits, as well as to focus on the main results.  I give a short summary of the major changes below, and then follow with a point-by-point response to your comments. 
+Thank you for the careful and constructive review of my paper.  I have made a major revision, including a overhaul of the methodology, and a rewriting of most of the sections based on your comments, as well as those of the other referees.  I have also substantially shortened and at some places simplified the analysis in order to comply with Energy Journal length limits, as well as to focus on the main results.  I give a short summary of the major changes below, and then follow with a point-by-point response to your comments. 
 
 Methodologically, I have tried to reduce the complexity of the modeling by excluding the smallest of the fields - chosen as under 3 mill sm3 in recoverable reserves since these show significantly different production profiles than larger fields.  This should not have a major impact on the implications of the paper since they account for only .5 % of total recoverable oil reserves. I also exclude the Ekofisk field, as this has a unique double-hump profile, related to its early history (see p.9). 
 
-I was then able to in some ways simplify and extend the methodology. Significantly, I now use a single-variable smoothed function to control for the profile. This can be interpreted directly, and thus adds intuition to the analysis.  Perhaps more importantly, i was then able to add random effects terms - modeling the idiosyncratic variance between the fields (p. 14).  I compare these results with a model that includes a two-dimensional smoothed function (p.14-15) (but where adding a random effects term is not possible) and the main results generally agree. 
+I was then able to in some ways simplify and extend the methodology. Significantly, I now use a single-variable smoothed function to control for the profile. This can be interpreted directly, and thus adds intuition to the analysis.  Perhaps more importantly, i was then able to add random effects terms - modeling the idiosyncratic variance between the fields (p. 14).  I compare these results with a model that includes a two-dimensional smoothed function (p.14-15) -but where adding a random effects term is not possible - and the main results generally agree. 
 
 To deal with the potential that the peak of production could be endogenous to price, I now also include only a single smoothed function for the full production profile, rather than splitting the function into two pieces before and after the peak.  I have further extended the model to try to deal with the issue of technological change, as well as the possibility that costs are correlated with price, which I discuss below. 
 
@@ -16,7 +16,7 @@ Response to comments
 
 "The different results indicate that at such micro level, the effect of price on production is sensitive to specific measures chosen for price and production. And if the difference in the results is mostly explained by the difference in cost of operating offshore and onshore, the micro-foundation findings in this paper would be less irrelevant for understanding the supply side of oil market on a larger scale, with offshore production contributing to about 33% of world production and deep-water to about 7%. As a result, contribution of this paper to the literature would be limited."
 
-This is a good point worth some discussion.  I think that you are right in that the findings are limited to off-shore production, and as you point out, this makes up a minority of world oil production. However, In terms of costs, many of these fields also lie on the margins, and thus are especially important in the price-formation process.  As you also point out, the significance for countries with a high reliance on an offshore sector - like Norway, Brazil, and the UK - could be quite substantial.  I have tried to keep a balanced discussion of this in the paper (p.1-3) 
+This is a good point worth some discussion.  I think that you are right in that the findings are limited to off-shore production, and as you point out, this makes up a minority of world oil production. However, In terms of costs, many of these fields also lie on the economic margins, and thus are especially important in the price-formation process.  As you also point out, the significance for countries with a high reliance on an offshore sector - like Norway, Brazil, and the UK - could be quite substantial.  I have tried to keep a balanced discussion of this in the paper (p.1-3) 
 
 "The argument for adopting proper production measure is not entirely convincing. The paper refers to Mohn (2008)’s findings that off-shore producers concentrate investment in different production stages in response to different prices, and argues further that ”it may even be plausible that production in existing fields reacts negatively to increase in price”. However, investment concentrated in search of new fields doesn’t necessarily imply lower production in existing fields. Even though lower production in a specific field might coincide with higher prices, such negative correlation as a general observation for all fields over all time periods would be rare, especially if a larger area of fields is considered."
 
@@ -28,7 +28,7 @@ This is a good point, and I looked at the litterature around this question - wit
 
 "In terms of the model estimation, there’s little information about the sample period of data. The concern is whether the annual real price series contains enough variation to help identify the production due to price effect and that due to physical features, especially given the relatively short production life of the fields (inferred from Figure 1 and Figure 8 in the paper)."
 
-I´ve tried to provide more information about the sample and data used. (p 9-11). I have also updated my data through 2014, so that I have data on field production between 1970 and 2010. This includes quite wide variation in the prices, so that I hope that it presents enough variation to make reasonable estimates. In addition, I have now excluded the smallest of the fields from the analysis, which also tend to have the shortest production life.  Larger fields can produce for multiple decades.
+I´ve tried to provide more information about the sample and data used. (p 9-11). I have also updated my data through 2014, so that I have data on field production between 1970 and 2010. This includes quite large variation in the prices, so that I hope that it presents enough variation to make reasonable estimates. In addition, I have now excluded the smallest of the fields from the analysis, which also tend to have the shortest production life.  Larger fields can produce for multiple decades.
 
 "Also, the investment data used for estimation the investment equation lacks sufficient explanation..."
 
@@ -36,10 +36,11 @@ I think you are right - and I think a good estimation of investment would requir
 
 "In addition, it’s also confusing that all fields that began oil production “prior to 2008 are excluded” to study the post-peak phase (p38). If only oil production after 2008 is used and all these fields took five years to build-out, the selected production data would be from the pre-peak phase. This is not the post-peak phase that the analysis claims to focus on."
 
-This was a good catch - a typo on my part, I meant to say that I have excluded fields that started producing after 2008.  
+Good catch - a typo on my part, I meant to say that I have excluded fields that started producing after 2008.  
 
-"At the end, the manuscript severely exceeds the length limit which is 25 -35 pages.
-"The paper is now 25 pages in addition to an online appendix detailing the monte-carlo experiment.  
+"At the end, the manuscript severely exceeds the length limit which is 25 -35 pages."
+
+The paper is now 25 pages in addition to an online appendix detailing the monte-carlo experiment.  
 
 
 

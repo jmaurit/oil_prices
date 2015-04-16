@@ -1,6 +1,6 @@
 Reply to Referee 2
 
-Thank you for the careful and constructive review of my paper.  I have made a major revision, including a complete overhaul of the methodology, and a rewriting of most of the sections based on your comments, as well as those of the other referees.  I have also substantially shortened and at some places simplified the analysis in order to comply with Energy Journal length limits, as well as to focus on the main results.  I give a short summary of the major changes below, and then follow with a point-by-point response to your comments. 
+Thank you for the careful and constructive review of my paper.  I have made a major revision, including an overhaul of the methodology, and a rewriting of most of the sections based on your comments, as well as those of the other referees.  I have also substantially shortened and at some places simplified the analysis in order to comply with Energy Journal length limits, as well as to focus on the main results.  I give a short summary of the major changes below, and then follow with a point-by-point response to your comments. 
 
 Methodologically, I have tried to reduce the complexity of the modeling by excluding the smallest of the fields - chosen as under 3 mill sm3 in recoverable reserves since these show significantly different production profiles than larger fields.  This should not have a major impact on the implications of the paper since they account for only .5 % of total recoverable oil reserves. I also exclude the Ekofisk field, as this has a unique double-hump profile, related to its early history (see p.9). 
 
@@ -24,13 +24,13 @@ I agree, this was poorly worded - I have rewritten the entire section.
 
 "Failure to include the demand side might be misleading, as price is a function of both demand and supply..."
 
-I think you are right that I needed to do a better job considering endogeneity of demand in the paper.  Since prices are established in equilibrium, a bias could result if demand also was correlated with changes in field production other than through the direct price-mechanism. For example, higher GDP could mean easier lending to petroleum companies, who then might invest and increase petroleum independent of higher oil prices. I investigated this by including a measure of world GDP growth from the world bank in the regression. This did not have any effect on the estimated coeffients on price terms or on the overall fit of the model, suggesting that demand-effects are unlikely causing a bias, and therefor I excluded this variable from the final model.  I have added discussion of this on pages p. 15-16.
+I think you are right that I needed to do a better job considering endogeneity of demand in the paper.  Since prices are established in equilibrium, a bias could result if demand also was correlated with changes in field production other than through the direct price-mechanism. For example, higher GDP could mean easier lending to petroleum companies, who then might invest and increase petroleum independent of higher oil prices. I investigated this by including a measure of world GDP growth from the world bank in the regression. I then tested whether this significantly changed the fit of the model. This was not the case, suggesting that demand-effects are unlikely causing a bias, and therefor I excluded this variable from the final model.  I have added discussion of this on pages p. 15-16.
 
 Other major comments:
 
-The author leaves diagnostics and robustness checks in figures and tables in Appendix A. However, I would like a discussion in words in the text.
+"The author leaves diagnostics and robustness checks in figures and tables in Appendix A. However, I would like a discussion in words in the text."
 
-"I have simplified and brought forward all the analysis into the main body of the text.  I hope this will make the article easier to read and follow."  
+I have simplified and brought forward all the analysis into the main body of the text.  I hope this will make the article easier to read and follow.  
 
 "The text is too lengthy, e.g. Fig. 3 and 4 in Section 3 are not needed, Further, above all the text in Section 5, 6 and 7 is too lengthy and repetitive."
 

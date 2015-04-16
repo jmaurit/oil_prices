@@ -20,8 +20,6 @@ brentprices["oil_price_nom"]=[float(i) for i in brentprices["oil_price_nom"]]
 brentprices["year"]=brentprices.index.year
 brent_yearly=brentprices.groupby("year").mean()
 
-# from world bank - world GDP
-world_gdp = Quandl.get("WORLDBANK/WLD_NY_GDP_MKTP_KD_ZG", authtoken="WHFoD2EKU2J8H8yGn_bS")
 
 #from bp via Quandl
 
@@ -176,7 +174,20 @@ prod_data["build_out"]=build_out["build_out"]
 
 prod_data.to_csv('/Users/johannesmauritzen/research/oil_prices/data/prod_data.csv', index=False)
 
+# from world bank - world GDP
+prod_data = pd.read_csv('/Users/johannesmauritzen/research/oil_prices/data/prod_data.csv')
 
+world_gdp = Quandl.get("WORLDBANK/WLD_NY_GDP_MKTP_KD_ZG", authtoken="WHFoD2EKU2J8H8yGn_bS")
+
+world_gdp['year'] = world_gdp.index.year
+
+world_gdp.reset_index(inplace=True)
+
+del world_gdp["Date"]
+world_gdp.columns = ["world_gdp", "year"]
+prod_data = prod_data.merge(world_gdp, how='left', on="year")
+
+prod_data.to_csv('/Users/johannesmauritzen/research/oil_prices/data/prod_data.csv', index=False)
 
 
 
