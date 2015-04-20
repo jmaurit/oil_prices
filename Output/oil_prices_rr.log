@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2013.10.11)  16 APR 2015 18:01
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2013.10.11)  20 APR 2015 14:33
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -297,20 +297,20 @@ Missing character: There is no ‚ in font cmr10!
 Missing character: There is no Ä in font cmr10!
 Missing character: There is no ù in font cmr10!
 [15] [16]
-Overfull \hbox (1.60356pt too wide) in paragraph at lines 237--283
+Overfull \hbox (1.60356pt too wide) in paragraph at lines 239--285
  [] 
  []
 
 <figures/price_coefficents.png, id=80, 1481.535pt x 888.31876pt>
 File: figures/price_coefficents.png Graphic file (type png)
 <use figures/price_coefficents.png>
-Package pdftex.def Info: figures/price_coefficents.png used on input line 291.
+Package pdftex.def Info: figures/price_coefficents.png used on input line 293.
 (pdftex.def)             Requested size: 469.75502pt x 281.65176pt.
 [17 <./figures/price_coefficents.png>] [18] <figures/mc_plot.png, id=89, 1777.6
 4125pt x 1777.64125pt>
 File: figures/mc_plot.png Graphic file (type png)
 <use figures/mc_plot.png>
-Package pdftex.def Info: figures/mc_plot.png used on input line 301.
+Package pdftex.def Info: figures/mc_plot.png used on input line 303.
 (pdftex.def)             Requested size: 469.75502pt x 469.74359pt.
 [19] [20 <./figures/mc_plot.png>] [21] (Output/oil_prices_rr.bbl
 Missing character: There is no ‚ in font cmr10!
@@ -392,7 +392,7 @@ mti10.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cm
 tt10.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmt
 t12.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt
 9.pfb>
-Output written on Output/oil_prices_rr.pdf (26 pages, 780986 bytes).
+Output written on Output/oil_prices_rr.pdf (26 pages, 781187 bytes).
 PDF statistics:
  184 PDF objects out of 1000 (max. 8388607)
  123 compressed objects within 2 object streams

@@ -31,11 +31,11 @@
 	\maketitle
 
 \begin{abstract}
-I use detailed field-level data on Norwegian offshore oil field production and a semi-parametric additive model to control for the production profile of fields to estimate the effect of oil prices on production.  I find no significant evidence of a concurrent reaction of field production to oil prices, though a slight lagged effect is found of the magnitude of approximately 2 to 5\% for a 10 dollar per barrel increase in the real price of oil.\\
+I use detailed field-level data on Norwegian offshore oil production and a semi-parametric additive model to control for the production profile of fields to estimate the effect of oil prices on production.  I find no significant evidence of a concurrent reaction of field production to oil prices, though a slight lagged effect is found of the magnitude of approximately 2 to 5\% for a 10 dollar per barrel increase in the real price of oil.\\
 Keywords: Oil production,Oil Prices, Norway, Generalized Additive Model.
 \end{abstract}
 
-\thanks{I would like to thank three anonymous referees for helpful comments and suggestions. I thank Klaus Mohn, Jonas Andersson, Sturla Kvamsdal, Harrison Fell, R\"ognvaldur Hannesson and Henrik Horn for valuable discussion and comments. I have recieved financial support from the Norwegian Center for Sustainable Energy Studies (CenSES)}
+\thanks{I would like to thank three anonymous referees for comments and suggestions that substantially improved this article. I thank Klaus Mohn, Jonas Andersson, Sturla Kvamsdal, Harrison Fell, R\"ognvaldur Hannesson and Henrik Horn for valuable discussion. I have received financial support from the Norwegian Center for Sustainable Energy Studies (CenSES)}
 % JEL Codes: Q4, L71
  \end{spacing}
 
@@ -120,7 +120,7 @@ Rights to explore and eventually produce on the Norwegian Continental Shelf are 
 \section{Data}
 Norwegian oil field production data is obtained from the website of the Norwegian Petroleum Directorate.\footnote{http://factpages.npd.no/} The data I use includes nearly all current or formerly oil-producing fields, from 1971 through 2014. Production data is available at a monthly frequency, though I choose to aggregate up to yearly values both to smooth over seasonality as well as short-term volatility of output due to factors such as weather or technical issues that are not relevant for this article. 
 
-In addition to data on field-level production, I also have access to data on estimates of total recoverable reserves as well as estimates of total in-place oil for each field. The use of total recoverable reserves is complicated since it is dependent on the price of oil and thus endogenous in the analysis.  Therefor, as a proxy for the size of the fields, I use estimates of in-place oil from the Norwegian Petroleum Directorate, which is unlikely to be correlated with prices. The left panels of figure \ref{data_descriptives} show the histogram of field sizes in my data set. 
+In addition to data on field-level production, I also have access to data on estimates of total recoverable reserves as well as estimates of total in-place oil for each field. The use of total recoverable reserves is complicated since it is dependent on the price of oil and thus endogenous in the analysis.  Therefor, as a proxy for the size of the fields, I use estimates of in-place oil from the Norwegian Petroleum Directorate, which is unlikely to be correlated with prices. The left panels of figure \ref{data_descriptives} show the histograms of field sizes as measured by estimates of recoverable oil and in-place oil. 
 
 \begin{figure}
 	\includegraphics[width=1\textwidth]{figures/data_descriptives.png}
@@ -128,11 +128,11 @@ In addition to data on field-level production, I also have access to data on est
 	\label{data_descriptives}
 \end{figure}
 
-To simplify the analysis, I eliminate the smallest fields - those with less than 3 million SM3 of recoverable reserves.  These fields tend to have substantially different production profiles than the larger fields. However, these fields only account for around 0.5 \% of total oil production so this exclusion is unlikely to have any serious practical implications. 
+To simplify the analysis, I eliminate the smallest fields - those with less than 3 million SM3 of recoverable reserves.  These fields tend to have substantially different production profiles than the larger fields. However, these fields only account for around 0.5 \% of total recoverable reserves so this exclusion is unlikely to have any serious practical implications. 
 
 I also eliminate the large Ekofisk field from my analysis.  I do this because it has a unique double-humped production profile. Ekofisk was the first field to be found and the first to start production on the Norwegian Continental Shelf.  It reached an initial peak in production in the late 1970's and began depleting. However, the introduction of water and gas injection technology led to a boost in production and a new peak in the early 2000's. All subsequent major fields used gas and water injection from the outset and have a single-hump profile.  
 
-I use yearly data from the US Energy Information Agency on the real price of Brent-traded oil in 2010 dollars. The Brent benchmark oil price is likely the best oil price measure for Norwegian production as it is based on light sweet crude oil sourced from the North Sea.  
+I use yearly data from the US Energy Information Agency on the real price of Brent-traded oil in 2010 dollars. The Brent benchmark oil price is the best oil price measure for Norwegian production as it is based on light sweet crude oil sourced from the North Sea.  
 
 Production costs are known to covary with the price of oil.  To control for this, I include the producer price index for the Norwegian oil and gas extraction industry, obtained from Statistics Norway. \footnote{\url{https://www.ssb.no/en/priser-og-prisindekser/statistikker/ppi}} Unfortunately, this series only goes back to 2000, so I also include an index of oil and gas well costs from the US energy information agency for the years 1960 to 2000.  \footnote{\url{http://www.eia.gov/dnav/pet/pet_crd_wellcost_s1_a.htm}} While this measure is unlikely to be a perfect substitute for costs in Norway, oil and gas extraction is a global industry, where costs are highly correlated across regions. The combined production cost index and the real Brent oil price series are shown in the right panels in figure \ref{data_descriptives}.
 
@@ -162,11 +162,11 @@ A simple model can be written as in equation \ref{gam_price_eqn}.
 \end{split}
 \end{equation}
 
-In this model I am estimating the parameters and functions from all fields $i$. The left-hand-side variable, $Log(production_{i,t})$ is the log of yearly oil production for field $i$ at production time $t$ in millions of standard cubic meters (SM3).  On the right hand side is a smoothed function of the production profile over time $f(production\_time_{i,t})$; $in\_place\_oil_{i,t}$ is the estimated in place oil of the field, and $cost\_index_{t}$ represents the producer price index for oil and gas extraction. 
+In this model I am estimating the parameters and functions from all fields $i$. The left-hand-side variable, $Log(production_{i,t})$ is the log of yearly oil production for field $i$ at production time $t$ in millions of standard cubic meters (SM3).  On the right hand side is a smoothed function of the production profile over time $f(production\_time_{i,t})$; $in\_place\_oil_{i,t}$ is the estimated in-place oil of the field, and $cost\_index_{t}$ represents the producer price index for oil and gas extraction. 
 
 $f(year_t)$ represents a restricted smooth function of the calendar time.  The main purpose of including this term is to control for the effects of technological change, which I discuss further below.
 
-Finally, $oil\_price\_lags_t$ represents the variables of interest - a vector of concurrent and lagged terms for the oil price. I included eight lagged terms of the oil price and I also experimented with using quadratic terms, however these could not be shown to be significant. 
+Finally, $\mathbf{oil\_price\_lags_t}$ represents the variables of interest - a vector of concurrent and lagged terms for the oil price. I include eight lagged terms of the oil price and I also experimented with using quadratic terms, however these could not be shown to be significant so I leave them out. 
 
 The smoothed function is estimated using a cubic regression spline. Here a cubic polynomial function is used to fit the shape in sections, separated at points known as knots, but continuous up to the second derivative.  The major advantage of this method, is that it can be represented in linear form, $\boldsymbol{X \beta} $, and thus standard, efficient matrix algebra techniques can be used.  
 
@@ -177,7 +177,7 @@ The smoothed component of the model is then fit by minimizing equation \ref{min_
 \label{min_equation}
 \end{equation}
 
-The latter term - an estimate of the second derivative of the function - acts as a penalty for the ``wiggiliness'' of the function. The total smoothness can then be controlled by adjusting the $\lambda$ term. However, instead of setting this arbitrarily, cross-validation is used. Intuitively, each data point is left out and the smooth term that provides the best predicted fit for each data point is chosen.  For further details on the cubic regression spline, I refer to \citet{wood_generalized_2006}.
+The latter term - an estimate of the second derivative of the function - acts as a penalty for the ``wiggiliness'' of the function. The total smoothness can then be controlled by adjusting the $\lambda$ term. However, instead of setting this arbitrarily, cross-validation is used. Intuitively, each data point is, one-by-one, left out and the smooth term that provides the best average predicted fit over all the data is chosen.  For further details on the cubic regression spline, I refer to \citet{wood_generalized_2006}.
 
 The advantage of this simple model that uses a single-variable cubic regression spline is that the smoothed terms can be interpreted directly, and thus we can do a visual check of the appropriateness of the smoothed function. The top panel of figure \ref{smooths} shows the estimated smoothed function of the field production profile, where all other co-variates are held at their average value.  The function appears reasonable, showing the expected pattern of an initial build-out period followed by an extended depletion phase. 
 
@@ -191,9 +191,9 @@ Extended periods of high or low oil prices will likely have some long-term effec
 	\label{smooths}
 \end{figure}
 
-One objection to the simple model is that a fixed effect controlling for the general production profile of oil fields does not sufficiently address idiosyncratic variance between the fields. To address this I can add field random effects that take into account uncertainty based on random variation between the fields in the estimation. The smoothed function can then be written as $f(production\_time_{i,t}*Z)$.  Where $Z \sim N(0, \sigma)$ and $\sigma$ is the variance term to be estimated.  
+One objection to the simple model is that a fixed effect controlling for the general production profile of oil fields does not sufficiently take into account the idiosyncratic variance between the fields. To address this I can add field random effects that take into account uncertainty based on random variation between the fields in the estimation. The smoothed function can then be written as $f(production\_time_{i,t}*Z)$.  Where $Z \sim N(0, \sigma)$ and $\sigma$ is the variance term to be estimated.  
 
-Another potential issue may be that the smoothed function of production time may not be sufficient in controlling for the variation in production profiles shapes across fields.  In particular, production profiles differ substantially by the size of the field. A solution is to allow the shape to vary by the size of the field - here I use an estimate of in-place oil in the field rather than recoverable reserves, as recoverable reserves may be correlated with oil prices.  Thus the smoothed can be written as a function of both production time and in place oil: $f(production\_time_{i,t}, in\_place\_oil_{i,t})$.
+Another potential issue may be that the smoothed function of production time may not be sufficient in controlling for the variation in production profiles shapes across fields.  In particular, production profiles differ substantially by the size of the field. A solution is to allow the shape to vary by the size of the field - here I use an estimate of in-place oil in the field rather than recoverable reserves, as recoverable reserves may be correlated with oil prices.  Thus the smoothed term can be written as a function of both production time and in place oil: $f(production\_time_{i,t}, in\_place\_oil_{i,t})$.
 
 Estimating a smoothed function of two variables requires a somewhat more involved method.  In particular, a thin-plate regression spline \citep{wood_thin_2003} is used. Consider equation \ref{thin_plate_1}. 
 
@@ -209,10 +209,12 @@ Following the notation of \citet{wood_generalized_2006}, $g$ is the function of 
 \label{thin_plate_2}
 	\end{equation}
 
-$J_{22}$ represents the penalty function for the smoothness of the function which can be written as in \ref{thin_plate_3}.  The $22$ represents the fact that it is a penalty function of two variables with smoothness measured by the second derivative.
+$J_{22}$ represents the penalty term for the smoothness of the function, which can be written as in \ref{thin_plate_3}.  The $22$ represents the fact that it is a penalty function of two variables with smoothness measured by the second derivative.
 
 	\begin{equation}
-	J_{22}{f}= \diffp[2]{f}{x_1}^2 + \diffp[2]{f}{{x_1}{x_2}} + \diffp[2]{f}{x_2}^2dx_1 dx_2
+	J_{22}(f)= \Big(  \diffp[2]{f}{x_1} \Big)^2 +
+	 \Big(\frac{\partial^2 f}{\partial x_1 \partial x_2}\Big)^2 + 
+	\Big(\diffp[2]{f}{x_2} \Big)^2dx_1 dx_2
 \label{thin_plate_3}
 	\end{equation}
 
@@ -226,7 +228,7 @@ A more subtle possibility for endogeneity exists on the demand side. A bias coul
 
 \section{The Effect of Oil Price on Field Production}
 
-Table \ref{GAM_model_table} shows the parametric coefficient terms and other summary statistics of the regression results.  The first column shows results for the simple model with a single-dimensional smoothed function of the production profile.  The second column shows results with field-level random effects, while the third columns shows results when a two-dimensional smoothed function is used to control for production profiles across field sizes. The latter two models are my preferred models, providing a substantially better fit, as measured by both deviance explained and $R^2$. Monte Carlo experiments, which I describe further below, also indicate that the latter two models provide consistently less-biased parametric estimates of the price terms. This is especially the case for the model with a 2-dimensional smoothed term.
+Table \ref{GAM_model_table} shows the estimated parametric coefficient terms and other summary statistics of the regression results.  The first column shows results for the simple model with a single-dimensional smoothed function of the production profile.  The second column shows results with field-level random effects, while the third columns shows results when a two-dimensional smoothed function is used to control for production profiles across field sizes. The latter two models are my preferred models, providing a substantially better fit, as measured by both deviance explained and $R^2$. Monte Carlo experiments, which I describe further below, also indicate that the latter two models provide consistently less-biased parametric estimates of the price terms. This is especially the case for the model with a 2-dimensional smoothed term.
 
 The variables of interest in this article is the oil price and its lags, which I include as eight linear parametric terms in the model.  The idea of including both a concurrent oil price term as well as eight lags is that a change in price could conceivably have two effects on oil production in a field.  First, the field operator could be operating on the basis of some short-term extraction rule - choosing to pump out less at times of lower prices in order to pump out more at periods of high prices.  
 
@@ -285,11 +287,11 @@ Num. smooth terms                            & 2              & 2              &
 \end{center}
 \end{table}
  
-For convenience the estimated coefficients on the price terms from the two preferred models are shown in figure \ref{price_coefficients}. In general the results from the two models agree with each other, indicating little to no effect in the concurrent price term, but with significant coefficients estimated on the 1st to 4th lags, with a peak at the 2nd lag.  F-tests with comparisons to restricted models without the concurrent and 5-8th lags indicate that these terms do not significantly improve the fit of the models.
+For convenience the estimated coefficients on the price terms from the two preferred models are shown in figure \ref{price_coefficients}. In general the results from the two models agree with each other, indicating little to no effect in the concurrent price term, but with significant coefficients estimated on the 1st to 4th lags, with a peak at the 2nd lag. A negative coefficient for the eight lag is estimated in the 2-d model, however this is not significant in the model with random effects. Furthermore, F-tests with comparisons to restricted models without the concurrent and 5-8th lags indicate that these terms do not as a group significantly improve the fit of the model.
 
 \begin{figure}
 	\includegraphics[width=1\textwidth]{figures/price_coefficents.png}
-	\caption{Estimated coefficients from two GAM models: a model with random field effects and single smoothed function of production time, and another with a two dimensional smoothed function of production time and field size.  The points represent the point estimates, while the lines represent approximate 95\% confidence intervals. Significant positive coefficients are estimated on lags of between 1-4.  However, little to no effect is measured on the concurrent price term.}
+	\caption{Estimated coefficients from two GAM models: a model with random field effects and single smoothed function of production time, and another with a two dimensional smoothed function of production time and field size.  The points represent the point estimates, while the lines represent approximate 95\% confidence intervals. Significant positive coefficients are estimated on lags of between 1-4 years.  However, little to no effect is measured on the concurrent price term.}
 	\label{price_coefficients}
 \end{figure}
 
@@ -313,9 +315,9 @@ Another important caveat, is that the changes in production could potentially ei
 
 Interpreting the lagged effects also involves some subtlety. As noted, evidence has been found for adaptive expectations of future oil prices.  Thus, the lagged effects could be interpreted as both the result of investment lags as well as lags involved in updating of expectations. Completely disentangling these effects would probably at a minimum require a structural model with some specific assumptions about the formation of expectations, which is beyond the scope of this article. 
 
-However, the magnitude and the ordering of the estimated price effects indicates that investment lags are likely dominant. Since the current price always contains the most up-to-date information, then a model of adoptive expectations would show the largest effect at the concurrent term, thereafter receding. The estimations in this article however can show no significant concurrent effect, with the largest magnitude effect consistently being estimated at a 2-year lag.
+However, the magnitude and the ordering of the estimated price effects indicates that investment lags are likely dominant. Since the current price always contains the most up-to-date information, then a model of adaptive expectations would show the largest effect at the concurrent term, thereafter receding. The estimations in this article however can show no significant concurrent effect, with the largest magnitude effect consistently being estimated at a 2-year lag.
 
-The findings in this paper can provide some guidance on the effects of the recent steep fall in the oil price on Norwegian production, as well as production from other offshore production areas. The fall in total oil production that has continued since the peak in production in 2000 has recently been arrested as several new finds began production after years of increased searching and investment.  As mentioned, a further significant boost is expected in 2019 when production from the large Sverdrup field begins production. The results of this article indicate that the recent fall in prices is unlikely to have major ramifications for production in existing fields.  Anecdotal evidence however suggests that searching and exploration are being curtailed. Anecdotal evidence also suggests that lower oil prices may be leading to earlier shut-down decisions of depleting fields - a hypothesis that could be explored with future research.  
+The findings in this paper can provide some guidance on predicting the effects of the recent steep fall in the oil price on Norwegian production, as well as production from other offshore production areas. The results suggest that lower oil prices are likely to have only modest ramifications for production in existing fields.  Anecdotal evidence however suggests that searching and exploration are being substantially curtailed. Future oil production could then be significantly affected by way of fewer new field developments.
 
 Finally, relating back to the literature on total oil supply, the modest estimated effect of prices on production adds weight to the argument of \citet{hamilton_oil_2012} that most of the increased supply of oil that comes from higher prices is from expanding the geographic and technological boundaries of oil production.  For example exploration of deep-water oil deposits off the coast of Brazil and extraction of oil sands in western Canada.
 
