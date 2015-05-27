@@ -152,19 +152,20 @@
 	"buffers":
 	[
 		{
-			"file": "oil_prices_new_pres.tex",
+			"file": "oil_prices_rr.tex",
 			"settings":
 			{
-				"buffer_size": 9458,
+				"buffer_size": 49366,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "oil_prices_rr.tex",
+			"file": "aberdeen_oil_pres.tex",
 			"settings":
 			{
-				"buffer_size": 49418,
-				"line_ending": "Unix"
+				"buffer_size": 4924,
+				"line_ending": "Unix",
+				"name": "aberdeen_oil_pres.tex"
 			}
 		},
 		{
@@ -192,15 +193,6 @@
 				"buffer_size": 6443,
 				"line_ending": "Unix",
 				"name": "reply_referee2.txt"
-			}
-		},
-		{
-			"file": "reply_referee3.txt",
-			"settings":
-			{
-				"buffer_size": 7668,
-				"line_ending": "Unix",
-				"name": "reply_referee3.txt"
 			}
 		},
 		{
@@ -402,6 +394,8 @@
 	},
 	"file_history":
 	[
+		"/Users/johannesmauritzen/research/oil_prices/oil_prices_new_pres.tex",
+		"/Users/johannesmauritzen/research/oil_prices/reply_referee3.txt",
 		"/Users/johannesmauritzen/research/oil_prices/rr_descriptives.py",
 		"/Users/johannesmauritzen/research/oil_prices/rr_oil_bootstrap.r",
 		"/Users/johannesmauritzen/research/oil_prices/rr_analysis_alt_models.r",
@@ -640,42 +634,15 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "oil_prices_new_pres.tex",
-					"settings":
-					{
-						"buffer_size": 9458,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								541,
-								541
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/LaTeXing/support/LaTeX.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 1,
 					"file": "oil_prices_rr.tex",
 					"settings":
 					{
-						"buffer_size": 49418,
+						"buffer_size": 49366,
 						"regions":
 						{
 						},
@@ -689,6 +656,34 @@
 						"settings":
 						{
 							"syntax": "Packages/LaTeXing/support/LaTeX.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 5964.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "aberdeen_oil_pres.tex",
+					"settings":
+					{
+						"buffer_size": 4924,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1599,
+								1599
+							]
+						],
+						"settings":
+						{
+							"auto_name": "aberdeen_oil_pres.tex",
+							"syntax": "Packages/LaTeXing/support/LaTeX.tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -779,33 +774,6 @@
 				},
 				{
 					"buffer": 5,
-					"file": "reply_referee3.txt",
-					"settings":
-					{
-						"buffer_size": 7668,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								7664,
-								7664
-							]
-						],
-						"settings":
-						{
-							"auto_name": "reply_referee3.txt",
-							"syntax": "Packages/Text/Plain text.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 6,
 					"file": "referee1.txt",
 					"settings":
 					{
@@ -832,7 +800,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 7,
+					"buffer": 6,
 					"file": "rr_descriptives.r",
 					"settings":
 					{
@@ -861,7 +829,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 8,
+					"buffer": 7,
 					"file": "rr_analysis_1.r",
 					"settings":
 					{
@@ -885,13 +853,13 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 3180.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
-					"buffer": 9,
+					"buffer": 8,
 					"file": "initial_response_to_editor.txt",
 					"settings":
 					{
@@ -918,7 +886,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 10,
+					"buffer": 9,
 					"file": "mc_sim.rmd",
 					"settings":
 					{
@@ -946,7 +914,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 11,
+					"buffer": 10,
 					"file": "rr_simulation.r",
 					"settings":
 					{
@@ -974,7 +942,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 12,
+					"buffer": 11,
 					"file": "rr_clean.py",
 					"settings":
 					{
@@ -996,13 +964,13 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 4666.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
-					"buffer": 13,
+					"buffer": 12,
 					"file": "industry_costs.py",
 					"settings":
 					{
@@ -1029,7 +997,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 14,
+					"buffer": 13,
 					"file": "prep.py",
 					"settings":
 					{
@@ -1056,7 +1024,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 15,
+					"buffer": 14,
 					"file": "notes.txt",
 					"settings":
 					{
@@ -1083,7 +1051,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 16,
+					"buffer": 15,
 					"file": "GAMM_practice.r",
 					"settings":
 					{
@@ -1111,7 +1079,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 17,
+					"buffer": 16,
 					"file": "spline_intro.py",
 					"settings":
 					{
