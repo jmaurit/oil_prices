@@ -1,14 +1,14 @@
 # Fdb version 3
-["bibtex Output/oil_prices_rr"] 1429532885 "Output/oil_prices_rr.aux" "Output/oil_prices_rr.bbl" "Output/oil_prices_rr" 1429533241
+["bibtex Output/oil_prices_rr"] 1437729390 "Output/oil_prices_rr.aux" "Output/oil_prices_rr.bbl" "Output/oil_prices_rr" 1437729481
   "/usr/local/texlive/2013/texmf-dist/bibtex/bst/natbib/plainnat.bst" 1233624470 26816 ffe5423d2019860bad9f54bc402fac15 ""
-  "Output/oil_prices_rr.aux" 1429533240 6713 0068d7e1ee3cdf1662c300be3e3678a2 ""
+  "Output/oil_prices_rr.aux" 1437729480 6794 1fef2040c3a30c21f5693d0ec45e3457 ""
   "Output/oil_prices_rr.bcf" 0 -1 0 ""
-  "oil_prices.bib" 1407934519 103797 d5605fcc42be66d771235d63a3036cbb ""
+  "oil_prices.bib" 1437728336 103799 cd8ef1ca92836ab755a8eb2d7655c62b ""
   (generated)
   "Output/oil_prices_rr.blg"
   "Output/oil_prices_rr.bbl"
-["pdflatex"] 1429533237 "/Users/johannesmauritzen/research/oil_prices/oil_prices_rr.tex" "Output/oil_prices_rr.pdf" "oil_prices_rr" 1429533241
-  "/Users/johannesmauritzen/research/oil_prices/oil_prices_rr.tex" 1429533236 49381 6cb14220953e0080c3394d2d8a286263 ""
+["pdflatex"] 1437729478 "/Users/johannesmauritzen/research/oil_prices/oil_prices_rr.tex" "Output/oil_prices_rr.pdf" "oil_prices_rr" 1437729481
+  "/Users/johannesmauritzen/research/oil_prices/oil_prices_rr.tex" 1437729386 49380 6944dce08880dd4221e631b00a36c4a5 ""
   "/usr/local/texlive/2013/texmf-dist/fonts/map/fontname/texfonts.map" 1272929888 3287 e6b82fe08f5336d4d5ebc73fb1152e87 ""
   "/usr/local/texlive/2013/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy6.tfm" 1246382020 1124 14ccf5552bc7f77ca02a8a402bea8bfb ""
   "/usr/local/texlive/2013/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy8.tfm" 1246382020 1120 200be8b775682cdf80acad4be5ef57e4 ""
@@ -106,15 +106,15 @@
   "/usr/local/texlive/2013/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1369923225 1072746 3ce1f23f203cb4a0015ca3c8411dee4a ""
   "/usr/local/texlive/2013/texmf-var/web2c/pdftex/pdflatex.fmt" 1381505969 3827030 eccb5e2f3bd3dae155905b64b091950e ""
   "/usr/local/texlive/2013/texmf.cnf" 1369923207 577 cbc827f6294276973a1952e86e8ad73a ""
-  "Output/oil_prices_rr.aux" 1429533240 6713 0068d7e1ee3cdf1662c300be3e3678a2 ""
-  "Output/oil_prices_rr.bbl" 1429532886 11862 865d407081aa581263064e974c6a9b02 "bibtex Output/oil_prices_rr"
+  "Output/oil_prices_rr.aux" 1437729480 6794 1fef2040c3a30c21f5693d0ec45e3457 ""
+  "Output/oil_prices_rr.bbl" 1437729390 11866 bb57bf3a1a8fabe8294a4e81ca4dd6f4 "bibtex Output/oil_prices_rr"
   "figures/data_descriptives.png" 1427296322 70831 b05ebd42fef776265bed5b4b8a8437a8 ""
   "figures/mc_plot.png" 1427213118 286750 b9fcddf9a2a3092185077960c29b5095 ""
   "figures/oil_decline.png" 1427300963 101881 7d8fa01da46ca851494abf798eb660d4 ""
   "figures/price_coefficents.png" 1428422538 71621 7f4f438991a3c5a5d7b671004a810a1b ""
   "figures/smooths.png" 1428422538 75515 50be6456ee78dbb8090a2ee963731ea3 ""
-  "oil_prices_rr.tex" 1429533236 49381 6cb14220953e0080c3394d2d8a286263 ""
+  "oil_prices_rr.tex" 1437729386 49380 6944dce08880dd4221e631b00a36c4a5 ""
   (generated)
-  "Output/oil_prices_rr.aux"
   "Output/oil_prices_rr.log"
+  "Output/oil_prices_rr.aux"
   "Output/oil_prices_rr.pdf"

@@ -17,6 +17,7 @@
 
 \title{The Effect of Oil Price on Field Production: Evidence from the Norwegian Continental Shelf}
 \author{Johannes Mauritzen\\
+		Center for Sustainable Energy Studies (CenSES)\\
 		Department of Business and Management Science\\
         NHH Norwegian School of Economics\\
         Helleveien 30, 5045\\
@@ -35,13 +36,13 @@ I use detailed field-level data on Norwegian offshore oil production and a semi-
 Keywords: Oil production,Oil Prices, Norway, Generalized Additive Model.
 \end{abstract}
 
-\thanks{I would like to thank three anonymous referees for comments and suggestions that substantially improved this article. I thank Klaus Mohn, Jonas Andersson, Sturla Kvamsdal, Harrison Fell, R\"ognvaldur Hannesson and Henrik Horn for valuable discussion. I have received financial support from the Norwegian Center for Sustainable Energy Studies (CenSES)}
+\thanks{}
 % JEL Codes: Q4, L71
  \end{spacing}
 
 \section{Introduction}
 
-For most of the last century, crude oil has been the world's single most important and valuable fuel source.\footnote{Oil is the world's largest single energy source, consisting of approximately 33\% of total energy consumption in 2013 as well as the most valuable in terms of market price per unit of energy \citep{british_petroleum_statistical_2013}} Naturally, questions of how the oil price affects the world economy as well as how oil production reacts to the oil price have been fundamental topics in economics. Recent volatility in the price of oil has made this an especially relevant topic. 
+For most of the last century, crude oil has been the world's single most important and valuable fuel source.\footnote{Oil is the world's largest single energy source, consisting of approximately 33\% of total energy consumption in 2013 as well as the most valuable in terms of market price per unit of energy \citep{british_petroleum_statistical_2013}} Naturally, questions of how the oil price affects the world economy as well as how oil production reacts to the oil price have been fundamental topics. Recent volatility in the price of oil has made this an especially relevant topic. 
 
 However a significant gap exists in the literature.  While numerous studies have taken up the issue of how the price of oil affects searching for new fields as well as total oil production at both the regional and global level, few studies exist of the effects of oil prices on oil production at the field level.  The studies that do use field- and well-level data, such as \citet{rao_taxation_2010}, often use data from on-shore installations.  However an increasing amount of the world's oil production comes from hard-to-reach offshore fields.  Production from challenging offshore environments is substantially different in character than from on-shore installations.
 
@@ -120,7 +121,7 @@ Rights to explore and eventually produce on the Norwegian Continental Shelf are 
 \section{Data}
 Norwegian oil field production data is obtained from the website of the Norwegian Petroleum Directorate.\footnote{http://factpages.npd.no/} The data I use includes nearly all current or formerly oil-producing fields, from 1971 through 2014. Production data is available at a monthly frequency, though I choose to aggregate up to yearly values both to smooth over seasonality as well as short-term volatility of output due to factors such as weather or technical issues that are not relevant for this article. 
 
-In addition to data on field-level production, I also have access to data on estimates of total recoverable reserves as well as estimates of total in-place oil for each field. The use of total recoverable reserves is complicated since it is dependent on the price of oil and thus endogenous in the analysis.  Therefor, as a proxy for the size of the fields, I use estimates of in-place oil from the Norwegian Petroleum Directorate, which is unlikely to be correlated with prices. The left panels of figure \ref{data_descriptives} show the histograms of field sizes as measured by estimates of recoverable oil and in-place oil. 
+In addition to data on field-level production, I also have access to data on estimates of total recoverable reserves as well as estimates of total in-place oil for each field. The use of total recoverable reserves is complicated since it is dependent on the price of oil and thus endogenous in the analysis.  Therefore, as a proxy for the size of the fields, I use estimates of in-place oil from the Norwegian Petroleum Directorate, which is unlikely to be correlated with prices. The left panels of figure \ref{data_descriptives} show the histograms of field sizes as measured by estimates of recoverable oil and in-place oil. 
 
 \begin{figure}
 	\includegraphics[width=1\textwidth]{figures/data_descriptives.png}
@@ -177,7 +178,7 @@ The smoothed component of the model is then fit by minimizing equation \ref{min_
 \label{min_equation}
 \end{equation}
 
-The latter term - an estimate of the second derivative of the function - acts as a penalty for the ``wiggiliness'' of the function. The total smoothness can then be controlled by adjusting the $\lambda$ term. However, instead of setting this arbitrarily, cross-validation is used. Intuitively, each data point is, one-by-one, left out and the smooth term that provides the best average predicted fit over all the data is chosen.  For further details on the cubic regression spline, I refer to \citet{wood_generalized_2006}.
+The latter term - an estimate of the second derivative of the function - acts as a penalty for the ``wiggliness'' of the function. The total smoothness can then be controlled by adjusting the $\lambda$ term. However, instead of setting this arbitrarily, cross-validation is used. Intuitively, each data point is, one-by-one, left out and the smooth term that provides the best average predicted fit over all the data is chosen.  For further details on the cubic regression spline, I refer to \citet{wood_generalized_2006}.
 
 The advantage of this simple model that uses a single-variable cubic regression spline is that the smoothed terms can be interpreted directly, and thus we can do a visual check of the appropriateness of the smoothed function. The top panel of figure \ref{smooths} shows the estimated smoothed function of the field production profile, where all other co-variates are held at their average value.  The function appears reasonable, showing the expected pattern of an initial build-out period followed by an extended depletion phase. 
 
@@ -220,11 +221,11 @@ $J_{22}$ represents the penalty term for the smoothness of the function, which c
 
 In short, a function of $x_1$ and $x_2$ is found that is minimizing errors in the sense of minimizing Euclidean distance subject to a penalty function of “wiggiliness”.  The actual implementation is somewhat more involved in order to increase the computational efficiency of the estimation.  For further technical details I refer to \citet{wood_thin_2003}. 
 
-Unfortunately, estimating a random effects component is not possible with a two-dimensional smoothed function for computational reasons.  In the presentation of results, I therefor present models side-by-side that use both one-dimensional smooth functions with random effects of the field production profile and two-dimensional smooth functions.
+Unfortunately, estimating a random effects component is not possible with a two-dimensional smoothed function for computational reasons.  In the presentation of results, I therefore present models side-by-side that use both one-dimensional smooth functions with random effects of the field production profile and two-dimensional smooth functions.
 
 In general I assume that oil prices are exogenous in this model. On the supply side, oil is a globally traded commodity.  Since I am measuring changes in production at the field level, these are highly unlikely to have any effect on global oil prices.
 
-A more subtle possibility for endogeneity exists on the demand side. A bias could result if demand also was correlated with changes in field production other than through the direct price-mechanism. For example, higher GDP could mean easier lending to petroleum companies, who then might invest and increase petroleum production independent of higher oil prices. I investigated this by including a measure of world GDP growth obtained from the World Bank in the regression. Using an F-test, adding this variable could not be shown to significantly increase the fit of the model, suggesting that demand-side effects are unlikely to be causing a bias. I therefor exclude this variable from the results presented below.
+A more subtle possibility for endogeneity exists on the demand side. A bias could result if demand also was correlated with changes in field production other than through the direct price-mechanism. For example, higher GDP could mean easier lending to petroleum companies, who then might invest and increase petroleum production independent of higher oil prices. I investigated this by including a measure of world GDP growth obtained from the World Bank in the regression. Using an F-test, adding this variable could not be shown to significantly increase the fit of the model, suggesting that demand-side effects are unlikely to be causing a bias. I therefore exclude this variable from the results presented below.
 
 \section{The Effect of Oil Price on Field Production}
 
@@ -324,6 +325,9 @@ Finally, relating back to the literature on total oil supply, the modest estimat
 \FloatBarrier
 \section{Software}
 I use the R statistical programming package for all the analysis in this article \citep{r_core_team_r:_2013}.  I use the R package ggplot2 for plotting \citep{wickham_ggplot2:_2009}, plyr for data manipulation and cleaning \citep{wickham_split-apply-combine_2011}, texreg for table formatting \citep{leifeld_texreg:_2013} and mgcv for implementation of the Generalized Additive Models \citep{wood_fast_2011}.
+
+\section{Acknowledgments}
+I thank Klaus Mohn, Jonas Andersson, Sturla Kvamsdal, Harrison Fell, R\"ognvaldur Hannesson and Henrik Horn for valuable discussion. I have received financial support from the Norwegian Center for Sustainable Energy Studies (CenSES), Norwegian Research Council grant number 209697 
 
 \bibliographystyle{plainnat}
 \bibliography{oil_prices}
