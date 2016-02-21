@@ -17,8 +17,7 @@ brentprices=brentprices[2:]
 brentprices["date"]=pd.to_datetime(brentprices["date"])
 brentprices=brentprices.set_index("date")
 brentprices["oil_price_nom"]=[float(i) for i in brentprices["oil_price_nom"]]
-brentprices["year"]=brentprices.index.year
-brent_yearly=brentprices.groupby("year").mean()
+oil
 
 
 #from bp via Quandl

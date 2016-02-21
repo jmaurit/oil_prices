@@ -1,3 +1,4 @@
+%  oil_prices_rr_blind.tex
 \documentclass[12pt]{article}
 \usepackage[margin=1in]{geometry}
 \usepackage{setspace}
@@ -16,14 +17,14 @@
 \doublespacing % from package setspacs
 
 \title{The Effect of Oil Price on Field Production: Evidence from the Norwegian Continental Shelf}
-\author{Johannes Mauritzen\\
-		Department of Industrial Economics and Technology Management\\
-        Norwegian University of Science and Technology\\
-        7491 Trondheim
-        Norway\\
-        johannes.mauritzen@iot.ntnu.no\\
-        \url{jmaurit.github.io}\\
-		}
+% \author{Johannes Mauritzen\\
+% 		Department of Industrial Economics and Technology Management\\
+%         Norwegian University of Science and Technology\\
+%         7491 Trondheim
+%         Norway\\
+%         johannes.mauritzen@iot.ntnu.no\\
+%         \url{jmaurit.github.io}\\
+% 		}
 \date{\today}
 
 \begin{document}
@@ -32,8 +33,8 @@
 
 \begin{abstract}
 I use detailed field-level data on Norwegian offshore oil production and a semi-parametric additive model to control for the production profile of fields to estimate the effect of oil prices on production.  I find no significant evidence of a concurrent reaction of field production to oil prices, though a slight lagged effect is found of the magnitude of approximately 1 to 4\% for a 10 dollar per barrel increase in the real price of oil.\\
-Keywords: Oil production,Oil Prices, Norway, Generalized Additive Model.
-Words: 5970
+\textbf{Keywords}: Oil production,Oil Prices, Norway, Generalized Additive Model.\\
+\textbf{Words}: 5970
 \end{abstract}
 
 \thanks{}
@@ -325,9 +326,6 @@ Finally, relating back to the literature on total oil supply, the modest estimat
 \FloatBarrier
 \section{Software}
 I use the R statistical programming package for all the analysis in this article \citep{r_core_team_r:_2013}.  I use the R package ggplot2 for plotting \citep{wickham_ggplot2:_2009}, plyr for data manipulation and cleaning \citep{wickham_split-apply-combine_2011}, texreg for table formatting \citep{leifeld_texreg:_2013} and mgcv for implementation of the Generalized Additive Models \citep{wood_fast_2011}.
-
-\section{Acknowledgments}
-I thank Klaus Mohn, Jonas Andersson, Sturla Kvamsdal, Harrison Fell, R\"ognvaldur Hannesson and Henrik Horn for valuable discussion. I have received financial support from the Norwegian Center for Sustainable Energy Studies (CenSES), Norwegian Research Council grant number 209697 
 
 \bibliographystyle{plainnat}
 \bibliography{oil_prices}

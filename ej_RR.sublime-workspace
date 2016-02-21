@@ -155,8 +155,26 @@
 			"file": "oil_prices_rr.tex",
 			"settings":
 			{
-				"buffer_size": 49365,
+				"buffer_size": 49357,
 				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "oil_prices_rr_blind.tex",
+			"settings":
+			{
+				"buffer_size": 49111,
+				"line_ending": "Unix",
+				"name": "oil_prices_rr_blind.tex"
+			}
+		},
+		{
+			"file": "oil_prices_title.tex",
+			"settings":
+			{
+				"buffer_size": 1532,
+				"line_ending": "Unix",
+				"name": "oil_prices_title.tex"
 			}
 		},
 		{
@@ -206,7 +224,7 @@
 			"file": "rr_clean.py",
 			"settings":
 			{
-				"buffer_size": 9088,
+				"buffer_size": 9001,
 				"line_ending": "Unix",
 				"name": "rr_clean.py"
 			}
@@ -418,7 +436,7 @@
 	},
 	"find_in_files":
 	{
-		"height": 135.0,
+		"height": 0.0,
 		"where_history":
 		[
 			""
@@ -582,7 +600,7 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 1,
 			"sheets":
 			[
 				{
@@ -590,7 +608,7 @@
 					"file": "oil_prices_rr.tex",
 					"settings":
 					{
-						"buffer_size": 49365,
+						"buffer_size": 49357,
 						"regions":
 						{
 						},
@@ -598,7 +616,7 @@
 						[
 							[
 								0,
-								0
+								49357
 							]
 						],
 						"settings":
@@ -613,6 +631,60 @@
 				},
 				{
 					"buffer": 1,
+					"file": "oil_prices_rr_blind.tex",
+					"settings":
+					{
+						"buffer_size": 49111,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								22272,
+								21953
+							]
+						],
+						"settings":
+						{
+							"auto_name": "oil_prices_rr_blind.tex",
+							"syntax": "Packages/LaTeXing/support/LaTeX.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 14664.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "oil_prices_title.tex",
+					"settings":
+					{
+						"buffer_size": 1532,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1480,
+								1480
+							]
+						],
+						"settings":
+						{
+							"auto_name": "oil_prices_title.tex",
+							"syntax": "Packages/LaTeXing/support/LaTeX.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 856.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
 					"file": "oil_prices.bib",
 					"settings":
 					{
@@ -639,7 +711,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 2,
+					"buffer": 4,
 					"file": "rr_descriptives.r",
 					"settings":
 					{
@@ -668,7 +740,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 3,
+					"buffer": 5,
 					"file": "rr_analysis_1.r",
 					"settings":
 					{
@@ -698,7 +770,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 4,
+					"buffer": 6,
 					"file": "mc_sim.rmd",
 					"settings":
 					{
@@ -726,7 +798,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 5,
+					"buffer": 7,
 					"file": "rr_simulation.r",
 					"settings":
 					{
@@ -754,19 +826,19 @@
 					"type": "text"
 				},
 				{
-					"buffer": 6,
+					"buffer": 8,
 					"file": "rr_clean.py",
 					"settings":
 					{
-						"buffer_size": 9088,
+						"buffer_size": 9001,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								221,
-								318
+								571,
+								571
 							]
 						],
 						"settings":
@@ -782,7 +854,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 7,
+					"buffer": 9,
 					"file": "industry_costs.py",
 					"settings":
 					{
@@ -793,8 +865,8 @@
 						"selection":
 						[
 							[
-								2380,
-								2339
+								2229,
+								2229
 							]
 						],
 						"settings":
@@ -803,13 +875,13 @@
 							"syntax": "Packages/Python/Python.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 1351.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
-					"buffer": 8,
+					"buffer": 10,
 					"file": "prep.py",
 					"settings":
 					{
@@ -836,7 +908,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 9,
+					"buffer": 11,
 					"file": "notes.txt",
 					"settings":
 					{
