@@ -28,10 +28,11 @@ prod_data<-read.csv('/Users/johannesmauritzen/research/oil_prices/data/prod_data
 
 large_fields<-prod_data[prod_data["recoverable_oil"]>5,]
 large_fields<-prod_data[prod_data["name"]!="EKOFISK",]
+large_fields<-large_fields[!is.na(large_fields$oil_prod_mill_sm3),]
 
 
 gam_mod<-gam(oil_prod_mill_sm3~s(prod_year, bs="cr") +
-	I(log(in_place_oil_mill_sm3 +.01)) + I(cost_index/10) + world_gdp +
+	I(in_place_oil_mill_sm3/100) + I(cost_index/10) + 
     s(year, bs="cr", k=4) + I(price/10) + I(price_l1/10) + I(price_l2/10) +
     I(price_l3/10) + I(price_l4/10) + I(price_l5/10) + I(price_l6/10) + 
     I(price_l7/10) + I(price_l8/10), 
@@ -119,14 +120,52 @@ cal_smooth
 # dev.off()
 
 
-gam_mod_2d<-gam(oil_prod_mill_sm3~s(prod_year, I(log(in_place_oil_mill_sm3+.0001)) +
+gam_mod_2d<-gam(oil_prod_mill_sm3~s(prod_year, in_place_oil_mill_sm3) +
     s(year, bs="cr", k=4) +
-    I(cost_index/10) + world_gdp +
+    I(cost_index/10) + 
     I(price/10) + I(price_l1/10) + I(price_l2/10) +
     I(price_l3/10) + I(price_l4/10) + I(price_l5/10) + I(price_l6/10) + 
     I(price_l7/10) + I(price_l8/10), 
     family=gaussian(link=log), weights=I(in_place_oil_mill_sm3/100), data=large_fields)
+
 summary(gam_mod_2d)
+
+#With random effects
+
+gam_mod_re<-gam(oil_prod_mill_sm3~s(prod_year, name, bs="re") + 
+    s(year, bs="cr", k=4) +
+    I(in_place_oil_mill_sm3/100) + I(cost_index/10) +
+    I(price/10) + I(price_l1/10) + I(price_l2/10) +
+    I(price_l3/10) + I(price_l4/10) + I(price_l5/10) + I(price_l6/10) + 
+    I(price_l7/10) + I(price_l8/10), 
+     family=gaussian(link=log), weights=I(in_place_oil_mill_sm3/100), data=large_fields)
+summary(gam_mod_re)
+
+gam_mod_re_inter<-gam(oil_prod_mill_sm3~s(prod_year, name, bs="re") + 
+ s(year, bs="cr", k=4) + I(cost_index/10) + 
+    I(in_place_oil_mill_sm3/100) +
+    I(price/10) +
+    I(price_l1/10) + 
+    I(price_l2/10) + 
+    I(price_l3/10) + 
+    I(price_l4/10) + 
+    I(price_l1/10):build_out +
+    I(price_l2/10):build_out + 
+    I(price_l3/10):build_out +
+    I(price_l4/10):build_out,
+    # I(price_l6/10):build_out +
+    # I(price_l7/10):build_out + 
+    # I(price_l8/10):build_out,
+    family=gaussian(link=log), weights=I(in_place_oil_mill_sm3/100), 
+    data=large_fields)
+summary(gam_mod_re_inter)
+
+#list of results
+results<-list(gam_mod, gam_mod_re, gam_mod_2d, gam_mod_re_inter)
+texreg(results, 
+    custom.model.names = c("w/out Rand. Effects", "w Rand. Effects", "2-d Smooth", "w Build-out"),
+    digits = 3,
+    label = "GAM_model_table")
 #, weights=I(in_place_oil_mill_sm3/100)
 #year + I(year^2) +
 
@@ -145,16 +184,7 @@ labs(x="Lags", y="Estimated Coefficient on Oil Price",
 
 coef_plot_2d
 
-#With random effects
 
-gam_mod_re<-gam(oil_prod_mill_sm3~s(prod_year, name, bs="re") + 
-    s(year, bs="cr", k=4) + world_gdp +
-	I(log(in_place_oil_mill_sm3 + .01)) + I(in_place_oil_mill_sm3/100) + I(cost_index/10) +
-    I(price/10) + I(price_l1/10) + I(price_l2/10) +
-    I(price_l3/10) + I(price_l4/10) + I(price_l5/10) + I(price_l6/10) + 
-    I(price_l7/10) + I(price_l8/10), 
-     family=gaussian(link=log), weights=I(in_place_oil_mill_sm3/100), data=large_fields)
-summary(gam_mod_re)
 
 #weights=I(in_place_oil_mill_sm3/100) ,
 
@@ -194,8 +224,8 @@ labs(x="Lags", y="Estimated Coefficient on Oil Price")
 
 gam_mod_re_lim<-gam(oil_prod_mill_sm3~s(prod_year, name, bs="re") + 
     I(in_place_oil_mill_sm3/100) + I(cost_index/10) +
-     year + I(year^2) + I(price/10) + I(price_l1/10) + I(price_l2/10) + 
-     I(price_l3) + I(price_l4) + I(price_l5/10), 
+     s(year) + I(price/10) + I(price_l1/10) + I(price_l2/10) + 
+     I(price_l3) + I(price_l4) + I(price_l5/10),
      family=gaussian(link=log), weights=in_place_oil_mill_sm3, data=large_fields)
 summary(gam_mod_re_lim)
 
@@ -217,12 +247,7 @@ anova_mod1<-anova(gam_mod_re, gam_mod_re_lim, test="F")
 anova_mod2<-anova(gam_mod_re, gam_mod_re_lim_conc, test="F")
 anova_mod3<-anova(gam_mod_re_lim_conc,gam_mod_re_no_price, test="F")
 
-#list of results
-results<-list(gam_mod, gam_mod_re, gam_mod_2d)
-texreg(results, 
-    custom.model.names = c("w/out Rand. Effects", "w Rand. Effects", "2-d Smooth"),
-    digits = 3,
-    label = "GAM_model_table")
+
 
 #show model fit and other indicators of preferred model
 
@@ -234,17 +259,27 @@ plot(gam_mod)
 #models with interaction effects
 
 
-gam_mod_2d_inter<-gam(oil_prod_mill_sm3~s(prod_year, name, bs="re") + 
-  + I(cost_index/10) + 
+gam_mod_re_inter<-gam(oil_prod_mill_sm3~s(prod_year, name, bs="re") + 
+ s(year, bs="cr", k=3) + I(cost_index/10) + 
+    I(in_place_oil_mill_sm3/100) +
     I(price_l1/10) + 
     I(price_l2/10) + I(price_l3/10) + 
     I(price_l4/10) + I(price_l5/10) +
-    year + I(year^2) + I(price_l1/10):build_out + 
+    I(price_l1/10):build_out + 
     I(price_l2/10):build_out + I(price_l3/10):build_out + 
-    I(price_l4/10):build_out + I(price_l5/10):build_out, 
-    family=gaussian(link=log), weights=in_place_oil_mill_sm3, 
+    I(price_l4/10):build_out + I(price_l5/10):build_out,
+    family=gaussian(link=log), weights=I(in_place_oil_mill_sm3/100), 
     data=large_fields)
-summary(gam_mod_2d_inter)
+summary(gam_mod_re_inter)
+
+# gam_mod_re<-gam(oil_prod_mill_sm3~s(prod_year, name, bs="re") + 
+#     s(year, bs="cr", k=4) +
+#     I(in_place_oil_mill_sm3/100) + I(cost_index/10) +
+#     I(price/10) + I(price_l1/10) + I(price_l2/10) +
+#     I(price_l3/10) + I(price_l4/10) + I(price_l5/10) + I(price_l6/10) + 
+#     I(price_l7/10) + I(price_l8/10), 
+#      family=gaussian(link=log), weights=I(in_place_oil_mill_sm3/100), data=large_fields)
+# summary(gam_mod_re)
 
 gam_mod_2d_inter2<-gam(oil_prod_mill_sm3~s(prod_year, in_place_oil_mill_sm3) + 
   + I(cost_index/10) +

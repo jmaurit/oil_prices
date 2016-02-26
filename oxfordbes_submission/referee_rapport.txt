@@ -1,0 +1,68 @@
+referee_rapport.txt
+
+Editors comments:
+
+ Like the referee, I found there was much to like in this paper and overall concluded that it could form a nice addition to the literature. My main observation reflects that of the referee - price should somehow be allowed to have different effects on production depending on where the field is in terms of its lifetime. This seems important and a sensible extension. I therefore invite you to revise and resubmit the paper to the Bulletin. In your revision, please focus closely on the comments of the referee and provide a detailed response to the points made. Whilst I can make no guarantees at this stage as to the ultimate decision on publication, I only invite R&R if I am confident that revisions can be made that will satisfy the referee.
+
+
+Referee report
+The effect of oil price on field production: Evidence from the Norwegian Continental Shelf
+Overview
+Based on an unbalanced panel data set from oil fields on the Norwegian Continental Shelf, this paper studies the influence of oil price shocks on production from producing fields. A general additive model with cubic regression splines is specified and estimated to single out the underlying structural production profile, based on the assumption that oil price sensitivities apply to residual variation in production. The results suggest that producing fields are quite insensitive to changes in the oil price. The combination of data, methodology, and results represented by this study could potentially contribute positively to the econometric literature on oil supply. However, the below concerns are still meant to suggest that the paper would benefit significantly from a thorough revision.
+Major comments
+
+1. This study is limited to ”producing fields”. Oil and gas supply is formed by series of multi‐stage investment decisions in oil and gas companies, including exploration drilling, appraisal drilling, field development, capacity additions, infill drilling, IOR projects etc. This is not a disqualifying feature. However, the author is advised to clarify the scope of this study more closely in the introduction, confine his/her area of interest in the upstream value/investment chain of the oil industry, and describe the actual decisions it might involve (by oil companies).
+
+Reply: I agree, and I have made an effort to clarify the scope of this article in the Introduction. 
+
+
+2. The review of previous literature should be readjusted to better reflect the body of empirical literature in economic journals on oil supply. Examples include Kaufman (1991), Adelman (1993), Watkins and Streifel (1998), Moroney and Berg (1999), Cleveland and Kaufman (2001), Lynch (2002), Watkins (2002), Mohn (2010). Moreover, the author would do well in stressing that estimate price elastisticities of oil supply in previous research often have been related to specific types of investment activities (exploration, development, and other upstream activities), leaving a gap to be explored for fields in production. The below list of references should be considered for a more complete overview.
+
+reply: I appreciate the list of suggested references, and I have used this to substantially expand the discussion of the previous litterature on oil supply. This can be found on pages. 
+
+3. As soon as NCS oil fields are put on stream, the focus of the operating oil company is to ramp up production to full capacity as fast as possible. In this phase of the field life, the oil price is highly unlikely to influence the realized path of production. The situation is quite different as soon as the fields pass their production peak, and enter the decline phase. This phase is characterized by spare capacity, and oil price shocks are therefore far more likely to influence efforts and (short‐term investment) activities that could lift/reduce production temporarily and/or change the life‐time of the field. Infill drilling activities are particularly important in this respect. I would therefore recommend that the econometric assessment allows for variation in the estimated oil price elasticities between the pre‐peak and the post‐peak phase. This feature should be incorporated in the econometric assessment through appropriate split‐sample and/or dummy variable techniques. A crude approach would be to interact the oil price with cumulated production (by field) among the explanatory variables, to test if the oil price elasticity depends on the degree of depletion. An alternative would be to split the entire data set according to positive/negative production growth, and estimate separate oil price elasticities for the two sub‐samples. If my assertion is supported by econometric results, it would also mean that oil production (from producing fields) is more sensitive to oil
+price variation in mature oil and provinces than in juvenile provinces. This would also suggest that policies to stimulate production from fields on streams would be more effective in mature provinces.
+
+This is a good point and I have attempted to address the issue by extending my model. A challenge is that that the sub-sample of pre-peak data is relatively small (less than a third of the total). However, the model results do provide some evidence that the price effect is strongest in the draw-down phase. I present and discuss these results on p., and in a footnote give credit to the anonymous referee for the idea.  
+
+I also discuss policy implications of these findings in the manner you suggested in the conclusion on p. x
+
+"The findings in this article have policy implications for both energy industry regulators and financial policy makers. Since the evidence points to a stronger lagged effect of price on production in declining fields, this would imply that policy measures meant to stimulate increased production would likely also be more effective in mature oil producing areas. ""
+
+Minor comments
+a. Charts to illustrate historical investment (by category) on the NCS would be useful as background information. This would hightlight the role and relevance of investments in producing fields. The data is available at http://ssb.no/en/energi‐og‐ industri/statistikker/oljeinv
+
+b. The discussion of government take on page 9 (lines 18‐24) should include the State’s Direct Financial Interest (managed by Petoro AS), which really can be seen as an extension of the petroleum taxation system.
+
+
+c. Readers should be reminded about the neutrality aspects of the Norwegian system of petroleum taxation, implying that fields that are profitable before tax will also be profitable after tax (page 9). Before 2005, oil companies would have to be in tax position to be able to deduct exploration expenses. After 2005, new entrants with no taxable income got this deductcion up front as a direct transfer from the government.
+
+
+d. The definition of oil‐in‐place should be clearly defined. If this measure is based on geological information, there should be no correlation with oil prices (on page 9, the author argues it is “unlikely to be correlated with prices). It also remains unclear why this variable enters with subscript it in the econometric model. Standard definitions of oil‐in‐place remain constant over time.
+
+
+e. A table summary of descriptive statistics would be useful for the introduction/discussion of the data set.
+
+
+f. The manuscript needs proper proofreading.
+
+
+References
+
+Adelman, Morris A. 1993. Modelling world oil supply. The Energy Journal 14 (1), 1‐32. 
+
+Cleveland, C. J. and R. K. Kaufmann. 1991. Forecasting ultimate oil recovery and its rate of production: Incorporating economic factors into the models of M. King Hubbert. The Energy Journal 12, 17‐46.
+
+Kaufmann, R. K. 1991. Oil production in the lower 48 states: Reconciling curve‐fitting and econometric models. Resources and Energy 13, 111‐127.
+
+Kaufmann, R. K. and C. J. Cleveland. 2001. Oil production in the lower 48 states: Economic, geological, and institutional determinants. The Energy Journal 22 (1), 27‐49.
+
+Lynch, M. 2002. Forecasting oil supply: theory and practice. The Quarterly Review of Economic and Finance 42, 373‐389.
+
+Mohn, K. 2010. Elastic oil: a primer on the economics of exploration and production. In E. Bjørndal et al. (eds.), Energy, Natural Resources and Environmental Economics. Springer. Berlin Heidelberg.
+
+Moroney, J. R. and M. D. Berg (1999) An integrated model of oil production. The Energy Journal 20 (1), 105‐124.
+
+Watkins, G. C. 2002. Characteristics of North Sea oil reserve appreciation. The Quarterly Review of Economics and Finance 22, 335‐372.
+
+Watkins, C. J. and S. S. Streifel. 1998. World crude oil supply: Evidence from estimating supply functions by country. Journal of Energy Finance and Development 3 (1), 23‐48.
