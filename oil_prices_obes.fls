@@ -132,6 +132,8 @@ INPUT /usr/local/texlive/2015/texmf-dist/fonts/tfm/public/cm/cmbx5.tfm
 INPUT figures/price_coefficents.png
 INPUT ./figures/price_coefficents.png
 INPUT ./figures/price_coefficents.png
+INPUT /usr/local/texlive/2015/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm
+INPUT /usr/local/texlive/2015/texmf-dist/fonts/tfm/public/cm/cmbx7.tfm
 INPUT figures/mc_plot.png
 INPUT ./figures/mc_plot.png
 INPUT ./figures/mc_plot.png

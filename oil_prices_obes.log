@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2016.1.4)  26 FEB 2016 12:00
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2016.1.4)  29 FEB 2016 10:19
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -365,29 +365,29 @@ File: figures/price_coefficents.png Graphic file (type png)
 <use figures/price_coefficents.png>
 Package pdftex.def Info: figures/price_coefficents.png used on input line 305.
 (pdftex.def)             Requested size: 469.75502pt x 281.65176pt.
- [19] [20] [21 <./figures/price_coefficents.png>] <figures/mc_plot.png, id=98, 
-1777.64125pt x 1777.64125pt>
+ [19] [20] [21 <./figures/price_coefficents.png>] [22] <figures/mc_plot.png, id
+=101, 1777.64125pt x 1777.64125pt>
 File: figures/mc_plot.png Graphic file (type png)
 
 <use figures/mc_plot.png>
-Package pdftex.def Info: figures/mc_plot.png used on input line 315.
+Package pdftex.def Info: figures/mc_plot.png used on input line 324.
 (pdftex.def)             Requested size: 469.75502pt x 469.74359pt.
- [22] [23 <./figures/mc_plot.png>] [24]
+ [23] [24 <./figures/mc_plot.png>] [25]
 (./oil_prices_obes.bbl
 Missing character: There is no â in font cmr12!
 Missing character: There is no € in font cmr12!
 Missing character: There is no “ in font cmr12!
- [25]
+ [26]
 Underfull \hbox (badness 5388) in paragraph at lines 57--62
 []\OT1/cmr/m/n/12 British Petroleum.  Sta-tis-ti-cal re-view of world en-ergy 2
 013.  Tech-ni-cal re-
  []
 
+[27]
 Missing character: There is no Â in font cmr12!
 Missing character: There is no © in font cmr12!
 Missing character: There is no Â in font cmr12!
 Missing character: There is no © in font cmr12!
-[26]
 Missing character: There is no â in font cmr12!
 Missing character: There is no € in font cmr12!
 Missing character: There is no   in font cmr12!
@@ -407,9 +407,9 @@ Missing character: There is no ¥ in font cmr12!
 Missing character: There is no â in font cmr12!
 Missing character: There is no € in font cmr12!
 Missing character: There is no “ in font cmr12!
+ [28]
 Missing character: There is no Â in font cmr12!
 Missing character: There is no © in font cmr12!
- [27]
 Missing character: There is no â in font cmr12!
 Missing character: There is no € in font cmr12!
 Missing character: There is no “ in font cmr12!
@@ -419,13 +419,13 @@ Missing character: There is no “ in font cmr12!
 Missing character: There is no â in font cmr12!
 Missing character: There is no € in font cmr12!
 Missing character: There is no “ in font cmr12!
-) [28] (./oil_prices_obes.aux) ) 
+) [29] (./oil_prices_obes.aux) ) 
 Here is how much of TeX's memory you used:
- 3283 strings out of 493089
- 46592 string characters out of 6134843
- 130460 words of memory out of 5000000
- 6702 multiletter control sequences out of 15000+600000
- 14111 words of font info for 52 fonts, out of 8000000 for 9000
+ 3286 strings out of 493089
+ 46626 string characters out of 6134843
+ 129460 words of memory out of 5000000
+ 6704 multiletter control sequences out of 15000+600000
+ 14729 words of font info for 54 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  38i,20n,32p,1025b,375s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2015/texmf-dist/fonts/type1
@@ -449,10 +449,10 @@ pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.p
 fb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pf
 b></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb
 >
-Output written on oil_prices_obes.pdf (28 pages, 772451 bytes).
+Output written on oil_prices_obes.pdf (29 pages, 775673 bytes).
 PDF statistics:
- 186 PDF objects out of 1000 (max. 8388607)
- 124 compressed objects within 2 object streams
+ 189 PDF objects out of 1000 (max. 8388607)
+ 126 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  26 words of extra memory for PDF output out of 10000 (max. 10000000)
 
