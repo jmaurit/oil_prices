@@ -1,13 +1,13 @@
 # Fdb version 3
-["bibtex oil_prices_obes"] 1456737555 "oil_prices_obes.aux" "oil_prices_obes.bbl" "oil_prices_obes" 1456737558
+["bibtex oil_prices_obes"] 1457023331 "oil_prices_obes.aux" "oil_prices_obes.bbl" "oil_prices_obes" 1457023333
   "/usr/local/texlive/2015/texmf-dist/bibtex/bst/natbib/plainnat.bst" 1233624470 26816 ffe5423d2019860bad9f54bc402fac15 ""
   "oil_prices.bib" 1437728336 103799 cd8ef1ca92836ab755a8eb2d7655c62b ""
-  "oil_prices_obes.aux" 1456737557 6795 64f76f86b62571f9166b616dc84984c9 ""
+  "oil_prices_obes.aux" 1457023333 7345 68475bd16f64214f8b8f79f4e7ec16d3 ""
   "oil_prices_obes.bcf" 0 -1 0 ""
   (generated)
   "oil_prices_obes.bbl"
   "oil_prices_obes.blg"
-["pdflatex"] 1456737556 "oil_prices_obes.tex" "oil_prices_obes.pdf" "oil_prices_obes" 1456737558
+["pdflatex"] 1457023331 "oil_prices_obes.tex" "oil_prices_obes.pdf" "oil_prices_obes" 1457023333
   "./figures/data_descriptives.png" 1427296322 70831 b05ebd42fef776265bed5b4b8a8437a8 ""
   "./figures/mc_plot.png" 1427213118 286750 b9fcddf9a2a3092185077960c29b5095 ""
   "./figures/oil_decline.png" 1427300963 101881 7d8fa01da46ca851494abf798eb660d4 ""
@@ -109,10 +109,10 @@
   "figures/oil_decline.png" 1427300963 101881 7d8fa01da46ca851494abf798eb660d4 ""
   "figures/price_coefficents.png" 1428422538 71621 7f4f438991a3c5a5d7b671004a810a1b ""
   "figures/smooths.png" 1428422538 75515 50be6456ee78dbb8090a2ee963731ea3 ""
-  "oil_prices_obes.aux" 1456737557 6795 64f76f86b62571f9166b616dc84984c9 ""
-  "oil_prices_obes.bbl" 1456737556 11866 bb57bf3a1a8fabe8294a4e81ca4dd6f4 "bibtex oil_prices_obes"
-  "oil_prices_obes.tex" 1456737552 54446 7990cdb5c58c4f41532e45f6a9b50a72 ""
+  "oil_prices_obes.aux" 1457023333 7345 68475bd16f64214f8b8f79f4e7ec16d3 ""
+  "oil_prices_obes.bbl" 1457023331 13602 6fc8e7f4b12584fa39cae60000485b37 "bibtex oil_prices_obes"
+  "oil_prices_obes.tex" 1457023292 60829 ecf97b859692c8d4716eeca5e87554d0 ""
   (generated)
   "oil_prices_obes.pdf"
-  "oil_prices_obes.aux"
   "oil_prices_obes.log"
+  "oil_prices_obes.aux"

@@ -1,4 +1,4 @@
-\begin{thebibliography}{32}
+\begin{thebibliography}{35}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -36,23 +36,6 @@ Geoffrey Black and Jeffrey~T LaFrance.
 \newblock URL
   \url{http://www.sciencedirect.com/science/article/pii/S0095069698910427}.
 
-\bibitem[Boyce(2013)]{boyce_prediction_2013}
-John~R. Boyce.
-\newblock Prediction and inference in the hubbert-deffeyes peak oil model.
-\newblock \emph{The Energy journal}, 34\penalty0 (2):\penalty0 91--144, 2013.
-\newblock ISSN 0195-6574.
-\newblock URL \url{http://cat.inist.fr/?aModele=afficheN&cpsidt=27152751}.
-
-\bibitem[Brandt(2010)]{brandt_review_2010}
-Adam~R. Brandt.
-\newblock Review of mathematical models of future oil supply: Historical
-  overview and synthesizing critique.
-\newblock \emph{Energy}, 35\penalty0 (9):\penalty0 3958--3974, September 2010.
-\newblock ISSN 0360-5442.
-\newblock \doi{10.1016/j.energy.2010.04.045}.
-\newblock URL
-  \url{http://www.sciencedirect.com/science/article/pii/S0360544210002537}.
-
 \bibitem[{British Petroleum}(2013)]{british_petroleum_statistical_2013}
 {British Petroleum}.
 \newblock Statistical review of world energy 2013.
@@ -68,10 +51,15 @@ Menzie~D. Chinn, Michael LeBlanc, and Olivier Coibion.
   2005.
 \newblock URL \url{http://www.nber.org/papers/w11033}.
 
-\bibitem[Deffeyes(2001)]{deffeyes_hubberts_2001}
-Kenneth~S. Deffeyes.
-\newblock \emph{Hubbert's Peak: The Impending World Oil Shortage}.
-\newblock Princeton University Press, September 2001.
+\bibitem[Cleveland and Kaufmann(1991)]{cleveland_forecasting_1991}
+Cutter~J. Cleveland and Robert~K. Kaufmann.
+\newblock Forecasting ultimate oil recovery and its rate of production:
+  Incorporating economic forces into the models of m. king hubbert.
+\newblock \emph{The Energy Journal}, Volume 12\penalty0 (Number 2):\penalty0
+  17--46, 1991.
+\newblock ISSN 0195-6574.
+\newblock URL
+  \url{http://econpapers.repec.org/article/aenjournl/1991v12-02-a03.htm}.
 
 \bibitem[Farzin(2001)]{farzin_impact_2001}
 Y.H. Farzin.
@@ -132,6 +120,17 @@ A.~S. Hurn and Robert~E. Wright.
 \newblock {ArticleType}: research-article / Full publication date: Mar., 1994 /
   Copyright © 1994 Royal Economic Society.
 
+\bibitem[Kaufmann(1991)]{kaufmann_oil_1991}
+Robert~K. Kaufmann.
+\newblock Oil production in the lower 48 states: Reconciling curve fitting and
+  econometric models.
+\newblock \emph{Resources and Energy}, 13\penalty0 (1):\penalty0 111--127,
+  April 1991.
+\newblock ISSN 0165-0572.
+\newblock \doi{10.1016/0165-0572(91)90022-U}.
+\newblock URL
+  \url{http://www.sciencedirect.com/science/article/pii/016505729190022U}.
+
 \bibitem[Kellogg(2014)]{kellogg_effect_2014}
 Ryan Kellogg.
 \newblock The effect of uncertainty on investment: Evidence from texas oil
@@ -160,6 +159,15 @@ Philip Leifeld.
 \newblock \emph{Journal of Statistical Software}, 55\penalty0 (8), November
   2013.
 
+\bibitem[Lynch(2002)]{lynch_forecasting_2002}
+Michael~C. Lynch.
+\newblock Forecasting oil supply: theory and practice.
+\newblock \emph{The Quarterly Review of Economics and Finance}, 42\penalty0
+  (2):\penalty0 373--389, 2002.
+\newblock ISSN 1062-9769.
+\newblock URL
+  \url{http://econpapers.repec.org/article/eeequaeco/v_3a42_3ay_3a2002_3ai_3a2_3ap_3a373-389.htm}.
+
 \bibitem[Mohn(2008{\natexlab{a}})]{mohn_efforts_2008}
 Klaus Mohn.
 \newblock Efforts and efficiency in oil exploration: A vector error-correction
@@ -173,6 +181,17 @@ Klaus Mohn.
 \newblock \emph{Investment Behaviour in the International Oil and Gas
   Industry}.
 \newblock Ph.D Dissertation. University of Stavanger, 2008{\natexlab{b}}.
+
+\bibitem[Mohn(2010)]{mohn_elastic_2010}
+Klaus Mohn.
+\newblock Elastic oil: A primer on the economics of exploration and production.
+\newblock In Endre Bjorndal, Mette Bjorndal, Panos~M. Pardalos, and Mikael
+  R\"onnqvist, editors, \emph{Energy, Natural Resources and Environmental
+  Economics}, Energy Systems, pages 39--58. Springer Berlin Heidelberg, January
+  2010.
+\newblock ISBN 978-3-642-12066-4, 978-3-642-12067-1.
+\newblock URL
+  \url{http://link.springer.com/chapter/10.1007/978-3-642-12067-1_3}.
 
 \bibitem[Mohn and Osmundsen(2008)]{mohn_exploration_2008}
 Klaus Mohn and Petter Osmundsen.
@@ -219,6 +238,16 @@ M.~Hashem Pesaran.
 \newblock {ArticleType}: research-article / Full publication date: Jun., 1990 /
   Copyright © 1990 Royal Economic Society.
 
+\bibitem[Pesaran and Samiei(1995)]{pesaran_forecasting_1995}
+M.Hashem Pesaran and Hossein Samiei.
+\newblock Forecasting ultimate resource recovery.
+\newblock \emph{International Journal of Forecasting}, 11\penalty0
+  (4):\penalty0 543--555, December 1995.
+\newblock ISSN 0169-2070.
+\newblock \doi{10.1016/0169-2070(95)00620-6}.
+\newblock URL
+  \url{http://www.sciencedirect.com/science/article/pii/0169207095006206}.
+
 \bibitem[{R Core Team}(2013)]{r_core_team_r:_2013}
 {R Core Team}.
 \newblock \emph{R: A Language and Environment for Statistical Computing}.
@@ -242,6 +271,18 @@ Nirupama~S. Rao.
   california oil production.
 \newblock \emph{{MIT} Center for Energy and Environmental Policy}, 2010.
 \newblock URL \url{http://dspace.mit.edu/handle/1721.1/54781}.
+
+\bibitem[Ringlund et~al.(2008)Ringlund, Rosendahl, and
+  Skjerpen]{ringlund_does_2008}
+Guro~Børnes Ringlund, Knut~Einar Rosendahl, and Terje Skjerpen.
+\newblock Does oilrig activity react to oil price changes? an empirical
+  investigation.
+\newblock \emph{Energy Economics}, 30\penalty0 (2):\penalty0 371--396, March
+  2008.
+\newblock ISSN 0140-9883.
+\newblock \doi{10.1016/j.eneco.2007.06.002}.
+\newblock URL
+  \url{http://www.sciencedirect.com/science/article/pii/S0140988307000771}.
 
 \bibitem[Wickham(2009)]{wickham_ggplot2:_2009}
 Hadley Wickham.

@@ -9,6 +9,7 @@ library(lubridate)
 library(grid)
 library(arm)
 library(texreg)
+library(zoo)
 
 field_data<-read.csv('/Users/johannesmauritzen/research/oil_prices/data/field_data.csv')
 prod_data<-read.csv('/Users/johannesmauritzen/research/oil_prices/data/prod_data.csv')
@@ -19,6 +20,53 @@ small_rec_oil<-sum(field_data["recoverable_oil"][field_data["recoverable_oil"]<=
 28.3/4779.2
 #.5% of total recoverable oil.  
 
+
+#plot of investing
+#from ssb
+invest <- read.csv("https://data.ssb.no/api/v0/dataset/166334.csv?lang=no", sep=";")
+colnames(invest) <- c("type", "period", "var", "investment")
+invest <- reshape(invest, 
+  timevar = "type",
+  idvar = c("period", "var"),
+  direction = "wide")
+
+quarter <- as.Date(as.yearqtr(invest$period, format = "%YK%q"))
+invest$period <- quarter
+invest <- invest[c("period", "investment.0 Investeringer i alt", 
+	"investment.10.3.3 Produksjonsboring, felt i drift",
+	"investment.10.3 Felt i drift",
+	"investment.10.2 Feltutbygging", 
+	"investment.10.1 Leting og konseptstudier",
+	"investment.10.1.1 Unders\xf8kelsesboring")]
+
+
+invest <- invest[invest$period<as.Date("2015-01-01"),]
+
+colnames(invest) <-c("period", "Total", 
+	"In Production, Drilling", "In Production, Total", "Build-out", "Search", "Expl. Drilling")
+
+invest_long <- melt(invest, id.vars="period")
+
+investment<-ggplot(invest_long, aes(x=period, y=value, color=variable)) +
+#facet_wrap(nrow=2, ~variable, scales="free_y") +
+geom_line() +
+scale_color_grey() +
+theme_bw() +
+#geom_text() +
+annotate("text", x = as.Date("2016-01-01"), y = 50000, label = "Total") +
+annotate("text", x = as.Date("2016-06-01"), y = 21000, label = "In Production, Total") +
+annotate("text", x = as.Date("2016-01-01"), y = 19000, label = "Build-out") +
+annotate("text", x = as.Date("2016-06-01"), y = 11000, label = "In Production Drilling") +
+annotate("text", x = as.Date("2016-01-01"), y = 8000, label = "Search") +
+annotate("text", x = as.Date("2016-06-01"), y = 6000, label = "Expl. Drilling") +
+labs(x="", y="Investment, Mill NOK, Seasonally Adjusted") +
+xlim(as.Date("2000-01-01"), as.Date("2017-06-01")) +
+guides(color=FALSE) 
+
+png("/Users/johannesmauritzen/research/oil_prices/figures/investment.png", 
+	width = 25, height = 18, units = "cm", res=100, pointsize=12)
+investment
+dev.off()
 
 top10<-as.character(head(field_data$name[order(field_data$recoverable_oil, decreasing=TRUE)],10))
 

@@ -40,6 +40,10 @@ I also discuss policy implications of these findings in the manner you suggested
 Minor comments
 a. Charts to illustrate historical investment (by category) on the NCS would be useful as background information. This would hightlight the role and relevance of investments in producing fields. The data is available at http://ssb.no/en/energi‐og‐ industri/statistikker/oljeinv
 
+This is a good suggestion, and I have added a chart showing with data since 2002 - which is the farthest back I could get disaggregated data. The chart is on page x, and I have extended the discussion in the following way:
+
+"The effect of oil prices on producing fields is an important topic in understanding the mechanisms of how total oil supply reacts in response to price. The response of oil production in existing fields is especially important now as many of the major oil-producing areas, like the Norwegian Continental Shelf are mature and an increasing share of investments will be directed at capacity enhancement in producing fields rather than new field developments. Figure \ref{investment} shows that investments in producing fields makes up a large share of total investments, nearly dwarfing investments in searching, exploration and new build-outs. How production from these fields will respond to changes in oil prices has major implications for the oil industry, the state finances of oil-producing countries and long-run oil price formation."
+
 b. The discussion of government take on page 9 (lines 18‐24) should include the State’s Direct Financial Interest (managed by Petoro AS), which really can be seen as an extension of the petroleum taxation system.
 
 This is a good point, I have expaned this paragraph to read as follows:
