@@ -61,12 +61,18 @@ This is a good point, I have added some discussion on the matter and a reference
 
 d. The definition of oil‐in‐place should be clearly defined. If this measure is based on geological information, there should be no correlation with oil prices (on page 9, the author argues it is “unlikely to be correlated with prices). It also remains unclear why this variable enters with subscript it in the econometric model. Standard definitions of oil‐in‐place remain constant over time.
 
+You are right on both points. I have clarified the paragraph in question to: 
+"The use of total recoverable reserves is complicated since it is dependent on the price of oil and thus endogenous in the analysis. Therefore, as a proxy for the size of the fields, I use estimates of geological in-place oil which is not a function of economic factors."
+
+The time indexing of the in-place oil variable is indeed a mistake, and I changed the formulas to reflect this. 
 
 e. A table summary of descriptive statistics would be useful for the introduction/discussion of the data set.
 
+I have now included a table of summary statistics on field-level data in the data section.  
 
 f. The manuscript needs proper proofreading.
 
+I have made an effort to get my language and usage double checked.
 
 References
 

@@ -3,54 +3,48 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: oil_prices_obes.aux
 The style file: plainnat.bst
 Database file #1: oil_prices.bib
-Warning--I didn't find a database entry for "adelman_fea_1975"
-Warning--I didn't find a database entry for "hamilton_oil_1983"
-Warning--I didn't find a database entry for "moroney_integrated_1999"
-Warning--I didn't find a database entry for "kaufman_oil_2001"
-Warning--I didn't find a database entry for "adelman_mineral_1990"
-Warning--I didn't find a database entry for "adelman_modeling_1993"
-Warning--I didn't find a database entry for "watkins_world_1998"
+Warning--I didn't find a database entry for "leffler_deepwater_2011"
 Warning--empty institution in british_petroleum_statistical_2013
 Warning--empty publisher in r_core_team_r:_2013
-You've used 35 entries,
+You've used 42 entries,
             2773 wiz_defined-function locations,
-            874 strings with 13130 characters,
-and the built_in function-call counts, 14827 in all, are:
-= -- 1483
-> -- 559
-< -- 34
-+ -- 202
-- -- 166
-* -- 1193
-:= -- 2364
-add.period$ -- 181
-call.type$ -- 35
-change.case$ -- 158
-chr.to.int$ -- 34
-cite$ -- 72
-duplicate$ -- 692
-empty$ -- 1282
-format.name$ -- 215
-if$ -- 3093
+            920 strings with 14748 characters,
+and the built_in function-call counts, 17947 in all, are:
+= -- 1812
+> -- 700
+< -- 40
++ -- 251
+- -- 208
+* -- 1443
+:= -- 2861
+add.period$ -- 217
+call.type$ -- 42
+change.case$ -- 194
+chr.to.int$ -- 41
+cite$ -- 86
+duplicate$ -- 828
+empty$ -- 1528
+format.name$ -- 270
+if$ -- 3738
 int.to.chr$ -- 2
 int.to.str$ -- 1
-missing$ -- 35
-newline$ -- 257
-num.names$ -- 142
-pop$ -- 225
+missing$ -- 41
+newline$ -- 307
+num.names$ -- 170
+pop$ -- 268
 preamble$ -- 1
-purify$ -- 124
+purify$ -- 152
 quote$ -- 0
-skip$ -- 462
+skip$ -- 565
 stack$ -- 0
-substring$ -- 628
-swap$ -- 64
+substring$ -- 754
+swap$ -- 69
 text.length$ -- 4
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 360
+type$ -- 437
 warning$ -- 2
-while$ -- 149
+while$ -- 186
 width$ -- 0
-write$ -- 608
-(There were 9 warnings)
+write$ -- 729
+(There were 3 warnings)

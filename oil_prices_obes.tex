@@ -9,6 +9,7 @@
 \usepackage{url} %for inserting urls
 \usepackage{placeins} % for limitting floats
 \usepackage{comment} %for excluding figures
+\usepackage{booktabs}
 % \excludecomment{figure} % for printing without figures
 % \syntaxonly % for quickly checking document
 %set document settings
@@ -44,7 +45,7 @@ Words: 5970
 
 For most of the last century, crude oil has been the world's single most important and valuable fuel source.\footnote{Oil is the world's largest single energy source, consisting of approximately 33\% of total energy consumption in 2013 as well as the most valuable in terms of market price per unit of energy \citep{british_petroleum_statistical_2013}} Naturally, questions of how the oil price affects the world economy as well as how oil production reacts to the oil price have been fundamental topics in Economics. Recent volatility in the price of oil has made this an especially relevant topic. 
 
-Oil and gas supply, especially in difficult and expensive offshore areas, is the production of an often lengthy and complex chain of conditional investment decisions. Starting with the exploration phase, where a potential oil-producing region or "play" is explored, leases are acquired, prospects are identified and exploration wells are drilled. In the case of a significant hydrocarbon find, a field is appraised to judge size, difficulty and in turn profitability. For fields seen as sufficiently profitable, a development stage commences, where a detailed drilling and production plan is drawn up and submitted to obtain permits and regulatory approval. Operating agreements are signed and subcontractors acquired for offshore construction and well development. Finally, at the end of this multi-year process, a build-out can commence, where full production capacity is built out as fast as possible, followed by an extended depletion phase. All of this consists of what is referred to as upstream activity, with steps such as shipping, refining and trading, among other, making up an equally complex down-stream process. \footnote{\ref{leffler_deepwater} provides an accessible guide to complex offshore petroleum exploration and production industry.} 
+Oil and gas supply, especially in difficult and expensive offshore areas, is the production of an often lengthy and complex chain of conditional investment decisions. Starting with the exploration phase, where a potential oil-producing region or "play" is explored, leases are acquired, prospects are identified and exploration wells are drilled. In the case of a significant hydrocarbon find, a field is appraised to judge size, difficulty and in turn profitability. For fields seen as sufficiently profitable, a development stage commences, where a detailed drilling and production plan is drawn up and submitted to obtain permits and regulatory approval. Operating agreements are signed and subcontractors acquired for offshore construction and well development. Finally, at the end of this multi-year process, a build-out can commence, where full production capacity is built out as fast as possible, followed by an extended depletion phase. All of this consists of what is referred to as upstream activity, with steps such as shipping, refining and trading, among others, making up an equally complex down-stream process. \footnote{\citet{leffler_deepwater_2011} provides an accessible guide to the offshore petroleum exploration and production industry.} 
 
 A large body of litterature exists on the many aspects of the complex chain of investment and production decisions made in the oil and gas industry. This article looks at the limited, but important topic of producing offshore fields, where a significant gap exists in the literature.  
 
@@ -55,7 +56,8 @@ Moreover, studies within the economics literature fail to take into account how 
 The effect of oil prices on producing fields is an important topic in understanding the mechanisms of how total oil supply reacts in response to price. The response of oil production in existing fields is especially important now as many of the major oil-producing areas, like the Norwegian Continental Shelf are mature and an increasing share of investments will be directed at capacity enhancement in producing fields rather than new field developments. Figure \ref{investment} shows that investments in producing fields makes up a large share of total investments, nearly dwarfing investments in searching, exploration and new build-outs. How production from these fields will respond to changes in oil prices has major implications for the oil industry, the state finances of oil-producing countries and long-run oil price formation.
 
 \begin{figure}
-	\includegraphics[width=1\textwidth]{figures/investment.png}
+	\center
+	\includegraphics[width=.9\textwidth]{figures/investment.png}
 	\caption{The figure shows investments (millions NOK) in the oil and gas extraction industry on the Norwegian Continental Shelf. A large and growing share of investment goes into fields that are already producing as opposed to investments in search, exploration and build-out of new fields.}
 	\label{investment}
 \end{figure} 
@@ -102,9 +104,9 @@ The results suggest that little to no concurrent effect of oil prices on product
 
 Early econometric attempts, like \citet{adelman_fea_1975} often made the assumption that the price contained all relevant information, ignoring the role of geophysical limits at the regional level which allowed oil supply to move in opposite direction of prices. However \citet{hamilton_oil_1983} showed that macroeconomic events could not explain movements in oil prices, and in turn rejecting the notion that prices contained all relevant information to oil supply. \citet{kaufmann_oil_1991} presents a relatively early attempt at combining both economic and geophysical aspects in emperically modeling oil production at the national level. The author used a hubbert-like \citep{hubbert_energy_1962} shape-fitting model to capture regional geophysical dynamics, in turn using the residuals to model the effects of price on production in the lower 48 United States. The author predicted that depletion and reduced oil supply from the lower 48 states would continue - a prediction that proved accurate up until the technological revolution of shale oil extraction. 
 
-A similar analysis combining econometric models with shape-fitting models by \citet{cleveland_forecasting_1991} also led to pessimistic forecasts of future US production. Further refinements of these were done by, among others, \citet{pesaran_forecasting_1995}  and \citet{moroney_integrated_1999}. \citet{kaufman_oil_2001} present an extension and generalisation using a Vector Error Correction Model (VECM) that relaxes the assumption that firms produce their fields in order of decreasing quality and also includes institutional factors in US oil production. They claim that they are able to account for most of the price variation between 1938 and 1991.
+A similar analysis combining econometric models with shape-fitting models by \citet{cleveland_forecasting_1991} also led to pessimistic forecasts of future US production. Further refinements of these were done by, among others, \citet{pesaran_forecasting_1995}  and \citet{moroney_integrated_1999}. \citet{kaufmann_oil_2001} present an extension and generalisation using a Vector Error Correction Model (VECM) that relaxes the assumption that firms produce their fields in order of decreasing quality and also includes institutional factors in US oil production. They claim that they are able to account for most of the price variation between 1938 and 1991.
 
-\citet{adelman_mineral_1990} and \citet{adelman_modeling_1993} take an opposing view, using cointegration and causality testing to argue that scarcity, and in turn geophysical forces had little to do with the eras oil price movements. Instead, Adelman argued that cartel behavior of low cost producers likely stood behind the increasing oil prices. \citet{lynch_forecasting_2002} provides a fuller overview of these competing strands of the litterature. 
+\citet{adelman_mineral_1990} and \citet{adelman_modelling_1993} take an opposing view, using cointegration and causality testing to argue that scarcity, and in turn geophysical forces had little to do with the eras oil price movements. Instead, Adelman argued that cartel behavior of low cost producers likely stood behind the increasing oil prices. \citet{lynch_forecasting_2002} provides a fuller overview of these competing strands of the litterature. 
 
 The economics litterature on petroleum production tends to be overweighted towards studies of the US. \citet{watkins_world_1998} attempts to estimate supply functions for 41 countries by using methods from estimating the relationship between the price of undeveloped reserves and reserve additions over time. Based on the aggregated estimates, they found that fears of increasing global scarcity at the time were overblown. On the issue of endogeneity of price and supply, they make the somewhat dubious argument that for non-OPEC countries, price could be taken as exogenous since individual oil firms hedged (or "managed") price swings. 
 
@@ -145,7 +147,7 @@ Rights to explore and eventually produce on the Norwegian Continental Shelf are 
 \section{Data}
 Norwegian oil field production data is obtained from the website of the Norwegian Petroleum Directorate.\footnote{http://factpages.npd.no/} The data I use includes nearly all current or formerly oil-producing fields, from 1971 through 2014. Production data is available at a monthly frequency, though I choose to aggregate up to yearly values both to smooth over seasonality as well as short-term volatility of output due to factors such as weather or technical issues that are not relevant for this article. 
 
-In addition to data on field-level production, I also have access to data on estimates of total recoverable reserves as well as estimates of total in-place oil for each field. The use of total recoverable reserves is complicated since it is dependent on the price of oil and thus endogenous in the analysis.  Therefore, as a proxy for the size of the fields, I use estimates of in-place oil from the Norwegian Petroleum Directorate, which is unlikely to be correlated with prices. The left panels of figure \ref{data_descriptives} show the histograms of field sizes as measured by estimates of recoverable oil and in-place oil. 
+In addition to data on field-level production, I also have access to data on estimates of total recoverable reserves as well as estimates of total in-place oil for each field. The use of total recoverable reserves is complicated since it is dependent on the price of oil and thus endogenous in the analysis. Therefore, as a proxy for the size of the fields, I use estimates of geological in-place oil which is not a function of economic factors. The left panels of figure \ref{data_descriptives} show the histograms of field sizes as measured by estimates of recoverable oil and in-place oil. 
 
 \begin{figure}
 	\includegraphics[width=1\textwidth]{figures/data_descriptives.png}
@@ -155,7 +157,25 @@ In addition to data on field-level production, I also have access to data on est
 
 To simplify the analysis, I eliminate the smallest fields - those with less than 3 million SM3 of recoverable reserves.  These fields tend to have substantially different production profiles than the larger fields. However, these fields only account for around 0.5 \% of total recoverable reserves so this exclusion is unlikely to have any serious practical implications. 
 
-I also eliminate the large Ekofisk field from my analysis.  I do this because it has a unique double-humped production profile. Ekofisk was the first field to be found and the first to start production on the Norwegian Continental Shelf.  It reached an initial peak in production in the late 1970's and began depleting. However, the introduction of water and gas injection technology led to a boost in production and a new peak in the early 2000's. All subsequent major fields used gas and water injection from the outset and have a single-hump profile.  
+I also eliminate the large Ekofisk field from my analysis.  I do this because it has a unique double-humped production profile. Ekofisk was the first field to be found and the first to start production on the Norwegian Continental Shelf.  It reached an initial peak in production in the late 1970's and began depleting. However, the introduction of water and gas injection technology led to a boost in production and a new peak in the early 2000's. All subsequent major fields used gas and water injection from the outset and have a single-hump profile. 
+
+Table \ref{field_summary} provides summary statistics over the distribution of field-level variables. Notably, the median field in the data set had been producing for 16 years as of the beginning of 2015 - an indication of the mature status of the Norwegian Continental Shelf. 
+
+\begin{table}
+\begin{tabular}{lrrrrr}
+\toprule
+Percentiles &    5\% &    25\% &    50\% &     75\% &     95\% \\
+                      &       &        &        &         &         \\
+\midrule
+In-place Oil, Mill SM3         &  5.90 &  34.00 &  75.80 &  157.00 &  636.70 \\
+Est. Recoverable Oil           &  6.20 &  10.50 &  25.70 &   70.30 &  374.50 \\
+Production Years, to 2015      &  1.79 &   9.17 &  16.04 &   22.43 &   35.63 \\
+Tot. Cumulative Prod., to 2015, Mill SM3 &  3.61 &   8.94 &  22.94 &   57.46 &  359.04 \\
+\bottomrule
+\end{tabular}
+\caption{Summary distribution statistics of field-level data. Columns represent percentiles of data. Excluds the Ekofisk field and fields with less than 5 million SM3 of recoverable oil.}
+\label{field_summary}
+\end{table}
 
 I use yearly data from the US Energy Information Agency on the real price of Brent-traded oil in 2010 dollars. The Brent benchmark oil price is the best oil price measure for Norwegian production as it is based on light sweet crude oil sourced from the North Sea.  
 
@@ -180,14 +200,14 @@ A simple model can be written as in equation \ref{gam_price_eqn}.
 
 \begin{equation}
 \begin{split}
-	Log(production_{i,t}) & = f(production\_time_{i,t}) + f(year_t) + \beta_1 in\_place\_oil_{i,t}\\
+	Log(production_{i,t}) & = f(production\_time_{i,t}) + f(year_t) + \beta_1 in\_place\_oil_{i}\\
 	 \quad & + \beta_3 cost\_index_{t} + \mathbf{\beta_2 oil\_price\_lags_t} +  
 	  \epsilon_{i,t}
 \label{gam_price_eqn}
 \end{split}
 \end{equation}
 
-In this model I am estimating the parameters and functions from all fields $i$. The left-hand-side variable, $Log(production_{i,t})$ is the log of yearly oil production for field $i$ at production time $t$ in millions of standard cubic meters (SM3).  On the right hand side is a smoothed function of the production profile over time $f(production\_time_{i,t})$; $in\_place\_oil_{i,t}$ is the estimated in-place oil of the field, and $cost\_index_{t}$ represents the producer price index for oil and gas extraction. 
+In this model I am estimating the parameters and functions from all fields $i$. The left-hand-side variable, $Log(production_{i,t})$ is the log of yearly oil production for field $i$ at production time $t$ in millions of standard cubic meters (SM3).  On the right hand side is a smoothed function of the production profile over time $f(production\_time_{i,t})$; $in\_place\_oil_{i}$ is the estimated in-place oil of the field, and $cost\_index_{t}$ represents the producer price index for oil and gas extraction. 
 
 $f(year_t)$ represents a restricted smooth function of the calendar time.  The main purpose of including this term is to control for the effects of technological change, which I discuss further below.
 
