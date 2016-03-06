@@ -3,48 +3,47 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: oil_prices_obes.aux
 The style file: plainnat.bst
 Database file #1: oil_prices.bib
-Warning--I didn't find a database entry for "leffler_deepwater_2011"
 Warning--empty institution in british_petroleum_statistical_2013
 Warning--empty publisher in r_core_team_r:_2013
-You've used 42 entries,
+You've used 43 entries,
             2773 wiz_defined-function locations,
-            920 strings with 14748 characters,
-and the built_in function-call counts, 17947 in all, are:
-= -- 1812
-> -- 700
+            926 strings with 14948 characters,
+and the built_in function-call counts, 18381 in all, are:
+= -- 1848
+> -- 730
 < -- 40
-+ -- 251
-- -- 208
-* -- 1443
-:= -- 2861
-add.period$ -- 217
-call.type$ -- 42
-change.case$ -- 194
-chr.to.int$ -- 41
-cite$ -- 86
-duplicate$ -- 828
-empty$ -- 1528
-format.name$ -- 270
-if$ -- 3738
++ -- 261
+- -- 217
+* -- 1483
+:= -- 2932
+add.period$ -- 221
+call.type$ -- 43
+change.case$ -- 200
+chr.to.int$ -- 42
+cite$ -- 88
+duplicate$ -- 849
+empty$ -- 1561
+format.name$ -- 280
+if$ -- 3827
 int.to.chr$ -- 2
 int.to.str$ -- 1
-missing$ -- 41
-newline$ -- 307
-num.names$ -- 170
-pop$ -- 268
+missing$ -- 43
+newline$ -- 313
+num.names$ -- 174
+pop$ -- 280
 preamble$ -- 1
-purify$ -- 152
+purify$ -- 157
 quote$ -- 0
-skip$ -- 565
+skip$ -- 578
 stack$ -- 0
-substring$ -- 754
-swap$ -- 69
+substring$ -- 756
+swap$ -- 71
 text.length$ -- 4
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 437
+type$ -- 443
 warning$ -- 2
-while$ -- 186
+while$ -- 189
 width$ -- 0
-write$ -- 729
-(There were 3 warnings)
+write$ -- 745
+(There were 2 warnings)

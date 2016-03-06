@@ -1,4 +1,4 @@
-\begin{thebibliography}{42}
+\begin{thebibliography}{43}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -193,6 +193,14 @@ Jeffrey~A. Krautkraemer.
 \newblock URL \url{http://www.jstor.org/stable/2565047}.
 \newblock ArticleType: research-article / Full publication date: Dec., 1998 /
   Copyright © 1998 American Economic Association.
+
+\bibitem[Lefler et~al.(2011)Lefler, Pattorozzi, and
+  Sterling]{lefler_deepwater_2011}
+William Lefler, Richard Pattorozzi, and Gordon Sterling.
+\newblock \emph{Deepwater {Petroleum} {Exploration} \& {Production}: {A}
+  {Nontechnical} {Guide}, 2nd {Edition}}.
+\newblock PennWell Corp., Tulsa, Okla, 2 edition edition, October 2011.
+\newblock ISBN 9781593702533.
 
 \bibitem[Leifeld(2013)]{leifeld_texreg:_2013}
 Philip Leifeld.

@@ -149,7 +149,7 @@ gam_mod_re_inter<-gam(oil_prod_mill_sm3~s(prod_year, name, bs="re") +
     I(price_l2/10) + 
     I(price_l3/10) + 
     I(price_l4/10) + 
-    I(price_l1/10):build_out +
+    I(price_l1/19):build_out +
     I(price_l2/10):build_out + 
     I(price_l3/10):build_out +
     I(price_l4/10):build_out,
@@ -169,8 +169,8 @@ texreg(results,
 #, weights=I(in_place_oil_mill_sm3/100)
 #year + I(year^2) +
 
-coef<-gam_mod_2d$coefficients[5:13]
-se<-summary(gam_mod_2d)$p.table[5:13,2]
+coef<-gam_mod_2d$coefficients[3:11]
+se<-summary(gam_mod_2d)$p.table[3:11,2]
 ymin<-coef-2*se
 ymax<-coef+2*se
 gam_2d_coef<-data.frame(coef=coef, se=se, lag=0:8, ymin=ymin, ymax=ymax, type="2d Smooth Model")
@@ -205,15 +205,17 @@ labs(x="Lags", y="Estimated Coefficient on Oil Price",
 
 coef_plot<-ggplot(model_coef) +
 geom_pointrange(aes(x=lag, y=coef, ymin = ymin, ymax = ymax)) +
-geom_hline(aes(y=0)) +
+geom_hline(aes(yintercept=0)) +
 facet_wrap(~type, nrow=2) +
 theme_bw() +
 labs(x="Lags", y="Estimated Coefficient on Oil Price")
 
-# png("/Users/johannesmauritzen/research/oil_prices/figures/price_coefficents.png",
-# width = 25, height =15, units = "cm", res=150, pointsize=12) 
-# print(coef_plot)
-# dev.off()
+coef_plot 
+
+png("/Users/johannesmauritzen/research/oil_prices/figures/price_coefficents.png",
+width = 25, height =15, units = "cm", res=150, pointsize=12) 
+print(coef_plot)
+dev.off()
 
 
 #Now create counterfactuals - 
