@@ -31,7 +31,7 @@ large_fields<-prod_data[prod_data["name"]!="EKOFISK",]
 large_fields<-large_fields[!is.na(large_fields$oil_prod_mill_sm3),]
 
 
-gam_mod<-gam(oil_prod_mill_sm3~s(prod_year, bs="cr") +
+gam_mod<-gam(oil_prod_mill_sm3~s(prod_year) +
 	I(in_place_oil_mill_sm3/100) + I(cost_index/10) + 
     s(year, bs="cr", k=4) + I(price/10) + I(price_l1/10) + I(price_l2/10) +
     I(price_l3/10) + I(price_l4/10) + I(price_l5/10) + I(price_l6/10) + 
@@ -74,6 +74,8 @@ prod_smooth<-ggplot(smooth_pred1, aes(x=prod_year))+
     geom_line(aes(y=s_prod_year)) + 
     labs(x="Production Years", y="Smooth Function of Production Time") +
     theme_bw() 
+
+
 
 pdat2 <- with(large_fields,
              data.frame(prod_year = rep(mean(prod_year), 200),
@@ -133,7 +135,7 @@ summary(gam_mod_2d)
 #With random effects
 
 gam_mod_re<-gam(oil_prod_mill_sm3~s(prod_year, name, bs="re") + 
-    s(year, bs="cr", k=4) +
+    s(year, bs="cr", k=3) +
     I(in_place_oil_mill_sm3/100) + I(cost_index/10) +
     I(price/10) + I(price_l1/10) + I(price_l2/10) +
     I(price_l3/10) + I(price_l4/10) + I(price_l5/10) + I(price_l6/10) + 
@@ -142,7 +144,7 @@ gam_mod_re<-gam(oil_prod_mill_sm3~s(prod_year, name, bs="re") +
 summary(gam_mod_re)
 
 gam_mod_re_inter<-gam(oil_prod_mill_sm3~s(prod_year, name, bs="re") + 
- s(year, bs="cr", k=4) + I(cost_index/10) + 
+ s(year, bs="cr", k=3) + I(cost_index/10) + 
     I(in_place_oil_mill_sm3/100) +
     I(price/10) +
     I(price_l1/10) + 
@@ -183,7 +185,6 @@ labs(x="Lags", y="Estimated Coefficient on Oil Price",
     title="2-dim. Smooth Model")
 
 coef_plot_2d
-
 
 
 #weights=I(in_place_oil_mill_sm3/100) ,

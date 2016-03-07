@@ -164,7 +164,7 @@
 			"file": "oil_prices.bib",
 			"settings":
 			{
-				"buffer_size": 118850,
+				"buffer_size": 118865,
 				"line_ending": "Unix"
 			}
 		},
@@ -172,7 +172,7 @@
 			"file": "oil_prices_obes.tex",
 			"settings":
 			{
-				"buffer_size": 62451,
+				"buffer_size": 61701,
 				"line_ending": "Unix"
 			}
 		},
@@ -189,7 +189,7 @@
 			"file": "rr_analysis_obes.r",
 			"settings":
 			{
-				"buffer_size": 11651,
+				"buffer_size": 11656,
 				"line_ending": "Unix",
 				"name": "rr_analysis_1.r"
 			}
@@ -639,8 +639,8 @@
 						"selection":
 						[
 							[
-								819,
-								819
+								327,
+								327
 							]
 						],
 						"settings":
@@ -649,7 +649,7 @@
 							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 790.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -659,15 +659,15 @@
 					"file": "oil_prices.bib",
 					"settings":
 					{
-						"buffer_size": 118850,
+						"buffer_size": 118865,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								114103,
-								114103
+								63007,
+								63007
 							]
 						],
 						"settings":
@@ -676,7 +676,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 94109.0,
+						"translation.y": 50954.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -686,15 +686,15 @@
 					"file": "oil_prices_obes.tex",
 					"settings":
 					{
-						"buffer_size": 62451,
+						"buffer_size": 61701,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								16386,
-								16386
+								1692,
+								1692
 							]
 						],
 						"settings":
@@ -702,7 +702,7 @@
 							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 10645.0,
+						"translation.y": 1554.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -719,8 +719,8 @@
 						"selection":
 						[
 							[
-								1478,
-								2447
+								2448,
+								2448
 							]
 						],
 						"settings":
@@ -731,7 +731,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 2022.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -741,15 +741,15 @@
 					"file": "rr_analysis_obes.r",
 					"settings":
 					{
-						"buffer_size": 11651,
+						"buffer_size": 11656,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								664,
-								721
+								4919,
+								4919
 							]
 						],
 						"settings":
@@ -761,7 +761,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 598.0,
+						"translation.y": 1787.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -841,7 +841,7 @@
 							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 411.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2016.1.4)  6 MAR 2016 20:28
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2016.1.4)  7 MAR 2016 15:00
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -336,20 +336,15 @@ File: figures/oil_decline.png Graphic file (type png)
 <use figures/oil_decline.png>
 Package pdftex.def Info: figures/oil_decline.png used on input line 88.
 (pdftex.def)             Requested size: 469.75502pt x 375.70084pt.
- [6 <./figures/oil_decline.png>] [7] [8]
-Overfull \hbox (1.15398pt too wide) in paragraph at lines 113--114
-[]\OT1/cmr/m/n/12 On the sur-face, this ar-ti-cle fits well into the pre-vi-ous
- econo-met-rics lit-ter-a-ture on petroleum
- []
-
-[9]
+ [6 <./figures/oil_decline.png>] [7] [8] [9]
 Missing character: There is no ‚ in font cmr12!
 Missing character: There is no Ä in font cmr12!
 Missing character: There is no ú in font cmr12!
 Missing character: There is no ‚ in font cmr12!
 Missing character: There is no Ä in font cmr12!
 Missing character: There is no ù in font cmr12!
- [10]
+
+[10]
 Missing character: There is no ‚ in font cmr12!
 Missing character: There is no Ä in font cmr12!
 Missing character: There is no ô in font cmr12!
@@ -371,14 +366,14 @@ File: figures/data_descriptives.png Graphic file (type png)
 <use figures/data_descriptives.png>
 Package pdftex.def Info: figures/data_descriptives.png used on input line 149.
 (pdftex.def)             Requested size: 469.75502pt x 337.98753pt.
- [13] [14 <./figures/data_descriptives.png>] [15] [16] [17] <figures/smooths.pn
-g, id=76, 987.69pt x 789.95125pt>
+ [13] [14 <./figures/data_descriptives.png>] [15] [16] [17] [18] <figures/smoot
+hs.png, id=83, 987.69pt x 789.95125pt>
 File: figures/smooths.png Graphic file (type png)
 
 <use figures/smooths.png>
 Package pdftex.def Info: figures/smooths.png used on input line 229.
 (pdftex.def)             Requested size: 469.75502pt x 375.70084pt.
- [18] [19 <./figures/smooths.png>] [20]
+ [19 <./figures/smooths.png>]
 Missing character: There is no ‚ in font cmr12!
 Missing character: There is no Ä in font cmr12!
 Missing character: There is no ú in font cmr12!
@@ -391,7 +386,7 @@ Overfull \hbox (14.5969pt too wide) in paragraph at lines 263--264
 s not pos-si-ble with a two-dimensional
  []
 
-[21] <figures/price_coefficents.png, id=96, 1481.535pt x 888.31876pt>
+[20] [21] <figures/price_coefficents.png, id=96, 1481.535pt x 888.31876pt>
 File: figures/price_coefficents.png Graphic file (type png)
 
 <use figures/price_coefficents.png>
@@ -404,8 +399,8 @@ File: figures/mc_plot.png Graphic file (type png)
 <use figures/mc_plot.png>
 Package pdftex.def Info: figures/mc_plot.png used on input line 363.
 (pdftex.def)             Requested size: 469.75502pt x 469.74359pt.
- [26] [27 <./figures/mc_plot.png>] [28]
-(./oil_prices_obes.bbl [29]
+ [26] [27 <./figures/mc_plot.png>] [28] [29]
+(./oil_prices_obes.bbl
 Underfull \hbox (badness 3907) in paragraph at lines 65--70
 []\OT1/cmr/m/n/12 British Petroleum.  Sta-tis-ti-cal Re-view of World En-ergy 2
 013.  Tech-ni-cal re-
@@ -443,52 +438,45 @@ Missing character: There is no √ in font cmr12!
 Missing character: There is no ∏ in font cmr12!
 Missing character: There is no √ in font cmr12!
 Missing character: There is no ∂ in font cmr12!
-Missing character: There is no √ in font cmr12!
-Missing character: There is no • in font cmr12!
-Missing character: There is no √ in font cmr12!
-Missing character: There is no • in font cmr12!
 Missing character: There is no ‚ in font cmr12!
 Missing character: There is no Ä in font cmr12!
 Missing character: There is no ì in font cmr12!
 Missing character: There is no ¬ in font cmr12!
 Missing character: There is no © in font cmr12!
- [32]
-Missing character: There is no √ in font cmr12!
-Missing character: There is no ∏ in font cmr12!
-) [33] (./oil_prices_obes.aux) ) 
+ [32] [33]) [34] (./oil_prices_obes.aux) ) 
 Here is how much of TeX's memory you used:
- 3382 strings out of 493089
- 48454 string characters out of 6134843
- 130719 words of memory out of 5000000
- 6795 multiletter control sequences out of 15000+600000
+ 3383 strings out of 493089
+ 48462 string characters out of 6134843
+ 130721 words of memory out of 5000000
+ 6796 multiletter control sequences out of 15000+600000
  14729 words of font info for 54 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 38i,20n,32p,1302b,388s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/2015/texmf-dist/fonts/type1
-/public/amsfonts/cm/cmbsy10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1
-/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/
-public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/p
-ublic/amsfonts/cm/cmbx8.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/pub
-lic/amsfonts/cm/cmex10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/publ
-ic/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/publi
-c/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/
-amsfonts/cm/cmmib10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/
-amsfonts/cm/cmr10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/am
-sfonts/cm/cmr12.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsf
-onts/cm/cmr17.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfon
-ts/cm/cmr6.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/
-cm/cmr7.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/
-cmr8.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cms
-y10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy
-6.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.
-pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.p
-fb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pf
-b></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb
->
-Output written on oil_prices_obes.pdf (33 pages, 850740 bytes).
+ 38i,20n,32p,1302b,389s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/local/texlive/2015/texmf-dist/f
+onts/type1/public/amsfonts/cm/cmbsy10.pfb></usr/local/texlive/2015/texmf-dist/f
+onts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2015/texmf-dist/fo
+nts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2015/texmf-dist/fon
+ts/type1/public/amsfonts/cm/cmbx8.pfb></usr/local/texlive/2015/texmf-dist/fonts
+/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2015/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2015/texmf-dist/fonts/t
+ype1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2015/texmf-dist/fonts/typ
+e1/public/amsfonts/cm/cmmib10.pfb></usr/local/texlive/2015/texmf-dist/fonts/typ
+e1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1
+/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/p
+ublic/amsfonts/cm/cmr17.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/pub
+lic/amsfonts/cm/cmr6.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public
+/amsfonts/cm/cmr7.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/am
+sfonts/cm/cmr8.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfo
+nts/cm/cmsy10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfon
+ts/cm/cmsy6.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts
+/cm/cmsy8.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/c
+m/cmti12.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm
+/cmtt10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/
+cmtt12.pfb>
+Output written on oil_prices_obes.pdf (34 pages, 851283 bytes).
 PDF statistics:
- 204 PDF objects out of 1000 (max. 8388607)
- 135 compressed objects within 2 object streams
+ 207 PDF objects out of 1000 (max. 8388607)
+ 137 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  31 words of extra memory for PDF output out of 10000 (max. 10000000)
 
