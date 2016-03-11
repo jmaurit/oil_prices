@@ -152,15 +152,6 @@
 	"buffers":
 	[
 		{
-			"file": "oil_prices_title.tex",
-			"settings":
-			{
-				"buffer_size": 1465,
-				"line_ending": "Unix",
-				"name": "oil_prices_title.tex"
-			}
-		},
-		{
 			"file": "oil_prices.bib",
 			"settings":
 			{
@@ -169,11 +160,29 @@
 			}
 		},
 		{
+			"file": "oil_prices_title.tex",
+			"settings":
+			{
+				"buffer_size": 1478,
+				"line_ending": "Unix",
+				"name": "oil_prices_title.tex"
+			}
+		},
+		{
 			"file": "oil_prices_obes.tex",
 			"settings":
 			{
-				"buffer_size": 61701,
+				"buffer_size": 61904,
 				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "oil_prices_obes_blind.tex",
+			"settings":
+			{
+				"buffer_size": 61924,
+				"line_ending": "Unix",
+				"name": "oil_prices_obes_blind.tex"
 			}
 		},
 		{
@@ -189,7 +198,7 @@
 			"file": "rr_analysis_obes.r",
 			"settings":
 			{
-				"buffer_size": 11656,
+				"buffer_size": 11655,
 				"line_ending": "Unix",
 				"name": "rr_analysis_1.r"
 			}
@@ -280,15 +289,15 @@
 		"selected_items":
 		[
 			[
+				"package",
+				"Package Control: Discover Packages"
+			],
+			[
 				"pack",
 				"Package Control: Install Package"
 			],
 			[
 				"pa",
-				"Package Control: Install Package"
-			],
-			[
-				"package",
 				"Package Control: Install Package"
 			],
 			[
@@ -451,7 +460,7 @@
 	],
 	"find":
 	{
-		"height": 35.0
+		"height": 134.0
 	},
 	"find_in_files":
 	{
@@ -466,6 +475,21 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"0`s",
+			"0's",
+			" \\%",
+			"-",
+			" \\footnote",
+			"price",
+			"-",
+			"Figure",
+			"figure",
+			"oil price",
+			"\"",
+			"on-shore",
+			"Economic",
+			"emperical",
+			"litterature",
 			"kaufman_oil_01",
 			"kaufman_oil_2001",
 			"/10)",
@@ -551,6 +575,10 @@
 		"regex": false,
 		"replace_history":
 		[
+			"\\%",
+			"\\footnote",
+			"onshore",
+			"literature",
 			"",
 			"offshore",
 			"0",
@@ -624,38 +652,11 @@
 	"groups":
 	[
 		{
-			"selected": 2,
+			"selected": 1,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "oil_prices_title.tex",
-					"settings":
-					{
-						"buffer_size": 1465,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								327,
-								327
-							]
-						],
-						"settings":
-						{
-							"auto_name": "oil_prices_title.tex",
-							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 790.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 1,
 					"file": "oil_prices.bib",
 					"settings":
 					{
@@ -676,7 +677,34 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 50954.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "oil_prices_title.tex",
+					"settings":
+					{
+						"buffer_size": 1478,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								867,
+								867
+							]
+						],
+						"settings":
+						{
+							"auto_name": "oil_prices_title.tex",
+							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 699.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -686,29 +714,57 @@
 					"file": "oil_prices_obes.tex",
 					"settings":
 					{
-						"buffer_size": 61701,
+						"buffer_size": 61904,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1692,
-								1692
+								0,
+								61904
 							]
 						],
 						"settings":
 						{
+							"spell_check": true,
 							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 1554.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 3,
+					"file": "oil_prices_obes_blind.tex",
+					"settings":
+					{
+						"buffer_size": 61924,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1015,
+								1015
+							]
+						],
+						"settings":
+						{
+							"auto_name": "oil_prices_obes_blind.tex",
+							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 859.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
 					"file": "rr_descriptives.r",
 					"settings":
 					{
@@ -731,25 +787,25 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 2022.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
-					"buffer": 4,
+					"buffer": 5,
 					"file": "rr_analysis_obes.r",
 					"settings":
 					{
-						"buffer_size": 11656,
+						"buffer_size": 11655,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								4919,
-								4919
+								6259,
+								6259
 							]
 						],
 						"settings":
@@ -761,13 +817,13 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1787.0,
+						"translation.y": 4927.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
-					"buffer": 5,
+					"buffer": 6,
 					"file": "oxfordbes_submission/summ_stat.py",
 					"settings":
 					{
@@ -794,7 +850,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 6,
+					"buffer": 7,
 					"file": "oxfordbes_submission/summ_stat.tex",
 					"settings":
 					{
@@ -821,7 +877,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 7,
+					"buffer": 8,
 					"file": "/Users/johannesmauritzen/Google Drive/Research/rOil/presentations/oil_prices.tex",
 					"settings":
 					{
@@ -847,7 +903,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 8,
+					"buffer": 9,
 					"file": "mc_sim.rmd",
 					"settings":
 					{
@@ -875,7 +931,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 9,
+					"buffer": 10,
 					"file": "rr_simulation.r",
 					"settings":
 					{
@@ -903,7 +959,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 10,
+					"buffer": 11,
 					"file": "rr_clean.py",
 					"settings":
 					{
@@ -931,7 +987,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 11,
+					"buffer": 12,
 					"file": "industry_costs.py",
 					"settings":
 					{
@@ -958,7 +1014,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 12,
+					"buffer": 13,
 					"file": "prep.py",
 					"settings":
 					{
@@ -985,7 +1041,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 13,
+					"buffer": 14,
 					"file": "oxfordbes_submission/referee_rapport.txt",
 					"settings":
 					{
@@ -1005,7 +1061,7 @@
 							"syntax": "Packages/Text/Plain text.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 7964.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"

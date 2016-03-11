@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2016.1.4)  10 MAR 2016 14:13
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2016.1.4)  10 MAR 2016 14:19
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**oil_prices_obes.tex
-(./oil_prices_obes.tex
+**oil_prices_obes_blind.tex
+(./oil_prices_obes_blind.tex
 LaTeX2e <2015/01/01>
 Babel <3.9l> and hyphenation patterns for 79 languages loaded.
 (/usr/local/texlive/2015/texmf-dist/tex/latex/base/article.cls
@@ -187,8 +187,8 @@ Package: booktabs 2005/04/14 v1.61803 publication quality tables
 \@lastruleclass=\count107
 \@thisrulewidth=\dimen134
 )
-(./oil_prices_obes.aux)
-\openout1 = `oil_prices_obes.aux'.
+(./oil_prices_obes_blind.aux)
+\openout1 = `oil_prices_obes_blind.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 30.
 LaTeX Font Info:    ... okay on input line 30.
@@ -294,10 +294,13 @@ G,.JBIG2,.JB2,.eps]
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
+
+LaTeX Warning: No \author given.
+
 [1
 
 {/usr/local/texlive/2015/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-[2] <figures/investment.png, id=17, 987.69pt x 710.655pt>
+[2] <figures/investment.png, id=16, 987.69pt x 710.655pt>
 File: figures/investment.png Graphic file (type png)
 
 <use figures/investment.png>
@@ -324,21 +327,21 @@ Underfull \hbox (badness 10000) in paragraph at lines 73--73
 n / sub / eiti-[]-[]-[]extractive-[]industries-[]tranparency /
  []
 
-[4] [5] <figures/oil_decline.png, id=31, 987.69pt x 789.95125pt>
+[4] <figures/oil_decline.png, id=27, 987.69pt x 789.95125pt>
 File: figures/oil_decline.png Graphic file (type png)
 
 <use figures/oil_decline.png>
 Package pdftex.def Info: figures/oil_decline.png used on input line 88.
 (pdftex.def)             Requested size: 469.75502pt x 375.70084pt.
- [6 <./figures/oil_decline.png>] [7] [8] [9]
+ [5] [6 <./figures/oil_decline.png>] [7] [8]
+[9]
 Missing character: There is no ‚ in font cmr12!
 Missing character: There is no Ä in font cmr12!
 Missing character: There is no ú in font cmr12!
 Missing character: There is no ‚ in font cmr12!
 Missing character: There is no Ä in font cmr12!
 Missing character: There is no ù in font cmr12!
-
-[10] [11]
+ [10] [11]
 Underfull \hbox (badness 10000) in paragraph at lines 135--135
 [][]$\OT1/cmtt/m/n/10 http : / / www . regjeringen . no / en / dep / fin / Sele
 cted-[]topics / taxes-[]and-[]duties /
@@ -350,14 +353,14 @@ Underfull \hbox (badness 10000) in paragraph at lines 137--137
 cences / Theme-[]articles /
  []
 
-[12] <figures/data_descriptives.png, id=55, 987.69pt x 710.655pt>
+[12] <figures/data_descriptives.png, id=54, 987.69pt x 710.655pt>
 File: figures/data_descriptives.png Graphic file (type png)
 
 <use figures/data_descriptives.png>
 Package pdftex.def Info: figures/data_descriptives.png used on input line 145.
 (pdftex.def)             Requested size: 469.75502pt x 337.98753pt.
  [13] [14 <./figures/data_descriptives.png>] [15] [16] [17] <figures/smooths.pn
-g, id=77, 987.69pt x 789.95125pt>
+g, id=76, 987.69pt x 789.95125pt>
 File: figures/smooths.png Graphic file (type png)
 
 <use figures/smooths.png>
@@ -370,13 +373,13 @@ Missing character: There is no ú in font cmr12!
 Missing character: There is no ‚ in font cmr12!
 Missing character: There is no Ä in font cmr12!
 Missing character: There is no ù in font cmr12!
- [20]
+
 Overfull \hbox (14.5969pt too wide) in paragraph at lines 259--260
 []\OT1/cmr/m/n/12 Unfortunately, es-ti-mat-ing a ran-dom ef-fects com-po-nent i
 s not pos-si-ble with a two-dimensional
  []
 
-[21] <figures/price_coefficents.png, id=96, 1481.535pt x 888.31876pt>
+[20] [21] <figures/price_coefficents.png, id=96, 1481.535pt x 888.31876pt>
 File: figures/price_coefficents.png Graphic file (type png)
 
 <use figures/price_coefficents.png>
@@ -389,8 +392,8 @@ File: figures/mc_plot.png Graphic file (type png)
 <use figures/mc_plot.png>
 Package pdftex.def Info: figures/mc_plot.png used on input line 359.
 (pdftex.def)             Requested size: 469.75502pt x 469.74359pt.
- [26] [27 <./figures/mc_plot.png>] [28] [29]
-(./oil_prices_obes.bbl
+ [26] [27 <./figures/mc_plot.png>] [28]
+(./oil_prices_obes_blind.bbl [29]
 Underfull \hbox (badness 3907) in paragraph at lines 65--70
 []\OT1/cmr/m/n/12 British Petroleum.  Sta-tis-ti-cal Re-view of World En-ergy 2
 013.  Tech-ni-cal re-
@@ -407,7 +410,6 @@ Underfull \hbox (badness 1242) in paragraph at lines 169--175
 ion in the Lower 48
  []
 
-[31]
 Missing character: There is no ‚ in font cmr12!
 Missing character: There is no Ä in font cmr12!
 Missing character: There is no † in font cmr12!
@@ -422,52 +424,52 @@ Missing character: There is no Ä in font cmr6!
 Missing character: There is no † in font cmr6!
 Missing character: There is no ¬ in font cmr12!
 Missing character: There is no © in font cmr12!
+[31]
 Missing character: There is no √ in font cmr12!
 Missing character: There is no ∏ in font cmr12!
 Missing character: There is no √ in font cmr12!
 Missing character: There is no ∏ in font cmr12!
 Missing character: There is no √ in font cmr12!
 Missing character: There is no ∂ in font cmr12!
- [32]
 Missing character: There is no ‚ in font cmr12!
 Missing character: There is no Ä in font cmr12!
 Missing character: There is no ì in font cmr12!
 Missing character: There is no ¬ in font cmr12!
 Missing character: There is no © in font cmr12!
- [33]) [34] (./oil_prices_obes.aux) ) 
+ [32]) [33] (./oil_prices_obes_blind.aux) ) 
 Here is how much of TeX's memory you used:
- 3382 strings out of 493089
- 48454 string characters out of 6134843
- 130722 words of memory out of 5000000
- 6795 multiletter control sequences out of 15000+600000
- 14729 words of font info for 54 fonts, out of 8000000 for 9000
+ 3381 strings out of 493089
+ 48503 string characters out of 6134843
+ 130575 words of memory out of 5000000
+ 6794 multiletter control sequences out of 15000+600000
+ 14560 words of font info for 53 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 38i,20n,32p,1374b,389s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/2015/texmf-dist/fonts/
-type1/public/amsfonts/cm/cmbsy10.pfb></usr/local/texlive/2015/texmf-dist/fonts/
-type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2015/texmf-dist/fonts/t
-ype1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2015/texmf-dist/fonts/ty
-pe1/public/amsfonts/cm/cmbx8.pfb></usr/local/texlive/2015/texmf-dist/fonts/type
-1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1
-/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/
-public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/pu
-blic/amsfonts/cm/cmmib10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/pu
-blic/amsfonts/cm/cmr10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/publ
-ic/amsfonts/cm/cmr12.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public
-/amsfonts/cm/cmr17.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/a
-msfonts/cm/cmr6.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsf
-onts/cm/cmr7.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfont
-s/cm/cmr8.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/c
-m/cmsy10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm
-/cmsy6.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/c
-msy8.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmt
-i12.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt
-10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt1
-2.pfb>
-Output written on oil_prices_obes.pdf (34 pages, 851408 bytes).
+ 38i,20n,32p,1380b,389s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/local/texlive/2015/texmf-dist/
+fonts/type1/public/amsfonts/cm/cmbsy10.pfb></usr/local/texlive/2015/texmf-dist/
+fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2015/texmf-dist/f
+onts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2015/texmf-dist/fo
+nts/type1/public/amsfonts/cm/cmbx8.pfb></usr/local/texlive/2015/texmf-dist/font
+s/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2015/texmf-dist/fonts
+/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2015/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2015/texmf-dist/fonts/ty
+pe1/public/amsfonts/cm/cmmib10.pfb></usr/local/texlive/2015/texmf-dist/fonts/ty
+pe1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type
+1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/
+public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/pu
+blic/amsfonts/cm/cmr6.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/publi
+c/amsfonts/cm/cmr7.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/a
+msfonts/cm/cmr8.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsf
+onts/cm/cmsy10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfo
+nts/cm/cmsy6.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfont
+s/cm/cmsy8.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/
+cm/cmti12.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/c
+m/cmtt10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm
+/cmtt12.pfb>
+Output written on oil_prices_obes_blind.pdf (33 pages, 850236 bytes).
 PDF statistics:
- 207 PDF objects out of 1000 (max. 8388607)
- 137 compressed objects within 2 object streams
+ 204 PDF objects out of 1000 (max. 8388607)
+ 135 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  31 words of extra memory for PDF output out of 10000 (max. 10000000)
 

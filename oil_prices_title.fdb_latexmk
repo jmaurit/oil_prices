@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1457292073 "oil_prices_title.tex" "oil_prices_title.pdf" "oil_prices_title" 1457292073
+["pdflatex"] 1457620055 "oil_prices_title.tex" "oil_prices_title.pdf" "oil_prices_title" 1457620067
   "/usr/local/texlive/2015/texmf-dist/fonts/map/fontname/texfonts.map" 1272929888 3287 e6b82fe08f5336d4d5ebc73fb1152e87 ""
   "/usr/local/texlive/2015/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
   "/usr/local/texlive/2015/texmf-dist/fonts/tfm/public/amsfonts/dummy/dummy.tfm" 1246382020 200 6ce8d8fd149ce4cf91d537ffc67e7685 ""
@@ -56,9 +56,9 @@
   "/usr/local/texlive/2015/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1432479641 1764542 91654ba72bdb667e84ea24f076ae16d8 ""
   "/usr/local/texlive/2015/texmf-var/web2c/pdftex/pdflatex.fmt" 1451911754 3849858 4cf345fd671d511f4c8226c847c81cb3 ""
   "/usr/local/texlive/2015/texmf.cnf" 1432479636 577 0d611272082f3cdb8e80e09a3c69cf07 ""
-  "oil_prices_title.aux" 1457292073 8 a94a2480d3289e625eea47cd1b285758 ""
-  "oil_prices_title.tex" 1457292072 1465 c66aafeb90d6d220d0f932f619e4d25f ""
+  "oil_prices_title.aux" 1457620056 8 a94a2480d3289e625eea47cd1b285758 ""
+  "oil_prices_title.tex" 1457620066 1478 a9844889cbeccc9f360e67c8a36493c2 ""
   (generated)
+  "oil_prices_title.pdf"
   "oil_prices_title.log"
   "oil_prices_title.aux"
-  "oil_prices_title.pdf"

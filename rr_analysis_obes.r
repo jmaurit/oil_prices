@@ -26,10 +26,9 @@ small_rec_oil<-sum(field_data["recoverable_oil"][field_data["recoverable_oil"]<=
 
 prod_data<-read.csv('/Users/johannesmauritzen/research/oil_prices/data/prod_data.csv')
 
-large_fields<-prod_data[prod_data["recoverable_oil"]>5,]
+large_fields<-prod_data[prod_data["recoverable_oil"]>3,]
 large_fields<-prod_data[prod_data["name"]!="EKOFISK",]
 large_fields<-large_fields[!is.na(large_fields$oil_prod_mill_sm3),]
-
 
 gam_mod<-gam(oil_prod_mill_sm3~s(prod_year) +
 	I(in_place_oil_mill_sm3/100) + I(cost_index/10) + 

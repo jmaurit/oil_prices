@@ -1,0 +1,49 @@
+This is BibTeX, Version 0.99d (TeX Live 2015)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: oil_prices_obes_blind.aux
+The style file: plainnat.bst
+Database file #1: oil_prices.bib
+Warning--empty institution in british_petroleum_statistical_2013
+Warning--empty publisher in r_core_team_r:_2013
+You've used 43 entries,
+            2773 wiz_defined-function locations,
+            926 strings with 14968 characters,
+and the built_in function-call counts, 18381 in all, are:
+= -- 1848
+> -- 730
+< -- 40
++ -- 261
+- -- 217
+* -- 1483
+:= -- 2932
+add.period$ -- 221
+call.type$ -- 43
+change.case$ -- 200
+chr.to.int$ -- 42
+cite$ -- 88
+duplicate$ -- 849
+empty$ -- 1561
+format.name$ -- 280
+if$ -- 3827
+int.to.chr$ -- 2
+int.to.str$ -- 1
+missing$ -- 43
+newline$ -- 313
+num.names$ -- 174
+pop$ -- 280
+preamble$ -- 1
+purify$ -- 157
+quote$ -- 0
+skip$ -- 578
+stack$ -- 0
+substring$ -- 756
+swap$ -- 71
+text.length$ -- 4
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 443
+warning$ -- 2
+while$ -- 189
+width$ -- 0
+write$ -- 745
+(There were 2 warnings)
