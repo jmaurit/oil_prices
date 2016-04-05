@@ -652,7 +652,7 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 0,
 			"sheets":
 			[
 				{
@@ -667,8 +667,8 @@
 						"selection":
 						[
 							[
-								63007,
-								63007
+								199,
+								199
 							]
 						],
 						"settings":
@@ -694,8 +694,8 @@
 						"selection":
 						[
 							[
-								867,
-								867
+								868,
+								896
 							]
 						],
 						"settings":
@@ -704,7 +704,7 @@
 							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 699.0,
+						"translation.y": 856.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -758,7 +758,7 @@
 							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 859.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -817,7 +817,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 4927.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -844,7 +844,7 @@
 							"syntax": "Packages/Python/Python.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 637.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"

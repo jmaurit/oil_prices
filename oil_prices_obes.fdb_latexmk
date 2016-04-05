@@ -1,13 +1,13 @@
 # Fdb version 3
-["bibtex oil_prices_obes"] 1457615634 "oil_prices_obes.aux" "oil_prices_obes.bbl" "oil_prices_obes" 1457615636
+["bibtex oil_prices_obes"] 1457615634 "oil_prices_obes.aux" "oil_prices_obes.bbl" "oil_prices_obes" 1459847566
   "/usr/local/texlive/2015/texmf-dist/bibtex/bst/natbib/plainnat.bst" 1233624470 26816 ffe5423d2019860bad9f54bc402fac15 ""
-  "oil_prices.bib" 1457343156 119041 395f3104e101df593adde8ba3145f4f7 ""
-  "oil_prices_obes.aux" 1457615636 8637 307111fcee44ba10cb4ce1fbc0f0901b ""
+  "oil_prices.bib" 1459412983 119041 395f3104e101df593adde8ba3145f4f7 ""
+  "oil_prices_obes.aux" 1459847566 8637 307111fcee44ba10cb4ce1fbc0f0901b ""
   "oil_prices_obes.bcf" 0 -1 0 ""
   (generated)
   "oil_prices_obes.blg"
   "oil_prices_obes.bbl"
-["pdflatex"] 1457615634 "oil_prices_obes.tex" "oil_prices_obes.pdf" "oil_prices_obes" 1457615636
+["pdflatex"] 1459847564 "oil_prices_obes.tex" "oil_prices_obes.pdf" "oil_prices_obes" 1459847566
   "./figures/data_descriptives.png" 1427296322 70831 b05ebd42fef776265bed5b4b8a8437a8 ""
   "./figures/investment.png" 1457028135 88657 a1b8087cff2c3c5e0e4a12c7b336431c ""
   "./figures/mc_plot.png" 1427213118 286750 b9fcddf9a2a3092185077960c29b5095 ""
@@ -112,10 +112,10 @@
   "figures/oil_decline.png" 1427300963 101881 7d8fa01da46ca851494abf798eb660d4 ""
   "figures/price_coefficents.png" 1457292127 69983 f67db4b2ff5b7cd27be775d86971900e ""
   "figures/smooths.png" 1428422538 75515 50be6456ee78dbb8090a2ee963731ea3 ""
-  "oil_prices_obes.aux" 1457615636 8637 307111fcee44ba10cb4ce1fbc0f0901b ""
+  "oil_prices_obes.aux" 1459847566 8637 307111fcee44ba10cb4ce1fbc0f0901b ""
   "oil_prices_obes.bbl" 1457615634 16798 e1fcf5f29b4bdaeda356a5d5e0448bf9 "bibtex oil_prices_obes"
-  "oil_prices_obes.tex" 1457615630 61918 8ef6cf40e3ecac8d76aa393187b91b4a ""
+  "oil_prices_obes.tex" 1459847562 61913 30148fc52df7b62fe4b25eb2ee6a34be ""
   (generated)
-  "oil_prices_obes.aux"
   "oil_prices_obes.pdf"
   "oil_prices_obes.log"
+  "oil_prices_obes.aux"

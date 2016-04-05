@@ -254,13 +254,13 @@ $J_{22}$ represents the penalty term for the smoothness of the function, which c
 \label{thin_plate_3}
 	\end{equation}
 
-In short, a function of $x_1$ and $x_2$ is found that is minimizing errors in the sense of minimizing Euclidean distance subject to a penalty function of “wiggiliness”.  The actual implementation is somewhat more involved in order to increase the computational efficiency of the estimation.  For further technical details I refer to \citet{wood_thin_2003}. 
+In short, a function of $x_1$ and $x_2$ is found that is minimizing errors in the sense of minimizing Euclidean distance subject to a penalty function of ``wiggiliness''.  The actual implementation is somewhat more involved in order to increase the computational efficiency of the estimation.  For further technical details I refer to \citet{wood_thin_2003}. 
 
 Unfortunately, estimating a random effects component is not possible with a two-dimensional smoothed function for computational reasons.  In the presentation of results, I therefore present models side-by-side that use both one-dimensional smooth functions with random effects of the field production profile and two-dimensional smooth functions.
 
 In general, I assume that oil prices are exogenous in this model. On the supply side, oil is a globally traded commodity.  Since I am measuring changes in production at the field level, these are highly unlikely to have any effect on global oil prices.
 
-A more subtle possibility for endogeneity exists on the demand side. A bias could result if demand also was correlated with changes in field production other than through the direct price-mechanism. For example, higher GDP could mean easier lending to petroleum companies, who then might invest and increase petroleum production independent of higher oil prices. I investigated this by including a measure of world GDP growth obtained from the World Bank in the regression. Using an F-test, adding this variable could not be shown to significantly increase the fit of the model, suggesting that demand-side effects are unlikely to be causing a bias. I therefore exclude this variable from the results presented below.
+A subtler possibility for endogeneity exists on the demand side. A bias could result if demand also was correlated with changes in field production other than through the direct price-mechanism. For example, higher GDP could mean easier lending to petroleum companies, who then might invest and increase petroleum production independent of higher oil prices. I investigated this by including a measure of world GDP growth obtained from the World Bank in the regression. Using an F-test, adding this variable could not be shown to significantly increase the fit of the model, suggesting that demand-side effects are unlikely to be causing a bias. I therefore exclude this variable from the results presented below.
 
 \section{The Effect of Oil Prices on Field Production}
 
@@ -343,6 +343,7 @@ For convenience, the estimated coefficients on the price terms from the two pref
 \end{figure}
 
 One potential weakness of the estimation so far is that I do not take into account the different stages of field production, where the effect of price could be expected to differ. 
+
 In particular, in the build-out phase of a field, where production is started and then ramped up to full capacity, the field operator has an incentive to build out the field as quickly as possible as large amounts of capital have at that point been allocated and it is important to get oil production and in turn income flowing. At this stage, it is ex-ante questionable that prices would have an effect on production, as a decision to increase capacity would require a new submission to the regulators and a potentially lengthy and expensive delay. On the other hand, the depletion phase is characterized by overcapacity and in turn greater flexibility in increasing production by way of, for example, infill drilling that can both accelerate recovery and increase total recovery in a field.\footnote{I thank an anonymous referee for making this point.}
 
 To attempt to capture this heterogeneity, I introduce an indicator variable that represents the build-out phase defined as the period between the start of production up to peak production. I add interaction effects between this indicator variable and the block of lagged price effects $price\_l1$ through $price\_l4$.
