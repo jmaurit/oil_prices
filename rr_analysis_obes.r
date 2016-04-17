@@ -1,6 +1,6 @@
 #rr_analysis_1.r
 
-#last update march 12th, 2015
+#last update april 16th, 2016
 #First new modeling
 rm(list = ls())
 
@@ -11,8 +11,8 @@ library(mgcv)
 library(lubridate) 
 library(grid)
 library(boot)
-library(arm)
-library(lme4)
+#library(arm)
+#library(lme4)
 library(nlme)
 library(texreg)
 
@@ -110,15 +110,16 @@ cal_smooth<-ggplot(smooth_pred2, aes(x=year))+
     theme_bw() 
 
 cal_smooth
-# png("/Users/johannesmauritzen/research/oil_prices/figures/smooths.png", 
-#     width = 25, height = 20, units = "cm", res=100, pointsize=12)
-#     grid.newpage()
-#     pushViewport(viewport(layout = grid.layout(2, 1)))
-#     vplayout <- function(x, y)
-#       viewport(layout.pos.row = x, layout.pos.col = y)
-#     print(prod_smooth, vp = vplayout(1, 1))
-#     print(cal_smooth, vp = vplayout(2, 1))
-# dev.off()
+
+png("/Users/johannesmauritzen/research/oil_prices/figures/smooths.png", 
+    width = 25, height = 20, units = "cm", res=600, pointsize=12)
+    grid.newpage()
+    pushViewport(viewport(layout = grid.layout(2, 1)))
+    vplayout <- function(x, y)
+      viewport(layout.pos.row = x, layout.pos.col = y)
+    print(prod_smooth, vp = vplayout(1, 1))
+    print(cal_smooth, vp = vplayout(2, 1))
+dev.off()
 
 
 gam_mod_2d<-gam(oil_prod_mill_sm3~s(prod_year, in_place_oil_mill_sm3) +
@@ -134,7 +135,7 @@ summary(gam_mod_2d)
 #With random effects
 
 gam_mod_re<-gam(oil_prod_mill_sm3~s(prod_year, name, bs="re") + 
-    s(year, bs="cr", k=3) +
+    s(year, bs="cr", k=4) +
     I(in_place_oil_mill_sm3/100) + I(cost_index/10) +
     I(price/10) + I(price_l1/10) + I(price_l2/10) +
     I(price_l3/10) + I(price_l4/10) + I(price_l5/10) + I(price_l6/10) + 
@@ -213,7 +214,7 @@ labs(x="Lags", y="Estimated Coefficient on Oil Price")
 coef_plot 
 
 png("/Users/johannesmauritzen/research/oil_prices/figures/price_coefficents.png",
-width = 25, height =15, units = "cm", res=150, pointsize=12) 
+width = 25, height =15, units = "cm", res=600, pointsize=12) 
 print(coef_plot)
 dev.off()
 

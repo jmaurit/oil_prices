@@ -7,7 +7,7 @@ library(reshape2)
 library(mgcv)
 library(lubridate) 
 library(grid)
-library(arm)
+#library(arm)
 library(texreg)
 library(zoo)
 
@@ -23,7 +23,7 @@ small_rec_oil<-sum(field_data["recoverable_oil"][field_data["recoverable_oil"]<=
 
 #plot of investing
 #from ssb
-invest <- read.csv("https://data.ssb.no/api/v0/dataset/166334.csv?lang=no", sep=";")
+invest <- read.csv("http://data.ssb.no/api/v0/dataset/166334.csv?lang=no", sep=";")
 colnames(invest) <- c("type", "period", "var", "investment")
 invest <- reshape(invest, 
   timevar = "type",
@@ -64,18 +64,18 @@ xlim(as.Date("2000-01-01"), as.Date("2017-06-01")) +
 guides(color=FALSE) 
 
 png("/Users/johannesmauritzen/research/oil_prices/figures/investment.png", 
-	width = 25, height = 18, units = "cm", res=100, pointsize=12)
+	width = 25, height = 18, units = "cm", res=600, pointsize=12)
 investment
 dev.off()
 
 top10<-as.character(head(field_data$name[order(field_data$recoverable_oil, decreasing=TRUE)],10))
 
 #function to to show field-level of data
-fields_lim<-subset(fields, name %in% top10)
-fields_lim<-fields_lim[,c("name", "year", "year_prod")]
-fields_lim_long<-melt(fields_lim, id.vars=c("name", "year", "year_prod"))
+fields_lim<-subset(prod_data, name %in% top10)
+fields_lim<-fields_lim[,c("name", "year", "oil_prod_mill_sm3")]
+fields_lim_long<-melt(fields_lim, id.vars=c("name", "year", "oil_prod_mill_sm3"))
 
-top10_production<-ggplot(fields_lim_long, aes(x=year, y=year_prod, color=name)) +
+top10_production<-ggplot(fields_lim_long, aes(x=year, y=oil_prod_mill_sm3, color=name)) +
 geom_line() +
 scale_color_grey() +
 theme_bw() +
@@ -95,7 +95,7 @@ theme_bw()
 
 
 png("/Users/johannesmauritzen/research/oil_prices/figures/oil_decline.png", 
-	width = 25, height = 20, units = "cm", res=100, pointsize=12)
+	width = 25, height = 20, units = "cm", res=600, pointsize=12)
 grid.newpage()
 	pushViewport(viewport(layout = grid.layout(2, 1)))
 	vplayout <- function(x, y)
@@ -105,7 +105,7 @@ grid.newpage()
 dev.off()
 
 #cost index and oil prices
-cost_index<-read.csv("research/oil_prices/data/cost_index.csv")
+cost_index<-read.csv("/Users/johannesmauritzen/research/oil_prices/data/cost_index.csv")
 
 cost_long<-melt(cost_index[,c(2,5,6)], id.vars="year")
 cost_long<-cost_long[cost_long$year<2015,]
@@ -132,12 +132,12 @@ facet_wrap(nrow=2, ~variable) +
 labs(x="Oil, Mill. SM3", y="", title="Histogram of Field Size")
 
 png("/Users/johannesmauritzen/research/oil_prices/figures/prod_costs.png", 
-	width = 25, height = 18, units = "cm", res=100, pointsize=12)
+	width = 25, height = 18, units = "cm", res=600, pointsize=12)
 cost_index_plot
 dev.off()
 
 png("/Users/johannesmauritzen/research/oil_prices/figures/data_descriptives.png", 
-	width = 25, height = 18, units = "cm", res=100, pointsize=12)
+	width = 25, height = 18, units = "cm", res=600, pointsize=12)
 grid.newpage()
 	pushViewport(viewport(layout = grid.layout(1, 2)))
 	vplayout <- function(x, y)

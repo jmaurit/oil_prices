@@ -138,7 +138,7 @@ levels(gam_mc_data)
 
 gam_mc_plot<-ggplot(gam_mc_data, aes(x=coefficient, fill=beta)) +
 geom_density(alpha=.5, size=0) +
-geom_vline(aes(xintercept=c(0, 0.05))) +
+geom_vline(xintercept=c(0, 0.05)) +
 xlab("beta_hat, estimated by GAM") +
 ylab("") +
 scale_fill_grey() +
@@ -155,10 +155,9 @@ glm_mc_data<-melt(glm_mc_data)
 colnames(glm_mc_data)<-c("beta", "coefficient")
 levels(glm_mc_data$beta)<-c("0", "0.05")
 
-
-glm_mc_plot<-ggplot(glm_mc_data, aes(x=coefficient, fill=beta)) +
+glm_mc_plot<-ggplot(glm_mc_data, aes(coefficient, fill=beta)) +
 geom_density(alpha=.5, size=0) +
-geom_vline(aes(xintercept=c(0, 0.05))) +
+geom_vline(xintercept=c(0, 0.05)) +
 scale_fill_grey() +
 theme_bw() +
 guides(fill=FALSE) +
@@ -166,7 +165,7 @@ xlab("beta_hat, estimated by GLM") +
 ylab("Density")
 
 png("/Users/johannesmauritzen/research/oil_prices/figures/mc_plot.png", 
-	width = 30, height = 30, units = "cm", res=150, pointsize=12)
+	width = 30, height = 30, units = "cm", res=600, pointsize=12)
 	grid.newpage()
 	pushViewport(viewport(layout = grid.layout(2, 2)))
 	vplayout <- function(x, y)

@@ -172,7 +172,7 @@
 			"file": "oil_prices_obes.tex",
 			"settings":
 			{
-				"buffer_size": 61904,
+				"buffer_size": 61903,
 				"line_ending": "Unix"
 			}
 		},
@@ -198,7 +198,7 @@
 			"file": "rr_analysis_obes.r",
 			"settings":
 			{
-				"buffer_size": 11655,
+				"buffer_size": 11657,
 				"line_ending": "Unix",
 				"name": "rr_analysis_1.r"
 			}
@@ -652,7 +652,7 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 5,
 			"sheets":
 			[
 				{
@@ -667,8 +667,8 @@
 						"selection":
 						[
 							[
-								199,
-								199
+								161,
+								161
 							]
 						],
 						"settings":
@@ -694,8 +694,8 @@
 						"selection":
 						[
 							[
-								868,
-								896
+								914,
+								914
 							]
 						],
 						"settings":
@@ -704,7 +704,7 @@
 							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 856.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -714,15 +714,15 @@
 					"file": "oil_prices_obes.tex",
 					"settings":
 					{
-						"buffer_size": 61904,
+						"buffer_size": 61903,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								61904
+								38204,
+								38204
 							]
 						],
 						"settings":
@@ -731,7 +731,7 @@
 							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 13260.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -748,8 +748,8 @@
 						"selection":
 						[
 							[
-								1015,
-								1015
+								572,
+								572
 							]
 						],
 						"settings":
@@ -797,15 +797,15 @@
 					"file": "rr_analysis_obes.r",
 					"settings":
 					{
-						"buffer_size": 11655,
+						"buffer_size": 11657,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								6259,
-								6259
+								212,
+								212
 							]
 						],
 						"settings":
@@ -817,7 +817,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 42.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1132,7 +1132,7 @@
 	"show_minimap": true,
 	"show_open_files": true,
 	"show_tabs": true,
-	"side_bar_visible": false,
+	"side_bar_visible": true,
 	"side_bar_width": 261.0,
 	"status_bar_visible": true
 }
